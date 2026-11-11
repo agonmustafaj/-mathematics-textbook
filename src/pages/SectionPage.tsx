@@ -1,4 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { MathText } from '../components/MathText'
 import { SiteHeader } from '../components/SiteHeader'
 import { getSection } from '../content'
 
@@ -27,7 +28,9 @@ export function SectionPage() {
         <header className="section-hero">
           <p className="eyebrow">Section</p>
           <h1>{section.title}</h1>
-          <p className="section-hero__summary">{section.summary}</p>
+          <p className="section-hero__summary">
+            <MathText text={section.summary} />
+          </p>
         </header>
 
         <ol className="example-sequence">

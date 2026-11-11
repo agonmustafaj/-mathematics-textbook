@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { MathText } from '../components/MathText'
 import { course } from '../content'
 
 export function CoursePage() {
@@ -55,7 +56,9 @@ export function CoursePage() {
                         {section.examples.length} example
                         {section.examples.length === 1 ? '' : 's'}
                       </span>
-                      <span className="section-link__summary">{section.summary}</span>
+                      <span className="section-link__summary">
+                        <MathText text={section.summary} />
+                      </span>
                     </Link>
                   </li>
                 ))}
