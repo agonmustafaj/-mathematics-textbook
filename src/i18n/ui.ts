@@ -17,6 +17,12 @@ function placeSubjectLabel(place: HelpPlace, locale: Locale): string {
   return locale === 'sq' ? 'Faqja e kursit' : 'Course page'
 }
 
+/** Keep the URL alone on a line so mail apps turn it into a tappable link. */
+function pageLinkBlock(url: string, locale: Locale): string {
+  const label = locale === 'sq' ? 'Faqja:' : 'Page:'
+  return `${label}\r\n${url}`
+}
+
 function placeDetails(place: HelpPlace, locale: Locale): string {
   const lines: string[] = []
   if (locale === 'sq') {
@@ -26,7 +32,7 @@ function placeDetails(place: HelpPlace, locale: Locale): string {
       const n = place.exampleIndex != null ? ` (Shembulli ${place.exampleIndex})` : ''
       lines.push(`Ushtrimi: ${plain(place.exampleTitle)}${n}`)
     }
-    lines.push(`Faqja: ${place.path}`)
+    lines.push(pageLinkBlock(place.path, 'sq'))
   } else {
     if (place.chapterTitle) lines.push(`Chapter: ${plain(place.chapterTitle)}`)
     if (place.sectionTitle) lines.push(`Section: ${plain(place.sectionTitle)}`)
@@ -34,7 +40,7 @@ function placeDetails(place: HelpPlace, locale: Locale): string {
       const n = place.exampleIndex != null ? ` (Example ${place.exampleIndex})` : ''
       lines.push(`Exercise: ${plain(place.exampleTitle)}${n}`)
     }
-    lines.push(`Link: ${place.path}`)
+    lines.push(pageLinkBlock(place.path, 'en'))
   }
   return lines.join('\r\n')
 }
