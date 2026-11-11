@@ -1,14 +1,20 @@
-import { SUPPORT_EMAIL } from '../support'
+import { buildHelpMailto, SUPPORT_EMAIL, type HelpPlace } from '../support'
 import { useLocale } from '../i18n/LocaleContext'
 
 type HelpButtonProps = {
   className?: string
+  /** Current page/exercise — used to fill the email subject and body. */
+  place?: HelpPlace
 }
 
-export function HelpButton({ className = '' }: HelpButtonProps) {
+export function HelpButton({ className = '', place }: HelpButtonProps) {
   const { t } = useLocale()
-
-  const href = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(t.helpEmailSubject)}&body=${encodeURIComponent(t.helpEmailBody)}`
+  const location = place ?? { kind: 'course' as const, path: '/' }
+  const href = buildHelpMailto(
+    SUPPORT_EMAIL,
+    t.helpEmailSubject(location),
+    t.helpEmailBody(location),
+  )
 
   return (
     <a className={`help-btn ${className}`.trim()} href={href}>

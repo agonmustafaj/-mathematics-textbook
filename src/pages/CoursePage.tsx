@@ -13,7 +13,7 @@ export function CoursePage() {
   return (
     <div className="page course-page">
       <div className="hero-toolbar">
-        <HelpButton />
+        <HelpButton place={{ kind: 'course', path: '/' }} />
         <LanguageToggle />
       </div>
 

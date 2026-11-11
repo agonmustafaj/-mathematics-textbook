@@ -1,4 +1,43 @@
+import type { HelpPlace } from '../support'
 import type { Locale } from './types'
+
+function placeLabel(place: HelpPlace, locale: Locale): string {
+  if (place.kind === 'example' && place.exampleTitle) {
+    const index =
+      place.exampleIndex != null
+        ? locale === 'sq'
+          ? `Shembulli ${place.exampleIndex}: `
+          : `Example ${place.exampleIndex}: `
+        : ''
+    return `${index}${place.exampleTitle}`
+  }
+  if (place.kind === 'section' && place.sectionTitle) {
+    return place.sectionTitle
+  }
+  return locale === 'sq' ? 'Faqja e kursit' : 'Course page'
+}
+
+function placeDetails(place: HelpPlace, locale: Locale): string {
+  const lines: string[] = []
+  if (locale === 'sq') {
+    if (place.chapterTitle) lines.push(`Kapitulli: ${place.chapterTitle}`)
+    if (place.sectionTitle) lines.push(`Seksioni: ${place.sectionTitle}`)
+    if (place.exampleTitle) {
+      const n = place.exampleIndex != null ? ` (Shembulli ${place.exampleIndex})` : ''
+      lines.push(`Ushtrimi: ${place.exampleTitle}${n}`)
+    }
+    lines.push(`Faqja: ${place.path}`)
+  } else {
+    if (place.chapterTitle) lines.push(`Chapter: ${place.chapterTitle}`)
+    if (place.sectionTitle) lines.push(`Section: ${place.sectionTitle}`)
+    if (place.exampleTitle) {
+      const n = place.exampleIndex != null ? ` (Example ${place.exampleIndex})` : ''
+      lines.push(`Exercise: ${place.exampleTitle}${n}`)
+    }
+    lines.push(`Link: ${place.path}`)
+  }
+  return lines.join('\n')
+}
 
 export type UiStrings = {
   browseChapters: string
@@ -24,8 +63,8 @@ export type UiStrings = {
   language: string
   switchTo: (locale: Locale) => string
   needHelp: string
-  helpEmailSubject: string
-  helpEmailBody: string
+  helpEmailSubject: (place: HelpPlace) => string
+  helpEmailBody: (place: HelpPlace) => string
 }
 
 export const ui: Record<Locale, UiStrings> = {
@@ -54,15 +93,16 @@ export const ui: Record<Locale, UiStrings> = {
     language: 'Language',
     switchTo: (locale) => (locale === 'en' ? 'Switch to English' : 'Switch to Albanian'),
     needHelp: 'Need help?',
-    helpEmailSubject: 'Mathh — I need help understanding',
-    helpEmailBody:
-      'Hi,\n\nI am having trouble understanding something in Mathh.\n\nPage / topic:\nWhat I do not understand:\n\nThanks,',
+    helpEmailSubject: (place) =>
+      `Mathh — Help with: ${placeLabel(place, 'en')}`,
+    helpEmailBody: (place) =>
+      `Hi,\n\nI am having trouble understanding something in Mathh.\n\n${placeDetails(place, 'en')}\n\nWhat I do not understand:\n\nThanks,`,
   },
   sq: {
     browseChapters: 'Shfleto kapitujt',
     startFirstSection: 'Fillo seksionin e parë',
     courseIntro:
-      'Zgjidh një kapitull, pastaj një seksion. Çdo seksion kalon shembujt një nga një, me çdo hap algjebrik të shpjeguar.',
+      'Zgjidh një kapitull, pastaj një seksion. Çdo seksion i shpjegon shembujt një nga një, me çdo hap algjebrik të qartë.',
     chapterLabel: (n) => `Kapitulli ${n}`,
     exampleCount: (n) => (n === 1 ? '1 shembull' : `${n} shembuj`),
     course: 'Kursi',
@@ -76,15 +116,16 @@ export const ui: Record<Locale, UiStrings> = {
     goal: 'Qëllimi.',
     formula: 'Formula',
     calculation: 'Llogaritja',
-    previous: '← I mëparshmi',
-    next: 'I radhës →',
+    previous: '← Mëparshmi',
+    next: 'Tjetri →',
     allExamples: 'Të gjithë shembujt',
     backToSection: 'Kthehu te seksioni',
     language: 'Gjuha',
     switchTo: (locale) => (locale === 'en' ? 'Kalo në anglisht' : 'Kalo në shqip'),
     needHelp: 'Ke nevojë për ndihmë?',
-    helpEmailSubject: 'Mathh — Kam nevojë për ndihmë',
-    helpEmailBody:
-      'Përshëndetje,\n\nKam vështirësi të kuptoj diçka në Mathh.\n\nFaqja / tema:\nÇfarë nuk kuptoj:\n\nFaleminderit,',
+    helpEmailSubject: (place) =>
+      `Mathh — Ndihmë për: ${placeLabel(place, 'sq')}`,
+    helpEmailBody: (place) =>
+      `Përshëndetje,\n\nKam vështirësi të kuptoj diçka në Mathh.\n\n${placeDetails(place, 'sq')}\n\nÇfarë nuk kuptoj:\n\nFaleminderit,`,
   },
 }

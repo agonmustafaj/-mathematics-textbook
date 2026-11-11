@@ -14,10 +14,17 @@ export function SectionPage() {
   }
 
   const { chapter, section } = found
+  const path = `/chapter/${chapter.id}/section/${section.id}`
+  const helpPlace = {
+    kind: 'section' as const,
+    chapterTitle: chapter.title,
+    sectionTitle: section.title,
+    path,
+  }
 
   return (
     <div className="page reading-page">
-      <SiteHeader compact />
+      <SiteHeader compact helpPlace={helpPlace} />
       <main className="reading-shell">
         <nav className="crumb" aria-label="Breadcrumb">
           <Link to="/">{t.course}</Link>
