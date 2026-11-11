@@ -65,6 +65,8 @@ export type UiStrings = {
   needHelp: string
   helpEmailSubject: (place: HelpPlace) => string
   helpEmailBody: (place: HelpPlace) => string
+  footerImplemented: string
+  footerContent: string
 }
 
 export const ui: Record<Locale, UiStrings> = {
@@ -97,6 +99,8 @@ export const ui: Record<Locale, UiStrings> = {
       `Mathh — Help with: ${placeLabel(place, 'en')}`,
     helpEmailBody: (place) =>
       `Hi,\n\nI am having trouble understanding something in Mathh.\n\n${placeDetails(place, 'en')}\n\nWhat I do not understand:\n\nThanks,`,
+    footerImplemented: 'Implemented by Agon Mustafaj',
+    footerContent: 'Tasks and content by Admir Krasniqi',
   },
   sq: {
     browseChapters: 'Shfleto kapitujt',
@@ -127,5 +131,7 @@ export const ui: Record<Locale, UiStrings> = {
       `Mathh — Ndihmë për: ${placeLabel(place, 'sq')}`,
     helpEmailBody: (place) =>
       `Përshëndetje,\n\nKam vështirësi të kuptoj diçka në Mathh.\n\n${placeDetails(place, 'sq')}\n\nÇfarë nuk kuptoj:\n\nFaleminderit,`,
+    footerImplemented: 'Implementuar nga Agon Mustafaj',
+    footerContent: 'Ndërsa detyrat dhe përmbajtja nga Admir Krasniqi',
   },
 }
