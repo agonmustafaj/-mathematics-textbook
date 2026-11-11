@@ -348,15 +348,20 @@ p {
 
 /* —— Language toggle —— */
 .hero-toolbar {
-  position: absolute;
-  top: 1rem;
-  right: clamp(1rem, 4vw, 2rem);
-  z-index: 3;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 40;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   gap: 0.55rem;
+  padding: 0.85rem clamp(1rem, 4vw, 2rem);
+  background: rgba(244, 248, 244, 0.82);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
 }
 
 .header-actions {
@@ -436,15 +441,27 @@ p {
 
 /* —— Shared reading chrome —— */
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem clamp(1.25rem, 4vw, 2rem);
+  padding: 0.85rem clamp(1.25rem, 4vw, 2rem);
+  background: rgba(244, 248, 244, 0.82);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
 }
 
 .course-page {
   position: relative;
+}
+
+.reading-page {
+  padding-top: 4.25rem;
 }
 
 .brand-mark {
