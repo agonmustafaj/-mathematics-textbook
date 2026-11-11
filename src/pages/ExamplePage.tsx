@@ -15,10 +15,19 @@ export function ExamplePage() {
 
   const { chapter, section, example, index, prev, next } = found
   const total = section.examples.length
+  const path = `/chapter/${chapter.id}/section/${section.id}/example/${example.id}`
+  const helpPlace = {
+    kind: 'example' as const,
+    chapterTitle: chapter.title,
+    sectionTitle: section.title,
+    exampleTitle: example.title,
+    exampleIndex: index + 1,
+    path,
+  }
 
   return (
     <div className="page reading-page">
-      <SiteHeader compact />
+      <SiteHeader compact helpPlace={helpPlace} />
       <main className="reading-shell example-shell">
         <nav className="crumb" aria-label="Breadcrumb">
           <Link to="/">{t.course}</Link>

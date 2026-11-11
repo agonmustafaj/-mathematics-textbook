@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import { getCourse } from '../content'
 import { useLocale } from '../i18n/LocaleContext'
+import type { HelpPlace } from '../support'
 import { HelpButton } from './HelpButton'
 import { LanguageToggle } from './LanguageToggle'
 
 type SiteHeaderProps = {
   compact?: boolean
+  helpPlace?: HelpPlace
 }
 
-export function SiteHeader({ compact = false }: SiteHeaderProps) {
+export function SiteHeader({ compact = false, helpPlace }: SiteHeaderProps) {
   const { locale } = useLocale()
   const course = getCourse(locale)
 
@@ -19,7 +21,7 @@ export function SiteHeader({ compact = false }: SiteHeaderProps) {
         <span className="brand-mark__topic">{course.title}</span>
       </Link>
       <div className="header-actions">
-        <HelpButton />
+        <HelpButton place={helpPlace} />
         <LanguageToggle />
       </div>
     </header>

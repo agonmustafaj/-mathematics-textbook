@@ -9,21 +9,21 @@ export const integrationCourseSq: Course = {
   brand: 'Mathh',
   title: 'Integrimi',
   subtitle:
-    'Një rrugë e qetë, hap pas hapi, nëpër idetë që nxënësit i takojnë herën e parë kur nisin integrimin.',
-  topic: 'Kalkulus · Antiderivatet & integralet e caktuara',
+    'Një rrugë e qetë, hap pas hapi, nëpër idetë që nxënësit i takojnë për herë të parë kur nisin integrimin.',
+  topic: 'Kalkulus · Antiderivatet dhe integralet e caktuara',
   chapters: [
     {
       id: 'fundamentals',
       number: 1,
-      title: 'Bazat e Integrimit',
+      title: 'Bazat e integrimit',
       description:
-        'Nga antiderivatet te rregulla e fuqisë: ndërtoni intuitë për atë që kërkon një integral dhe si formulat bazë zhbëjnë derivimin.',
+        'Nga antiderivatet te rregulla e fuqisë: krijoni intuitë për atë që kërkon një integral dhe si formulat bazë janë e kundërta e derivimit.',
       sections: [
         {
           id: 'antiderivatives',
-          title: 'Antiderivatet & Integrali i Pacaktuar',
+          title: 'Antiderivatet dhe integrali i pacaktuar',
           summary:
-            'Mësoni çfarë është një antiderivatë, pse shfaqet $+C$, dhe si shënimi i integralit të pacaktuar e paketon këtë ide.',
+            'Mësoni çfarë është një antiderivatë, pse shfaqet $+C$ dhe si shënimi i integralit të pacaktuar e përmbledh këtë ide.',
           examples: [
             {
               id: 'check-antiderivative',
@@ -35,23 +35,23 @@ export const integrationCourseSq: Course = {
                 {
                   id: 's1',
                   title: 'Kujtoni përkufizimin',
-                  why: 'Një antiderivatë e $f$ është çdo funksion $F$ derivati i të cilit është saktësisht $f$. Kontrollimi do të thotë të derivojmë $F$ dhe të krahasojmë.',
+                  why: 'Një antiderivatë e $f$ është çdo funksion $F$ derivati i të cilit është saktësisht $f$. Për ta kontrolluar, derivojmë $F$ dhe e krahasojmë me $f$.',
                   formula: "F'(x) = f(x)",
                 },
                 {
                   id: 's2',
                   title: 'Derivoni term pas termi',
-                  why: 'Derivimi është linear, kështu që mund të derivojmë secilin mbledhës të $F$ veçmas duke përdorur rregullën e fuqisë.',
+                  why: 'Derivimi është linear, prandaj çdo term të $F$ mund ta derivojmë veçmas me rregullën e fuqisë.',
                   formula: '\\frac{d}{dx}\\bigl(x^n\\bigr) = n x^{n-1}',
                   calculation: "F'(x) = 3x^{2} - 4",
                 },
                 {
                   id: 's3',
                   title: 'Krahasoni me $f$',
-                  why: 'Nëse derivati përputhet me $f$-në e dhënë, atëherë $F$ është vërtet një antiderivatë.',
+                  why: 'Nëse derivati përputhet me funksionin e dhënë $f$, atëherë $F$ është vërtet një antiderivatë.',
                   calculation: "F'(x) = 3x^{2} - 4 = f(x)",
                   notes:
-                    'Çdo antiderivatë tjetër ndryshon nga $F$ me një konstante. Prandaj integralet e pacaktuara shkruajnë $+C$.',
+                    'Çdo antiderivatë tjetër ndryshon nga $F$ me një konstante. Prandaj te integralet e pacaktuara shkruajmë $+C$.',
                 },
               ],
             },
@@ -59,26 +59,26 @@ export const integrationCourseSq: Course = {
               id: 'indefinite-power',
               title: 'Integrali i pacaktuar i një fuqie të thjeshtë',
               prompt: 'Llogaritni $\\displaystyle \\int 6x^{2}\\,dx$.',
-              goal: 'Aplikoni rregullën e fuqisë për antiderivatet dhe përfshini $+C$.',
+              goal: 'Përdorni rregullën e fuqisë për antiderivatet dhe përfshini $+C$.',
               steps: [
                 {
                   id: 's1',
                   title: 'Nxirrni konstanten jashtë',
-                  why: 'Konstantet dalin jashtë integralit, gjë që thjeshton fuqinë që duhet të zhbëjmë.',
+                  why: 'Konstantet dalin jashtë integralit. Kështu thjeshtohet fuqia që duhet të integrojmë.',
                   formula: '\\int c\\,g(x)\\,dx = c\\int g(x)\\,dx',
                   calculation: '\\int 6x^{2}\\,dx = 6\\int x^{2}\\,dx',
                 },
                 {
                   id: 's2',
-                  title: 'Aplikoni rregullën e fuqisë',
-                  why: 'Integrimi i $x^n$ e rrit eksponentin me një dhe pjesëton me eksponentin e ri — e kundërta e derivimit.',
+                  title: 'Përdorni rregullën e fuqisë',
+                  why: 'Integrimi i $x^n$ e rrit eksponentin me një dhe e pjesëton me eksponentin e ri — e kundërta e derivimit.',
                   formula: '\\int x^{n}\\,dx = \\frac{x^{n+1}}{n+1}+C \\quad (n\\neq -1)',
                   calculation: '6\\int x^{2}\\,dx = 6\\cdot\\frac{x^{3}}{3}+C = 2x^{3}+C',
                 },
                 {
                   id: 's3',
                   title: 'Shkruani përgjigjen',
-                  why: 'Gjithmonë përfshini $+C$ për një integral të pacaktuar: pafundësisht shumë antiderivata ndryshojnë me një konstante.',
+                  why: 'Te një integral i pacaktuar gjithmonë shtoni $+C$: ka pafundësisht shumë antiderivata që ndryshojnë me një konstante.',
                   calculation: '\\int 6x^{2}\\,dx = 2x^{3}+C',
                 },
               ],
@@ -88,7 +88,7 @@ export const integrationCourseSq: Course = {
               title: 'Pse $+C$ përshkruan një familje të tërë',
               prompt:
                 'Shpjegoni pse $\\displaystyle \\int 2x\\,dx = x^{2}+C$, dhe jepni dy antiderivata të ndryshme të $2x$.',
-              goal: 'Lidhni konstanten e integrimit me një familje grafësh paralele.',
+              goal: 'Lidhni konstanten e integrimit me një familje grafikësh paralelë.',
               steps: [
                 {
                   id: 's1',
@@ -98,17 +98,17 @@ export const integrationCourseSq: Course = {
                 },
                 {
                   id: 's2',
-                  title: 'Shtoni një konstante arbitrare',
-                  why: 'Derivimi i një konstante jep zero, prandaj edhe $x^2+5$ dhe $x^2-3$ funksionojnë.',
+                  title: 'Shtoni një konstante të çfarëdoshme',
+                  why: 'Derivati i një konstante është zero, prandaj edhe $x^2+5$ dhe $x^2-3$ janë antiderivata.',
                   calculation:
                     '\\frac{d}{dx}\\bigl(x^{2}+5\\bigr)=2x,\\quad \\frac{d}{dx}\\bigl(x^{2}-3\\bigr)=2x',
                 },
                 {
                   id: 's3',
                   title: 'Shkruani familjen në mënyrë kompakte',
-                  why: 'Shënimi $+C$ paketon çdo zhvendosje vertikale të grafikut në një shprehje.',
+                  why: 'Shënimi $+C$ i përmbledh të gjitha zhvendosjet vertikale të grafikut në një shprehje.',
                   formula: '\\int 2x\\,dx = x^{2}+C',
-                  notes: 'Dy anëtarë konkretë: $x^{2}+5$ dhe $x^{2}-3$.',
+                  notes: 'Dy shembuj konkretë: $x^{2}+5$ dhe $x^{2}-3$.',
                 },
               ],
             },
@@ -116,9 +116,9 @@ export const integrationCourseSq: Course = {
         },
         {
           id: 'power-rule',
-          title: 'Rregulla e Fuqisë & Shumëfishat e Konstantes',
+          title: 'Rregulla e fuqisë dhe shumëzimi me konstante',
           summary:
-            'Praktikoni formulat kryesore për polinomet dhe fuqitë e thjeshta racionale para se të kaloni te teknikat.',
+            'Praktikoni formulat kryesore për polinomet dhe fuqitë e thjeshta para se të kaloni te teknikat.',
           examples: [
             {
               id: 'poly-indefinite',
@@ -129,7 +129,7 @@ export const integrationCourseSq: Course = {
                 {
                   id: 's1',
                   title: 'Ndani integralin',
-                  why: 'Integrali i një shume është shuma e integraleve, kështu që secili term trajtohet me rregullën e fuqisë.',
+                  why: 'Integrali i një shume është shuma e integraleve, prandaj secili term trajtohet me rregullën e fuqisë.',
                   formula: '\\int\\bigl(f+g\\bigr)=\\int f+\\int g',
                   calculation:
                     '\\int(4x^{3}-3x+7)\\,dx = \\int 4x^{3}\\,dx - \\int 3x\\,dx + \\int 7\\,dx',
@@ -137,14 +137,14 @@ export const integrationCourseSq: Course = {
                 {
                   id: 's2',
                   title: 'Integroni çdo pjesë',
-                  why: 'Aplikoni $\\int x^n = \\frac{x^{n+1}}{n+1}$ (dhe $\\int k = kx$) me kujdes për çdo term.',
+                  why: 'Përdorni $\\int x^n = \\frac{x^{n+1}}{n+1}$ (dhe $\\int k = kx$) me kujdes për çdo term.',
                   calculation:
                     '4\\cdot\\frac{x^{4}}{4} - 3\\cdot\\frac{x^{2}}{2} + 7x + C = x^{4} - \\frac{3}{2}x^{2} + 7x + C',
                 },
                 {
                   id: 's3',
                   title: 'Shkruani antiderivatën përfundimtare',
-                  why: 'Bashkoni në një shprehje të vetme me një $+C$ të përbashkët.',
+                  why: 'Bashkojini në një shprehje të vetme me një $+C$ të përbashkët.',
                   calculation: '\\int(4x^{3}-3x+7)\\,dx = x^{4}-\\tfrac{3}{2}x^{2}+7x+C',
                 },
               ],
@@ -153,12 +153,12 @@ export const integrationCourseSq: Course = {
               id: 'negative-exponent',
               title: 'Një fuqi negative (por jo $-1$)',
               prompt: 'Llogaritni $\\displaystyle \\int \\frac{1}{x^{3}}\\,dx$.',
-              goal: 'Rishkruani si $x^{-3}$ dhe aplikoni rregullën e fuqisë.',
+              goal: 'Rishkruajeni si $x^{-3}$ dhe përdorni rregullën e fuqisë.',
               steps: [
                 {
                   id: 's1',
-                  title: 'Rishkruani me eksponent negativ',
-                  why: 'Rregulla e fuqisë aplikohet më lehtë kur integrandi shkruhet si $x^n$.',
+                  title: 'Rishkruajeni me eksponent negativ',
+                  why: 'Rregulla e fuqisë aplikohet më lehtë kur funksioni nën integral shkruhet si $x^n$.',
                   calculation: '\\frac{1}{x^{3}} = x^{-3}',
                 },
                 {
@@ -171,7 +171,7 @@ export const integrationCourseSq: Course = {
                 {
                   id: 's3',
                   title: 'Kontroll opsional me derivim',
-                  why: 'Derivimi i përgjigjes duhet të rikthejë integrandin origjinal.',
+                  why: 'Nëse e derivojmë përgjigjen, duhet të rikthejmë funksionin fillestar nën integral.',
                   calculation:
                     "\\frac{d}{dx}\\Bigl(-\\frac{1}{2}x^{-2}\\Bigr) = -\\frac{1}{2}\\cdot(-2)x^{-3} = x^{-3} = \\frac{1}{x^{3}}",
                 },
@@ -181,24 +181,24 @@ export const integrationCourseSq: Course = {
               id: 'root-as-power',
               title: 'Integrimi i një rrënje katrore',
               prompt: 'Llogaritni $\\displaystyle \\int \\sqrt{x}\\,dx$.',
-              goal: 'Shprehni rrënjën si fuqi thyesore, pastaj integroni.',
+              goal: 'Shkruajeni rrënjën si fuqi me thyesë, pastaj integroni.',
               steps: [
                 {
                   id: 's1',
-                  title: 'Ktheni radikalin',
-                  why: 'Rrënjët janë eksponentë thyesorë; shkrimi $\\sqrt{x}=x^{1/2}$ hap rrugën për rregullën e fuqisë.',
+                  title: 'Shndërroni radikalin',
+                  why: 'Rrënjët janë eksponentë me thyesë; shkrimi $\\sqrt{x}=x^{1/2}$ hap rrugën për rregullën e fuqisë.',
                   calculation: '\\sqrt{x} = x^{1/2}',
                 },
                 {
                   id: 's2',
-                  title: 'Aplikoni rregullën e fuqisë',
+                  title: 'Përdorni rregullën e fuqisë',
                   why: 'Shtoni një te eksponenti: $\\tfrac12+1=\\tfrac32$, pastaj pjesëtoni me $\\tfrac32$.',
                   calculation:
                     '\\int x^{1/2}\\,dx = \\frac{x^{3/2}}{3/2}+C = \\frac{2}{3}x^{3/2}+C',
                 },
                 {
                   id: 's3',
-                  title: 'Rishkruani nëse dëshironi',
+                  title: 'Rishkruajeni nëse dëshironi',
                   why: 'Disa tekste preferojnë shënimin me radikal në përgjigjen përfundimtare.',
                   calculation: '\\frac{2}{3}x^{3/2}+C = \\frac{2}{3}\\sqrt{x^{3}}+C',
                 },
@@ -211,32 +211,32 @@ export const integrationCourseSq: Course = {
     {
       id: 'techniques',
       number: 2,
-      title: 'Teknikat e Para',
+      title: 'Teknikat e para',
       description:
-        'Dy metoda standarde që hapin shumë ushtrime teksti: zëvendësimi dhe integrimi me pjesë.',
+        'Dy metoda standarde që hapin shumë ushtrime tipike: zëvendësimi dhe integrimi me pjesë.',
       sections: [
         {
           id: 'substitution',
           title: 'Zëvendësimi ($u$-zëvendësim)',
           summary:
-            'Njohni një kompozim ku derivati i brendshëm shfaqet (deri në një konstante), pastaj ndryshoni ndryshoren.',
+            'Njohni një kompozim ku shfaqet derivati i funksionit të brendshëm (deri në një konstante), pastaj ndërroni ndryshoren.',
           examples: [
             {
               id: 'basic-usub',
-              title: 'Një zhbërje klasike e rregullës së zinxhirit',
+              title: 'E kundërta klasike e rregullës së zinxhirit',
               prompt: 'Llogaritni $\\displaystyle \\int 2x\\,(x^{2}+1)^{5}\\,dx$.',
               goal: 'Zgjidhni $u$ në mënyrë që $du$ të përputhet me faktorin e mbetur.',
               steps: [
                 {
                   id: 's1',
                   title: 'Zgjidhni funksionin e brendshëm',
-                  why: 'Faktori $(x^{2}+1)^{5}$ duket si kompozim. Le të jetë e brendshme $u$.',
+                  why: 'Faktori $(x^{2}+1)^{5}$ duket si kompozim. Le të jetë funksioni i brendshëm $u$.',
                   calculation: 'u = x^{2}+1',
                 },
                 {
                   id: 's2',
                   title: 'Llogaritni $du$',
-                  why: 'Derivimi i $u$ jep $2x\\,dx$, që tashmë shfaqet në integrand — përputhje e përsosur.',
+                  why: 'Derivimi i $u$ jep $2x\\,dx$, që tashmë shfaqet nën integral — përputhje e plotë.',
                   calculation: 'du = 2x\\,dx',
                 },
                 {
@@ -248,7 +248,7 @@ export const integrationCourseSq: Course = {
                 {
                   id: 's4',
                   title: 'Kthehuni te $x$',
-                  why: 'Përgjigjet e pacaktuara duhet të shprehen me ndryshoren origjinale.',
+                  why: 'Përgjigjet e integralit të pacaktuar duhet të shprehen me ndryshoren fillestare.',
                   calculation: '\\frac{(x^{2}+1)^{6}}{6}+C',
                 },
               ],
@@ -257,7 +257,7 @@ export const integrationCourseSq: Course = {
               id: 'usub-constant-adjust',
               title: 'Rregullimi për një faktor konstant',
               prompt: 'Llogaritni $\\displaystyle \\int x\\,e^{x^{2}}\\,dx$.',
-              goal: 'Vendosni $u=x^{2}$ dhe merrni parasysh faktorin që mungon të $2$.',
+              goal: 'Vendosni $u=x^{2}$ dhe merrni parasysh faktorin $2$ që mungon.',
               steps: [
                 {
                   id: 's1',
@@ -268,12 +268,12 @@ export const integrationCourseSq: Course = {
                 {
                   id: 's2',
                   title: 'Zëvendësoni',
-                  why: 'Zëvendësoni edhe eksponencialin edhe diferencialin që integrali të jetë vetëm në terma të $u$.',
+                  why: 'Zëvendësoni edhe funksionin eksponencial edhe diferencialin, që integrali të jetë vetëm me $u$.',
                   calculation: '\\int e^{u}\\cdot\\tfrac{1}{2}\\,du = \\tfrac{1}{2}\\int e^{u}\\,du',
                 },
                 {
                   id: 's3',
-                  title: 'Integroni eksponencialin',
+                  title: 'Integroni funksionin eksponencial',
                   why: 'Antiderivata e $e^u$ është vetë $e^u$.',
                   calculation: '\\tfrac{1}{2}e^{u}+C = \\tfrac{1}{2}e^{x^{2}}+C',
                 },
@@ -283,38 +283,38 @@ export const integrationCourseSq: Course = {
         },
         {
           id: 'parts',
-          title: 'Integrimi me Pjesë',
+          title: 'Integrimi me pjesë',
           summary:
-            'Zhbëni rregullën e produktit: zgjidhni $u$ dhe $dv$, pastaj aplikoni $\\int u\\,dv = uv - \\int v\\,du$.',
+            'Zhbëni rregullën e produktit: zgjidhni $u$ dhe $dv$, pastaj përdorni $\\int u\\,dv = uv - \\int v\\,du$.',
           examples: [
             {
               id: 'parts-xex',
               title: 'Integrimi i $x e^{x}$',
               prompt: 'Llogaritni $\\displaystyle \\int x e^{x}\\,dx$.',
-              goal: 'Përdorni integrimin me pjesë për një polinom herë një eksponencial.',
+              goal: 'Përdorni integrimin me pjesë për produktin e një polinomi me një funksion eksponencial.',
               steps: [
                 {
                   id: 's1',
-                  title: 'Thoni formulën',
-                  why: 'Integrimi me pjesë vjen nga rregulla e produktit e riorganizuar në formë integrale.',
+                  title: 'Kujtoni formulën',
+                  why: 'Integrimi me pjesë vjen nga rregulla e produktit, e rishkruar në formë integrale.',
                   formula: '\\int u\\,dv = uv - \\int v\\,du',
                 },
                 {
                   id: 's2',
                   title: 'Zgjidhni $u$ dhe $dv$',
-                  why: 'Le të jetë $u=x$ (thjeshtohet kur derivohet) dhe $dv=e^{x}\\,dx$ (lehtë për t’u integruar).',
+                  why: 'Le të jetë $u=x$ (thjeshtohet kur derivohet) dhe $dv=e^{x}\\,dx$ (integrohet lehtë).',
                   calculation: 'u=x,\\quad dv=e^{x}\\,dx \\implies du=dx,\\quad v=e^{x}',
                 },
                 {
                   id: 's3',
-                  title: 'Aplikoni formulën',
-                  why: 'Zëvendësoni në $uv-\\int v\\,du$ dhe integroni integralin e mbetur më të thjeshtë.',
+                  title: 'Përdorni formulën',
+                  why: 'Zëvendësoni në $uv-\\int v\\,du$ dhe integroni integralin e mbetur, që është më i thjeshtë.',
                   calculation: '\\int x e^{x}\\,dx = x e^{x} - \\int e^{x}\\,dx = x e^{x} - e^{x}+C',
                 },
                 {
                   id: 's4',
                   title: 'Faktorizoni nëse dëshironi',
-                  why: 'Faktorizimi i $e^{x}$ e bën strukturën më të lehtë për t’u kontrolluar me derivim.',
+                  why: 'Faktorizimi i $e^{x}$ e bën strukturën më të lehtë për ta kontrolluar me derivim.',
                   calculation: 'e^{x}(x-1)+C',
                 },
               ],
@@ -323,17 +323,17 @@ export const integrationCourseSq: Course = {
               id: 'parts-xsin',
               title: 'Integrimi i $x\\sin x$',
               prompt: 'Llogaritni $\\displaystyle \\int x\\sin x\\,dx$.',
-              goal: 'Praktikoni pjesët kur faktori trigonometrik është pjesa e lehtë për t’u integruar.',
+              goal: 'Praktikoni integrimin me pjesë kur faktori trigonometrik integrohet lehtë.',
               steps: [
                 {
                   id: 's1',
                   title: 'Zgjidhni pjesët',
-                  why: 'Përsëri le të jetë faktori algjebrik $u$, që derivimi të ulë shkallën.',
+                  why: 'Përsëri le të jetë faktori algjebrik $u$, që derivimi të ulë shkallën e polinomit.',
                   calculation: 'u=x,\\quad dv=\\sin x\\,dx \\implies du=dx,\\quad v=-\\cos x',
                 },
                 {
                   id: 's2',
-                  title: 'Aplikoni $\\int u\\,dv$',
+                  title: 'Përdorni $\\int u\\,dv$',
                   why: 'Formula jep një term produkti minus një integral të ri të kosinusit.',
                   calculation:
                     '\\int x\\sin x\\,dx = -x\\cos x - \\int(-\\cos x)\\,dx = -x\\cos x + \\int\\cos x\\,dx',
