@@ -23,10 +23,14 @@ npm run preview  # serve the production build locally
 | Path | Purpose |
 |------|---------|
 | `src/content/types.ts` | Shared content shape (`Course`, `Chapter`, `Section`, `Example`, `MathStep`) |
-| `src/content/integration.ts` | Placeholder Integration chapters / sections / examples |
-| `src/content/index.ts` | Exports the active `course` plus lookup helpers |
+| `src/content/integration.ts` | English (`en`) placeholder Integration content |
+| `src/content/integration.sq.ts` | Albanian (`sq`) placeholder Integration content (same ids) |
+| `src/content/index.ts` | Locale-aware course lookups |
+| `src/i18n/` | UI chrome strings + `EN` / `SQ` language toggle |
 
-To swap in real material, edit `integration.ts` (or add a new module and point `course` at it in `index.ts`). Keep the same TypeScript shapes; the pages only read that data.
+To swap in real material, edit `integration.ts` / `integration.sq.ts` (keep matching ids). UI labels live in `src/i18n/ui.ts`. Language choice is saved in `localStorage` (`mathh-locale`).
+
+A **Need help?** button (`src/components/HelpButton.tsx`) opens email to `apu.gus.t.13@gmail.com` (see `src/support.ts`) for learners who get stuck.
 
 ## App flow
 

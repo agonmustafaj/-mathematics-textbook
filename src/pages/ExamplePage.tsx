@@ -2,10 +2,12 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { Latex, MathText } from '../components/MathText'
 import { SiteHeader } from '../components/SiteHeader'
 import { getExample } from '../content'
+import { useLocale } from '../i18n/LocaleContext'
 
 export function ExamplePage() {
   const { chapterId = '', sectionId = '', exampleId = '' } = useParams()
-  const found = getExample(chapterId, sectionId, exampleId)
+  const { locale, t } = useLocale()
+  const found = getExample(locale, chapterId, sectionId, exampleId)
 
   if (!found) {
     return <Navigate to="/" replace />
@@ -19,27 +21,25 @@ export function ExamplePage() {
       <SiteHeader compact />
       <main className="reading-shell example-shell">
         <nav className="crumb" aria-label="Breadcrumb">
-          <Link to="/">Course</Link>
+          <Link to="/">{t.course}</Link>
           <span aria-hidden="true">/</span>
           <Link to={`/chapter/${chapter.id}/section/${section.id}`}>{section.title}</Link>
           <span aria-hidden="true">/</span>
-          <span>
-            Example {index + 1} of {total}
-          </span>
+          <span>{t.exampleOf(index + 1, total)}</span>
         </nav>
 
         <header className="example-hero">
           <p className="eyebrow">
-            Example {index + 1} · {section.title}
+            {t.exampleIndex(index + 1)} · {section.title}
           </p>
           <h1>{example.title}</h1>
           <div className="prompt-panel">
-            <p className="prompt-panel__label">Problem</p>
+            <p className="prompt-panel__label">{t.problem}</p>
             <p className="prompt-panel__text">
               <MathText text={example.prompt} />
             </p>
             <p className="prompt-panel__goal">
-              <span>Goal.</span> <MathText text={example.goal} />
+              <span>{t.goal}</span> <MathText text={example.goal} />
             </p>
           </div>
         </header>
@@ -57,13 +57,13 @@ export function ExamplePage() {
                 </p>
                 {step.formula ? (
                   <figure className="math-block">
-                    <figcaption>Formula</figcaption>
+                    <figcaption>{t.formula}</figcaption>
                     <Latex tex={step.formula} display />
                   </figure>
                 ) : null}
                 {step.calculation ? (
                   <figure className="math-block math-block--calc">
-                    <figcaption>Calculation</figcaption>
+                    <figcaption>{t.calculation}</figcaption>
                     <Latex tex={step.calculation} display />
                   </figure>
                 ) : null}
@@ -83,16 +83,16 @@ export function ExamplePage() {
               className="btn btn--ghost"
               to={`/chapter/${chapter.id}/section/${section.id}/example/${prev.id}`}
             >
-              ← Previous
+              {t.previous}
             </Link>
           ) : (
             <span className="btn btn--ghost btn--disabled" aria-disabled="true">
-              ← Previous
+              {t.previous}
             </span>
           )}
 
           <Link className="btn btn--quiet" to={`/chapter/${chapter.id}/section/${section.id}`}>
-            All examples
+            {t.allExamples}
           </Link>
 
           {next ? (
@@ -100,11 +100,11 @@ export function ExamplePage() {
               className="btn btn--primary"
               to={`/chapter/${chapter.id}/section/${section.id}/example/${next.id}`}
             >
-              Next →
+              {t.next}
             </Link>
           ) : (
             <Link className="btn btn--primary" to={`/chapter/${chapter.id}/section/${section.id}`}>
-              Back to section
+              {t.backToSection}
             </Link>
           )}
         </nav>
