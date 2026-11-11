@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { EulerHeroSticker } from '../components/EulerHeroSticker'
 import { IntegralHeroGraphic } from '../components/IntegralHeroGraphic'
 import { MathText } from '../components/MathText'
 import { SiteFooter } from '../components/SiteFooter'
@@ -19,6 +20,9 @@ export function CoursePage() {
         <div className="hero__atmosphere" aria-hidden="true" />
         <div className="hero__visual" aria-hidden="true">
           <IntegralHeroGraphic />
+        </div>
+        <div className="hero__sticker">
+          <EulerHeroSticker />
         </div>
         <div className="hero__content">
           <p className="hero__kicker">
