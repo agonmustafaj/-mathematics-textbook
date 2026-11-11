@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom'
+import { LanguageToggle } from '../components/LanguageToggle'
 import { MathText } from '../components/MathText'
-import { course } from '../content'
+import { getCourse } from '../content'
+import { useLocale } from '../i18n/LocaleContext'
 
 export function CoursePage() {
+  const { locale, t } = useLocale()
+  const course = getCourse(locale)
+  const firstSection = course.chapters[0]?.sections[0]
+
   return (
     <div className="page course-page">
+      <div className="hero-toolbar">
+        <LanguageToggle />
+      </div>
+
       <section className="hero" aria-labelledby="hero-brand">
         <div className="hero__atmosphere" aria-hidden="true" />
         <div className="hero__content">
@@ -15,14 +25,16 @@ export function CoursePage() {
           <p className="hero__lede">{course.subtitle}</p>
           <div className="hero__actions">
             <a className="btn btn--primary" href="#chapters">
-              Browse chapters
+              {t.browseChapters}
             </a>
-            <Link
-              className="btn btn--ghost"
-              to={`/chapter/${course.chapters[0].id}/section/${course.chapters[0].sections[0].id}`}
-            >
-              Start first section
-            </Link>
+            {firstSection ? (
+              <Link
+                className="btn btn--ghost"
+                to={`/chapter/${course.chapters[0].id}/section/${firstSection.id}`}
+              >
+                {t.startFirstSection}
+              </Link>
+            ) : null}
           </div>
         </div>
       </section>
@@ -30,17 +42,14 @@ export function CoursePage() {
       <section id="chapters" className="course-body" aria-labelledby="course-heading">
         <div className="course-body__intro">
           <h2 id="course-heading">{course.title}</h2>
-          <p>
-            Choose a chapter, then a section. Each section walks through worked examples one at a
-            time, with every algebraic move explained.
-          </p>
+          <p>{t.courseIntro}</p>
         </div>
 
         <ol className="chapter-list">
           {course.chapters.map((chapter) => (
             <li key={chapter.id} className="chapter-block">
               <div className="chapter-block__heading">
-                <span className="chapter-block__number">Chapter {chapter.number}</span>
+                <span className="chapter-block__number">{t.chapterLabel(chapter.number)}</span>
                 <h3>{chapter.title}</h3>
                 <p>{chapter.description}</p>
               </div>
@@ -53,8 +62,7 @@ export function CoursePage() {
                     >
                       <span className="section-link__title">{section.title}</span>
                       <span className="section-link__meta">
-                        {section.examples.length} example
-                        {section.examples.length === 1 ? '' : 's'}
+                        {t.exampleCount(section.examples.length)}
                       </span>
                       <span className="section-link__summary">
                         <MathText text={section.summary} />
