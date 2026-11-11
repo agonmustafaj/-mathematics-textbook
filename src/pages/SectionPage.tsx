@@ -35,7 +35,9 @@ export function SectionPage() {
 
         <header className="section-hero">
           <p className="eyebrow">{t.section}</p>
-          <h1>{section.title}</h1>
+          <h1>
+            <MathText text={section.title} />
+          </h1>
           <p className="section-hero__summary">
             <MathText text={section.summary} />
           </p>
@@ -49,7 +51,9 @@ export function SectionPage() {
                 to={`/chapter/${chapter.id}/section/${section.id}/example/${example.id}`}
               >
                 <span className="example-entry__index">{t.exampleIndex(index + 1)}</span>
-                <span className="example-entry__title">{example.title}</span>
+                <span className="example-entry__title">
+                  <MathText text={example.title} />
+                </span>
                 <span className="example-entry__goal">
                   <MathText text={example.goal} />
                 </span>
