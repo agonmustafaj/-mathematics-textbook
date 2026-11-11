@@ -18,32 +18,37 @@ export function CoursePage() {
 
       <section className="hero" aria-labelledby="hero-brand">
         <div className="hero__atmosphere" aria-hidden="true" />
-        <div className="hero__visual" aria-hidden="true">
-          <IntegralHeroGraphic />
-        </div>
-        <div className="hero__sticker">
-          <EulerHeroSticker />
-        </div>
-        <div className="hero__content">
-          <p className="hero__kicker">
-            <MathText text={course.topic} />
-          </p>
-          <h1 id="hero-brand" className="hero__brand">
-            {course.brand}
-          </h1>
-          <p className="hero__lede">{course.subtitle}</p>
-          <div className="hero__actions">
-            <a className="btn btn--primary" href="#chapters">
-              {t.browseChapters}
-            </a>
-            {firstSection ? (
-              <Link
-                className="btn btn--ghost"
-                to={`/chapter/${course.chapters[0].id}/section/${firstSection.id}`}
-              >
-                {t.startFirstSection}
-              </Link>
-            ) : null}
+
+        <div className="hero__layout">
+          <div className="hero__visual" aria-hidden="true">
+            <IntegralHeroGraphic />
+          </div>
+
+          <div className="hero__content">
+            <p className="hero__kicker">
+              <MathText text={course.topic} />
+            </p>
+            <h1 id="hero-brand" className="hero__brand">
+              {course.brand}
+            </h1>
+            <p className="hero__lede">{course.subtitle}</p>
+            <div className="hero__actions">
+              <a className="btn btn--primary" href="#chapters">
+                {t.browseChapters}
+              </a>
+              {firstSection ? (
+                <Link
+                  className="btn btn--ghost"
+                  to={`/chapter/${course.chapters[0].id}/section/${firstSection.id}`}
+                >
+                  {t.startFirstSection}
+                </Link>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="hero__sticker">
+            <EulerHeroSticker />
           </div>
         </div>
       </section>
