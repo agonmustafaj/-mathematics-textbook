@@ -19,3 +19,13 @@ export function buildHelpMailto(
 ): string {
   return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
+
+/** Turn a route path into a full clickable URL for help emails. */
+export function absolutePageUrl(path: string): string {
+  if (typeof window === 'undefined') return path
+  try {
+    return new URL(path || '/', window.location.origin).href
+  } catch {
+    return path
+  }
+}
