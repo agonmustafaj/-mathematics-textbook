@@ -33,16 +33,20 @@ export function ExamplePage() {
         <nav className="crumb" aria-label="Breadcrumb">
           <Link to="/">{t.course}</Link>
           <span aria-hidden="true">/</span>
-          <Link to={`/chapter/${chapter.id}/section/${section.id}`}>{section.title}</Link>
+          <Link to={`/chapter/${chapter.id}/section/${section.id}`}>
+            <MathText text={section.title} />
+          </Link>
           <span aria-hidden="true">/</span>
           <span>{t.exampleOf(index + 1, total)}</span>
         </nav>
 
         <header className="example-hero">
           <p className="eyebrow">
-            {t.exampleIndex(index + 1)} · {section.title}
+            {t.exampleIndex(index + 1)} · <MathText text={section.title} />
           </p>
-          <h1>{example.title}</h1>
+          <h1>
+            <MathText text={example.title} />
+          </h1>
           <div className="prompt-panel">
             <p className="prompt-panel__label">{t.problem}</p>
             <p className="prompt-panel__text">
@@ -61,7 +65,9 @@ export function ExamplePage() {
                 <span className="step__number">{stepIndex + 1}</span>
               </div>
               <div className="step__body">
-                <h2>{step.title}</h2>
+                <h2>
+                  <MathText text={step.title} />
+                </h2>
                 <p className="step__why">
                   <MathText text={step.why} />
                 </p>

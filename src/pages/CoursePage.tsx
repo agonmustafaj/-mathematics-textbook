@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
-import { HelpButton } from '../components/HelpButton'
-import { LanguageToggle } from '../components/LanguageToggle'
 import { MathText } from '../components/MathText'
 import { SiteFooter } from '../components/SiteFooter'
+import { SiteHeader } from '../components/SiteHeader'
 import { getCourse } from '../content'
 import { useLocale } from '../i18n/LocaleContext'
 
@@ -13,15 +12,14 @@ export function CoursePage() {
 
   return (
     <div className="page course-page">
-      <div className="hero-toolbar">
-        <HelpButton place={{ kind: 'course', path: '/' }} />
-        <LanguageToggle />
-      </div>
+      <SiteHeader helpPlace={{ kind: 'course', path: '/' }} />
 
       <section className="hero" aria-labelledby="hero-brand">
         <div className="hero__atmosphere" aria-hidden="true" />
         <div className="hero__content">
-          <p className="hero__kicker">{course.topic}</p>
+          <p className="hero__kicker">
+            <MathText text={course.topic} />
+          </p>
           <h1 id="hero-brand" className="hero__brand">
             {course.brand}
           </h1>
@@ -63,7 +61,9 @@ export function CoursePage() {
                       className="section-link"
                       to={`/chapter/${chapter.id}/section/${section.id}`}
                     >
-                      <span className="section-link__title">{section.title}</span>
+                      <span className="section-link__title">
+                        <MathText text={section.title} />
+                      </span>
                       <span className="section-link__meta">
                         {t.exampleCount(section.examples.length)}
                       </span>
