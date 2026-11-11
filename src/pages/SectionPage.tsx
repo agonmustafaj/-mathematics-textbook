@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { MathText } from '../components/MathText'
+import { SiteFooter } from '../components/SiteFooter'
 import { SiteHeader } from '../components/SiteHeader'
 import { getSection } from '../content'
 import { useLocale } from '../i18n/LocaleContext'
@@ -68,6 +69,7 @@ export function SectionPage() {
           </div>
         ) : null}
       </main>
+      <SiteFooter />
     </div>
   )
 }

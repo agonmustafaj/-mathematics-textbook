@@ -695,6 +695,25 @@ p {
   border-top: 1px solid var(--line);
 }
 
+.site-footer {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1.25rem, 4vw, 2rem) 2.75rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.site-footer__line {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.site-footer__line + .site-footer__line {
+  margin-top: 0.25rem;
+}
+
 @media (max-width: 640px) {
   .hero {
     align-items: center;

@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { Latex, MathText } from '../components/MathText'
+import { SiteFooter } from '../components/SiteFooter'
 import { SiteHeader } from '../components/SiteHeader'
 import { getExample } from '../content'
 import { useLocale } from '../i18n/LocaleContext'
@@ -118,6 +119,7 @@ export function ExamplePage() {
           )}
         </nav>
       </main>
+      <SiteFooter />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { HelpButton } from '../components/HelpButton'
 import { LanguageToggle } from '../components/LanguageToggle'
 import { MathText } from '../components/MathText'
+import { SiteFooter } from '../components/SiteFooter'
 import { getCourse } from '../content'
 import { useLocale } from '../i18n/LocaleContext'
 
@@ -77,6 +78,7 @@ export function CoursePage() {
           ))}
         </ol>
       </section>
+      <SiteFooter />
     </div>
   )
 }
