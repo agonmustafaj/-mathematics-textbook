@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { IntegralHeroGraphic } from '../components/IntegralHeroGraphic'
 import { MathText } from '../components/MathText'
 import { SiteFooter } from '../components/SiteFooter'
 import { SiteHeader } from '../components/SiteHeader'
@@ -16,6 +17,9 @@ export function CoursePage() {
 
       <section className="hero" aria-labelledby="hero-brand">
         <div className="hero__atmosphere" aria-hidden="true" />
+        <div className="hero__visual" aria-hidden="true">
+          <IntegralHeroGraphic />
+        </div>
         <div className="hero__content">
           <p className="hero__kicker">
             <MathText text={course.topic} />

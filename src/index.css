@@ -137,7 +137,7 @@ p {
 /* —— Course hero —— */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 4.25rem);
   display: grid;
   align-items: end;
   padding: clamp(1.5rem, 4vw, 3rem);
@@ -149,27 +149,117 @@ p {
   inset: 0;
   background:
     linear-gradient(180deg, transparent 20%, rgba(244, 248, 244, 0.55) 70%, rgba(244, 248, 244, 0.92) 100%),
-    radial-gradient(ellipse 80% 55% at 70% 25%, rgba(47, 111, 98, 0.22), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 20% 60%, rgba(214, 196, 156, 0.35), transparent 70%);
+    radial-gradient(ellipse 80% 55% at 70% 25%, rgba(47, 111, 98, 0.18), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 60%, rgba(214, 196, 156, 0.28), transparent 70%);
   animation: mist-drift 18s ease-in-out infinite alternate;
 }
 
-.hero__atmosphere::after {
-  content: '';
+.hero__visual {
   position: absolute;
-  inset: 12% 8% auto auto;
-  width: min(48vw, 420px);
-  aspect-ratio: 1;
-  border-radius: 42% 58% 55% 45%;
-  background:
-    radial-gradient(circle at 35% 35%, rgba(247, 250, 246, 0.7), transparent 55%),
-    linear-gradient(145deg, rgba(158, 197, 178, 0.55), rgba(26, 60, 58, 0.35));
-  filter: blur(2px);
-  animation: blob-float 12s ease-in-out infinite alternate;
+  inset: 6% 0 auto auto;
+  width: min(62vw, 680px);
+  height: min(72vh, 560px);
+  z-index: 0;
+  opacity: 0;
+  animation: rise-in 1100ms ease forwards 280ms, mist-drift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.hero__visual .integral-hero {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.integral-hero__axis {
+  stroke: var(--brand);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.integral-hero__axis-fill {
+  fill: var(--brand);
+  opacity: 0.55;
+}
+
+.integral-hero__origin {
+  fill: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 18px;
+}
+
+.integral-hero__shade {
+  fill: url(#shadeFill);
+}
+
+.integral-hero__curve {
+  stroke: var(--accent);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+}
+
+.integral-hero__guide {
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  opacity: 0.85;
+}
+
+.integral-hero__guide--x {
+  stroke: var(--brand-deep);
+}
+
+.integral-hero__dash {
+  stroke: var(--accent);
+  stroke-width: 1.4;
+  stroke-dasharray: 5 6;
+  opacity: 0.7;
+}
+
+.integral-hero__dash--x {
+  stroke: var(--brand-deep);
+}
+
+.integral-hero__label {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+}
+
+.integral-hero__label--a,
+.integral-hero__label--fa {
+  fill: var(--accent);
+}
+
+.integral-hero__label--x,
+.integral-hero__label--fx {
+  fill: var(--brand-deep);
+}
+
+.integral-hero__label--curve {
+  fill: var(--accent);
+  font-size: 24px;
+}
+
+.integral-hero__label--area {
+  fill: #6b4a3a;
+  font-size: 24px;
+}
+
+.integral-hero__area-arrow {
+  stroke: #6b4a3a;
+  stroke-width: 1.8;
+  opacity: 0.85;
+}
+
+.integral-hero__area-arrow-head {
+  fill: #6b4a3a;
 }
 
 .hero__content {
   position: relative;
+  z-index: 1;
   max-width: 42rem;
   padding-bottom: clamp(2rem, 8vh, 5rem);
 }
@@ -715,10 +805,28 @@ p {
   margin-top: 0.25rem;
 }
 
+@media (max-width: 900px) {
+  .hero__visual {
+    width: min(92vw, 560px);
+    height: min(48vh, 360px);
+    inset: 8% 50% auto auto;
+    transform: translateX(42%);
+    opacity: 0.55;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
-    align-items: center;
-    min-height: 92vh;
+    align-items: end;
+    min-height: calc(100vh - 4.25rem);
+  }
+
+  .hero__visual {
+    inset: 4.5rem -8% auto auto;
+    width: 110%;
+    height: 42vh;
+    transform: none;
+    opacity: 0.4;
   }
 
   .hero__brand {
