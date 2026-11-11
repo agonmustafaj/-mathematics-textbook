@@ -1,4 +1,9 @@
-import { buildHelpMailto, SUPPORT_EMAIL, type HelpPlace } from '../support'
+import {
+  absolutePageUrl,
+  buildHelpMailto,
+  SUPPORT_EMAIL,
+  type HelpPlace,
+} from '../support'
 import { useLocale } from '../i18n/LocaleContext'
 
 type HelpButtonProps = {
@@ -9,7 +14,11 @@ type HelpButtonProps = {
 
 export function HelpButton({ className = '', place }: HelpButtonProps) {
   const { t } = useLocale()
-  const location = place ?? { kind: 'course' as const, path: '/' }
+  const base = place ?? { kind: 'course' as const, path: '/' }
+  const location: HelpPlace = {
+    ...base,
+    path: absolutePageUrl(base.path),
+  }
   const href = buildHelpMailto(
     SUPPORT_EMAIL,
     t.helpEmailSubject(location),
