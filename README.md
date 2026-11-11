@@ -30,6 +30,8 @@ npm run preview  # serve the production build locally
 
 To swap in real material, edit `integration.ts` / `integration.sq.ts` (keep matching ids). UI labels live in `src/i18n/ui.ts`. Language choice is saved in `localStorage` (`mathh-locale`).
 
+A **Need help?** button (`src/components/HelpButton.tsx`) opens email to `apu.gus.t.13@gmail.com` (see `src/support.ts`) for learners who get stuck.
+
 ## App flow
 
 1. **Course** (`/`) — brand landing + chapter/section tree  

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { HelpButton } from '../components/HelpButton'
 import { LanguageToggle } from '../components/LanguageToggle'
 import { MathText } from '../components/MathText'
 import { getCourse } from '../content'
@@ -12,6 +13,7 @@ export function CoursePage() {
   return (
     <div className="page course-page">
       <div className="hero-toolbar">
+        <HelpButton />
         <LanguageToggle />
       </div>
 

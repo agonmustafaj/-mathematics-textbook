@@ -23,6 +23,9 @@ export type UiStrings = {
   backToSection: string
   language: string
   switchTo: (locale: Locale) => string
+  needHelp: string
+  helpEmailSubject: string
+  helpEmailBody: string
 }
 
 export const ui: Record<Locale, UiStrings> = {
@@ -50,6 +53,10 @@ export const ui: Record<Locale, UiStrings> = {
     backToSection: 'Back to section',
     language: 'Language',
     switchTo: (locale) => (locale === 'en' ? 'Switch to English' : 'Switch to Albanian'),
+    needHelp: 'Need help?',
+    helpEmailSubject: 'Mathh — I need help understanding',
+    helpEmailBody:
+      'Hi,\n\nI am having trouble understanding something in Mathh.\n\nPage / topic:\nWhat I do not understand:\n\nThanks,',
   },
   sq: {
     browseChapters: 'Shfleto kapitujt',
@@ -75,5 +82,9 @@ export const ui: Record<Locale, UiStrings> = {
     backToSection: 'Kthehu te seksioni',
     language: 'Gjuha',
     switchTo: (locale) => (locale === 'en' ? 'Kalo në anglisht' : 'Kalo në shqip'),
+    needHelp: 'Ke nevojë për ndihmë?',
+    helpEmailSubject: 'Mathh — Kam nevojë për ndihmë',
+    helpEmailBody:
+      'Përshëndetje,\n\nKam vështirësi të kuptoj diçka në Mathh.\n\nFaqja / tema:\nÇfarë nuk kuptoj:\n\nFaleminderit,',
   },
 }

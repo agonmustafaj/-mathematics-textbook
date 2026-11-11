@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { getCourse } from '../content'
 import { useLocale } from '../i18n/LocaleContext'
+import { HelpButton } from './HelpButton'
 import { LanguageToggle } from './LanguageToggle'
 
 type SiteHeaderProps = {
@@ -17,7 +18,10 @@ export function SiteHeader({ compact = false }: SiteHeaderProps) {
         <span className="brand-mark__name">{course.brand}</span>
         <span className="brand-mark__topic">{course.title}</span>
       </Link>
-      <LanguageToggle />
+      <div className="header-actions">
+        <HelpButton />
+        <LanguageToggle />
+      </div>
     </header>
   )
 }
