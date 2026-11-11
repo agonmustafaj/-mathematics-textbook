@@ -1,18 +1,18 @@
 import type { HelpPlace } from '../support'
 import type { Locale } from './types'
 
-function placeLabel(place: HelpPlace, locale: Locale): string {
-  if (place.kind === 'example' && place.exampleTitle) {
-    const index =
-      place.exampleIndex != null
-        ? locale === 'sq'
-          ? `Shembulli ${place.exampleIndex}: `
-          : `Example ${place.exampleIndex}: `
-        : ''
-    return `${index}${place.exampleTitle}`
+/** Plain text for email (drop $...$ markers so subjects stay readable). */
+function plain(text: string): string {
+  return text.replace(/\$\$([\s\S]+?)\$\$/g, '$1').replace(/\$([^$\n]+?)\$/g, '$1').trim()
+}
+
+/** Short subject label — keeps the headline tidy on mobile mail apps. */
+function placeSubjectLabel(place: HelpPlace, locale: Locale): string {
+  if (place.kind === 'example' && place.exampleIndex != null) {
+    return locale === 'sq' ? `Shembulli ${place.exampleIndex}` : `Example ${place.exampleIndex}`
   }
   if (place.kind === 'section' && place.sectionTitle) {
-    return place.sectionTitle
+    return plain(place.sectionTitle)
   }
   return locale === 'sq' ? 'Faqja e kursit' : 'Course page'
 }
@@ -20,23 +20,23 @@ function placeLabel(place: HelpPlace, locale: Locale): string {
 function placeDetails(place: HelpPlace, locale: Locale): string {
   const lines: string[] = []
   if (locale === 'sq') {
-    if (place.chapterTitle) lines.push(`Kapitulli: ${place.chapterTitle}`)
-    if (place.sectionTitle) lines.push(`Seksioni: ${place.sectionTitle}`)
+    if (place.chapterTitle) lines.push(`Kapitulli: ${plain(place.chapterTitle)}`)
+    if (place.sectionTitle) lines.push(`Seksioni: ${plain(place.sectionTitle)}`)
     if (place.exampleTitle) {
       const n = place.exampleIndex != null ? ` (Shembulli ${place.exampleIndex})` : ''
-      lines.push(`Ushtrimi: ${place.exampleTitle}${n}`)
+      lines.push(`Ushtrimi: ${plain(place.exampleTitle)}${n}`)
     }
     lines.push(`Faqja: ${place.path}`)
   } else {
-    if (place.chapterTitle) lines.push(`Chapter: ${place.chapterTitle}`)
-    if (place.sectionTitle) lines.push(`Section: ${place.sectionTitle}`)
+    if (place.chapterTitle) lines.push(`Chapter: ${plain(place.chapterTitle)}`)
+    if (place.sectionTitle) lines.push(`Section: ${plain(place.sectionTitle)}`)
     if (place.exampleTitle) {
       const n = place.exampleIndex != null ? ` (Example ${place.exampleIndex})` : ''
-      lines.push(`Exercise: ${place.exampleTitle}${n}`)
+      lines.push(`Exercise: ${plain(place.exampleTitle)}${n}`)
     }
     lines.push(`Link: ${place.path}`)
   }
-  return lines.join('\n')
+  return lines.join('\r\n')
 }
 
 export type UiStrings = {
@@ -95,10 +95,9 @@ export const ui: Record<Locale, UiStrings> = {
     language: 'Language',
     switchTo: (locale) => (locale === 'en' ? 'Switch to English' : 'Switch to Albanian'),
     needHelp: 'Need help?',
-    helpEmailSubject: (place) =>
-      `Mathh — Help with: ${placeLabel(place, 'en')}`,
+    helpEmailSubject: (place) => `Mathh — Help · ${placeSubjectLabel(place, 'en')}`,
     helpEmailBody: (place) =>
-      `Hi,\n\nI am having trouble understanding something in Mathh.\n\n${placeDetails(place, 'en')}\n\nWhat I do not understand:\n\nThanks,`,
+      `Hi,\r\n\r\nI am having trouble understanding something in Mathh.\r\n\r\n${placeDetails(place, 'en')}\r\n\r\nThanks,`,
     footerImplemented: 'Implemented by Agon Mustafaj',
     footerContent: 'Tasks and content by Admir Krasniqi',
   },
@@ -127,10 +126,9 @@ export const ui: Record<Locale, UiStrings> = {
     language: 'Gjuha',
     switchTo: (locale) => (locale === 'en' ? 'Kalo në anglisht' : 'Kalo në shqip'),
     needHelp: 'Ke nevojë për ndihmë?',
-    helpEmailSubject: (place) =>
-      `Mathh — Ndihmë për: ${placeLabel(place, 'sq')}`,
+    helpEmailSubject: (place) => `Mathh — Ndihmë · ${placeSubjectLabel(place, 'sq')}`,
     helpEmailBody: (place) =>
-      `Përshëndetje,\n\nKam vështirësi të kuptoj diçka në Mathh.\n\n${placeDetails(place, 'sq')}\n\nÇfarë nuk kuptoj:\n\nFaleminderit,`,
+      `Përshëndetje,\r\n\r\nKam vështirësi të kuptoj diçka në Mathh.\r\n\r\n${placeDetails(place, 'sq')}\r\n\r\nFaleminderit,`,
     footerImplemented: 'Implementuar nga Agon Mustafaj',
     footerContent: 'Ndërsa detyrat dhe përmbajtja nga Admir Krasniqi',
   },
