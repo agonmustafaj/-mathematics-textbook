@@ -681,60 +681,689 @@ export const integrationCourseSq: Course = {
       ],
     },
     {
-      id: 'substitution-applications',
+      id: "substitution-applications",
       number: 3,
-      title: 'Zbatime të Metodës së Zëvendësimit',
-      description:
-        'Zëvendësime më të vështira: plotësimi i katrorit, produkte trigonometrike dhe forma të ndërthurura.',
-      exercises: '1.30–1.56',
+      title: "Zbatime të Metodës së Zëvendësimit",
+      description: "Zëvendësime më të vështira: plotësimi i katrorit, produkte trigonometrike dhe forma të ndërthurura.",
+      exercises: "1.30–1.56",
       sections: [
         {
-          id: 'advanced-sub',
-          title: 'Plotësimi i katrorit dhe produktet trigonometrike',
-          summary:
-            'Përgatitni integrandën së pari, pastaj zëvendësoni që të shfaqen arcsin, arctan ose logaritme.',
+          id: "advanced-sub",
+          title: "Plotësimi i katrorit, rrënjët dhe produktet trigonometrike",
+          summary: "Përgatitni integrandën, zëvendësoni dhe reduktoni te formulat e tabelës (log, arctan, arcsin, ulje fuqie).",
           examples: [
             {
-              id: 'ex-1-31',
-              title: 'Plotësoni katrorin, pastaj zëvendësoni',
-              prompt: 'Llogaritni $\\displaystyle \\int \\frac{dx}{x^{2}+2x+2}$.',
-              goal: 'Rishkruani kuadratikën si shumë katrorësh, pastaj përdorni arktangjentin.',
+              id: "1.30",
+              title: "Integrali $1/(ax^{2}+bx+c)$ me plotësim të katrorit",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{ax^{2}+bx+c}$ for $a>0$, treating the cases $\\Delta=b^{2}-4ac>0$ and $\\Delta<0$.",
+              goal: "Plotësoni katrorin, rishkallëzoni dhe reduktoni te një formë logaritmike ose arktangjenti.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Plotësoni katrorin',
-                  why: 'Termi i mesëm $2x$ sugjeron $(x+1)^{2}$.',
-                  calculation: 'x^{2}+2x+2 = (x+1)^{2}+1',
+                  id: "s1",
+                  title: "Plotësoni katrorin",
+                  why: "Nxirrni $a$ dhe rishkruani the quadratic as a shifted square plus a constant involving $\\Delta=b^{2}-4ac$.",
+                  calculation: "ax^{2}+bx+c=a\\Bigl(\\bigl(x+\\tfrac{b}{2a}\\bigr)^{2}-\\tfrac{\\Delta}{4a^{2}}\\Bigr)",
                 },
                 {
-                  id: 's2',
-                  title: 'Zëvendësoni $u=x+1$',
-                  why: 'Integrali bëhet forma standarde e arktangjentit.',
-                  calculation:
-                    '\\int\\frac{du}{u^{2}+1} = \\arctan u + C = \\arctan(x+1)+C',
+                  id: "s2",
+                  title: "Zëvendësoni $t=x+b/(2a)$",
+                  why: "Integrali bëhet a constant times $\\int\\frac{dt}{t^{2}\\pm k^{2}}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Rasti $\\Delta>0$",
+                  why: "Atëherë shfaqet $t^{2}-k^{2}$ and the antiderivative is logarithmic:",
+                  formula: "\\int\\frac{dt}{t^{2}-k^{2}}=\\frac{1}{2k}\\ln\\Bigl|\\frac{t-k}{t+k}\\Bigr|+C",
+                },
+                {
+                  id: "s4",
+                  title: "Rasti $\\Delta<0$",
+                  why: "Atëherë shfaqet $t^{2}+k^{2}$ and the antiderivative is an arctangent:",
+                  formula: "\\int\\frac{dt}{t^{2}+k^{2}}=\\frac{1}{k}\\arctan\\frac{t}{k}+C",
+                  notes: "Kthehuni te $x$ duke zëvendësuar $t=x+\\frac{b}{2a}$ and $k=\\sqrt{|\\Delta|}/(2a)$.",
                 },
               ],
             },
             {
-              id: 'ex-1-47',
-              title: 'Produkt në shumë për kosinuset',
-              prompt: 'Llogaritni $\\displaystyle \\int \\cos 3x\\,\\cos 5x\\,dx$.',
-              goal: 'Përdorni një identitet produkt-në-shumë, pastaj integroni term pas termi.',
+              id: "1.31",
+              title: "Plotësoni katrorin për $x^{2}+2x+2$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{2}+2x+2}$.",
+              goal: "Plotësoni katrorin, pastaj përdorni arktangjentin.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Përdorni identitetin',
-                  why: 'Produktet e kosinuseve bëhen shumë e kosinuseve të shumës dhe diferencës së këndeve.',
-                  formula: '\\cos A\\cos B = \\tfrac12\\bigl(\\cos(A+B)+\\cos(A-B)\\bigr)',
-                  calculation:
-                    '\\cos 3x\\cos 5x = \\tfrac12\\bigl(\\cos 8x+\\cos(-2x)\\bigr) = \\tfrac12(\\cos 8x+\\cos 2x)',
+                  id: "s1",
+                  title: "Plotësoni katrorin",
+                  why: "$x^{2}+2x+2=(x+1)^{2}+1$.",
+                  calculation: "x^{2}+2x+2=(x+1)^{2}+1",
                 },
                 {
-                  id: 's2',
-                  title: 'Integroni',
-                  why: 'Çdo kosinus integrohet me një faktor konstant.',
-                  calculation:
-                    '\\tfrac12\\int(\\cos 8x+\\cos 2x)\\,dx = \\tfrac{1}{16}\\sin 8x + \\tfrac{1}{4}\\sin 2x + C',
+                  id: "s2",
+                  title: "Vendosni $u=x+1$",
+                  why: "Atëherë $du=dx$.",
+                  calculation: "\\int\\frac{du}{u^{2}+1}=\\arctan u+C",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "$\\arctan(x+1)+C$.",
+                  calculation: "\\arctan(x+1)+C",
+                },
+              ],
+            },
+            {
+              id: "1.32",
+              title: "Formë logaritmike pas plotësimit të katrorit",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{2}+2x-1}$.",
+              goal: "Plotësoni katrorin për të arritur një diferencë katrorësh.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Plotësoni katrorin",
+                  why: "$x^{2}+2x-1=(x+1)^{2}-2$.",
+                  calculation: "x^{2}+2x-1=(x+1)^{2}-2",
+                },
+                {
+                  id: "s2",
+                  title: "Vendosni $u=x+1$",
+                  why: "$\\int\\frac{du}{u^{2}-(\\sqrt{2})^{2}}$.",
+                  formula: "\\int\\frac{du}{u^{2}-a^{2}}=\\frac{1}{2a}\\ln\\Bigl|\\frac{u-a}{u+a}\\Bigr|+C",
+                },
+                {
+                  id: "s3",
+                  title: "Finish",
+                  why: "$\\frac{1}{2\\sqrt{2}}\\ln\\bigl|\\frac{x+1-\\sqrt{2}}{x+1+\\sqrt{2}}\\bigr|+C$.",
+                  calculation: "\\frac{1}{2\\sqrt{2}}\\ln\\Bigl|\\frac{x+1-\\sqrt{2}}{x+1+\\sqrt{2}}\\Bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.33",
+              title: "Lineare mbi kuadratike",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{ax+b}{ax^{2}+bx+c}\\,dx$ when the coefficients match so the numerator is nearly the derivative of the denominator (general pattern with parameters $a,b,c$).",
+              goal: "Ndani në një pjesë derivat-i-emëruesit plus një mbetje si te ushtrimi 1.30.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Krahasoni me derivatin",
+                  why: "Derivati i $ax^{2}+bx+c$ is $2ax+b$. Rishkruani numëruesin as a multiple of that derivative plus a constant.",
+                  calculation: "ax+b=\\alpha(2ax+b)+\\beta",
+                },
+                {
+                  id: "s2",
+                  title: "Ndani integralin",
+                  why: "Një pjesë bëhet $\\alpha\\int\\frac{d(ax^{2}+bx+c)}{ax^{2}+bx+c}=\\alpha\\ln|ax^{2}+bx+c|$.",
+                },
+                {
+                  id: "s3",
+                  title: "Trajtoni mbetjen",
+                  why: "Konstantja e mbetur over the quadratic is reduced by completing the square exactly as in 1.30.",
+                  notes: "Ky është zbërthimi standard “log + arctan/log” decomposition for linear-over-quadratic integrands.",
+                },
+              ],
+            },
+            {
+              id: "1.34",
+              title: "Polinom mbi një kuadratike",
+              prompt: "Shpjegoni si të llogaritni $\\displaystyle \\int \\frac{P_{n}(x)}{ax^{2}+bx+c}\\,dx$ when $\\\\deg P_{n}\\\\ge 2$.",
+              goal: "Së pari pjesëtoni polinomet, pastaj integroni mbetjen e duhur.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtimi i polinomeve",
+                  why: "Shkruani $P_{n}(x)=Q_{n-2}(x)(ax^{2}+bx+c)+Rx+S$.",
+                  calculation: "\\frac{P_{n}(x)}{ax^{2}+bx+c}=Q_{n-2}(x)+\\frac{Rx+S}{ax^{2}+bx+c}",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni the quotient",
+                  why: "$\\int Q_{n-2}(x)\\,dx$ është shumë e integraleve tabelore të fuqive.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni the remainder",
+                  why: "Reduktoni $\\int\\frac{Rx+S}{ax^{2}+bx+c}\\,dx$ using the method of 1.33 / 1.30.",
+                  notes: "Pas pjesëtimit pjesa e vështirë is always linear-over-quadratic.",
+                },
+              ],
+            },
+            {
+              id: "1.35",
+              title: "Pjesëtim i gjatë pastaj plotësim i katrorit",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{6}+5x^{4}+7x^{2}+3x+9}{x^{2}+2x+6}\\,dx$ (book form with the given numerator/denominator pair).",
+              goal: "Pjesëtoni, integroni herësin polinomial, pastaj trajtoni mbetjen lineare.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni polinomet",
+                  why: "Merrni një herës të shkallës 4 plus a linear remainder over $x^{2}+2x+6$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni the quotient term by term",
+                  why: "Çdo fuqi integrohet me rregullën e fuqisë.",
+                },
+                {
+                  id: "s3",
+                  title: "Trajtoni mbetjen",
+                  why: "Plotësoni katrorin te $x^{2}+2x+6=(x+1)^{2}+5$ and finish with a logarithm and an arctangent.",
+                  notes: "Përgjigja përfundimtare e librit combines a polynomial, $\\ln(x^{2}+2x+6)$, and an $\\arctan$ term.",
+                },
+              ],
+            },
+            {
+              id: "1.36",
+              title: "Arksinus për $\\sqrt{4-x^{2}}$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\\\sqrt{4-x^{2}}}$.",
+              goal: "Njohni një integral të shkallëzuar të arksinusit.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Nxirrni 4 inside the root",
+                  why: "$\\sqrt{4-x^{2}}=2\\sqrt{1-(x/2)^{2}}$.",
+                  calculation: "\\int\\frac{dx}{2\\sqrt{1-(x/2)^{2}}}",
+                },
+                {
+                  id: "s2",
+                  title: "Vendosni $t=x/2$",
+                  why: "Atëherë $dx=2\\,dt$.",
+                  calculation: "\\int\\frac{dt}{\\sqrt{1-t^{2}}}=\\arcsin t+C",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "$\\arcsin(x/2)+C$.",
+                  calculation: "\\arcsin\\frac{x}{2}+C",
+                },
+              ],
+            },
+            {
+              id: "1.37",
+              title: "Arksinus për $\\sqrt{3-x^{2}}$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\\\sqrt{3-x^{2}}}$.",
+              goal: "I njëjti model me $a=\\sqrt{3}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Shkruani a scaled form",
+                  why: "$\\sqrt{3-x^{2}}=\\sqrt{3}\\sqrt{1-x^{2}/3}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësoni $t=x/\\sqrt{3}$",
+                  why: "Reduktoni to $\\int\\frac{dt}{\\sqrt{1-t^{2}}}$.",
+                  calculation: "\\arcsin\\frac{x}{\\sqrt{3}}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\frac{dx}{\\sqrt{3-x^{2}}}=\\arcsin\\frac{x}{\\sqrt{3}}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.38",
+              title: "Formë logaritmike për $\\sqrt{x^{2}+25}$",
+              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}+25}}$.",
+              goal: "Përdorni formulën standarde logaritmike / hiperbolike.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Njohni the table form",
+                  why: "$\\int\\frac{dx}{\\sqrt{x^{2}+a^{2}}}=\\ln\\bigl|x+\\sqrt{x^{2}+a^{2}}\\bigr|+C$ with $a=5$.",
+                  formula: "\\int\\frac{dx}{\\sqrt{x^{2}+a^{2}}}=\\ln\\bigl|x+\\sqrt{x^{2}+a^{2}}\\bigr|+C",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësoni $a=5$",
+                  why: "$\\ln\\bigl|x+\\sqrt{x^{2}+25}\\bigr|+C$.",
+                  calculation: "\\ln\\bigl|x+\\sqrt{x^{2}+25}\\bigr|+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\frac{dx}{\\sqrt{x^{2}+25}}=\\ln\\bigl|x+\\sqrt{x^{2}+25}\\bigr|+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.39",
+              title: "Formë logaritmike për $\\sqrt{x^{2}-3}$",
+              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}-3}}$.",
+              goal: "Përdorni formulën e tabelës për $\\sqrt{x^{2}-a^{2}}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Identifikoni $a=\\sqrt{3}$",
+                  why: "$\\int\\frac{dx}{\\sqrt{x^{2}-a^{2}}}=\\ln\\bigl|x+\\sqrt{x^{2}-a^{2}}\\bigr|+C$.",
+                },
+                {
+                  id: "s2",
+                  title: "Shkruani the answer",
+                  why: "$\\ln\\bigl|x+\\sqrt{x^{2}-3}\\bigr|+C$.",
+                  calculation: "\\ln\\bigl|x+\\sqrt{x^{2}-3}\\bigr|+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shënim për domenin",
+                  why: "Kjo formulë vlen për $|x|>\\sqrt{3}$.",
+                },
+              ],
+            },
+            {
+              id: "1.40",
+              title: "Familja $\\sqrt{ax^{2}+bx+c}$ (metoda)",
+              prompt: "Përshkruani si të llogaritni $\\displaystyle \\\\int \\\\sqrt{ax^{2}+bx+c}\\\\,dx$ (or $\\\\int\\\\frac{dx}{\\\\sqrt{ax^{2}+bx+c}}$) according to the sign of $a$ and $\\\\Delta$.",
+              goal: "Plotësoni katrorin dhe reduktoni te një nga tre format e tabelës.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Plotësoni katrorin",
+                  why: "Zhvendosni $x$ që the radicand becomes $A(t^{2}\\pm k^{2})$ or $A(k^{2}-t^{2})$.",
+                },
+                {
+                  id: "s2",
+                  title: "Zgjidhni formulën e tabelës",
+                  why: "Përdorni arksinusin për $k^{2}-t^{2}$, and log (or inverse hyperbolic) forms for $t^{2}\\pm k^{2}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "Ktheni zhvendosjen lineare $t=x+b/(2a)$.",
+                  notes: "Ushtrimi 1.40 në libër is the general template used by 1.36–1.39 and 1.41–1.42.",
+                },
+              ],
+            },
+            {
+              id: "1.41",
+              title: "Arksinus pas plotësimit të katrorit",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{-x^{2}+2x+3}}$.",
+              goal: "Plotësoni katrorin nën rrënjë, pastaj përdorni arksinusin.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Plotësoni katrorin",
+                  why: "$-x^{2}+2x+3=4-(x-1)^{2}$.",
+                  calculation: "-x^{2}+2x+3=4-(x-1)^{2}",
+                },
+                {
+                  id: "s2",
+                  title: "Vendosni $u=x-1$",
+                  why: "$\\int\\frac{du}{\\sqrt{4-u^{2}}}=\\arcsin(u/2)+C$.",
+                  calculation: "\\arcsin\\frac{x-1}{2}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\frac{dx}{\\sqrt{-x^{2}+2x+3}}=\\arcsin\\frac{x-1}{2}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.42",
+              title: "Logaritëm pas plotësimit të katrorit",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{x^{2}+2x+3}}$.",
+              goal: "Plotësoni katrorin te $(x+1)^{2}+2$, pastaj përdorni formulën logaritmike.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Plotësoni katrorin",
+                  why: "$x^{2}+2x+3=(x+1)^{2}+2$.",
+                },
+                {
+                  id: "s2",
+                  title: "Vendosni $u=x+1$",
+                  why: "$\\int\\frac{du}{\\sqrt{u^{2}+2}}=\\ln\\bigl|u+\\sqrt{u^{2}+2}\\bigr|+C$.",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "$\\ln\\bigl|x+1+\\sqrt{x^{2}+2x+3}\\bigr|+C$.",
+                  calculation: "\\ln\\bigl|x+1+\\sqrt{x^{2}+2x+3}\\bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.43",
+              title: "$(px+q)/\\sqrt{ax^{2}+bx+c}$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{px+q}{\\\\sqrt{ax^{2}+bx+c}}\\,dx$ for $a\\\\neq 0$, $p\\\\neq 0$.",
+              goal: "Ndani në një pjesë derivat-i-radikandit plus një konstante mbi rrënjë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Përputhni me derivatin e radikandit",
+                  why: "Shkruani $px+q=\\alpha(2ax+b)+\\beta$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrali i parë",
+                  why: "$\\alpha\\int\\frac{d(ax^{2}+bx+c)}{\\sqrt{ax^{2}+bx+c}}=2\\alpha\\sqrt{ax^{2}+bx+c}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrali i dytë",
+                  why: "$\\beta\\int\\frac{dx}{\\sqrt{ax^{2}+bx+c}}$ trajtohet duke plotësuar katrorin as in 1.40.",
+                  notes: "Ky është shoqëruesi of 1.33 for square-root denominators.",
+                },
+              ],
+            },
+            {
+              id: "1.44",
+              title: "Shembull konkret linear-mbi-rrënjë",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{3x+5}{\\\\sqrt{4x^{2}-2x+5}}\\,dx$.",
+              goal: "Ndani duke përdorur derivatin e $4x^{2}-2x+5$, pastaj plotësoni katrorin te mbetja.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Shkruani the numerator via the derivative",
+                  why: "$\\frac{d}{dx}(4x^{2}-2x+5)=8x-2$. Zgjidhni $3x+5=\\alpha(8x-2)+\\beta$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni the matched piece",
+                  why: "Prodhon një shumëfish të $\\sqrt{4x^{2}-2x+5}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni the constant remainder",
+                  why: "Complete the square under the root and finish with a logarithm (or arcsine, depending on sign).",
+                  notes: "Ndiqni të njëjtën algjebër as the book’s worked 1.44.",
+                },
+              ],
+            },
+            {
+              id: "1.45",
+              title: "Produkt në shumë për $\\sin ax\\cos bx$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              goal: "Ktheni produktin në shumë sinusesh, pastaj integroni.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Përdorni identitetin",
+                  why: "$\\sin A\\cos B=\\tfrac12\\bigl(\\sin(A+B)+\\sin(A-B)\\bigr)$.",
+                  formula: "\\sin A\\cos B=\\tfrac12\\bigl(\\sin(A+B)+\\sin(A-B)\\bigr)",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\tfrac12\\int\\sin((a+b)x)\\,dx+\\tfrac12\\int\\sin((a-b)x)\\,dx$.",
+                  calculation: "-\\frac{\\cos((a+b)x)}{2(a+b)}-\\frac{\\cos((a-b)x)}{2(a-b)}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "Vlen sa herë $a\\neq\\pm b$; the resonant cases $a=\\pm b$ are handled separately.",
+                },
+              ],
+            },
+            {
+              id: "1.46",
+              title: "Produkt në shumë për $\\cos ax\\cos bx$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\cos(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              goal: "Përdorni identitetin e produktit të kosinuseve.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Përdorni identitetin",
+                  why: "$\\cos A\\cos B=\\tfrac12\\bigl(\\cos(A+B)+\\cos(A-B)\\bigr)$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\frac{\\sin((a+b)x)}{2(a+b)}+\\frac{\\sin((a-b)x)}{2(a-b)}+C$.",
+                  calculation: "\\frac{\\sin((a+b)x)}{2(a+b)}+\\frac{\\sin((a-b)x)}{2(a-b)}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "Përsëri supozoni $a\\neq\\pm b$.",
+                },
+              ],
+            },
+            {
+              id: "1.47",
+              title: "$\\cos 3x\\cos 5x$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\cos 3x\\\\,\\\\cos 5x\\\\,dx$.",
+              goal: "Specializoni identitetin e mëparshëm.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Produkt në shumë",
+                  why: "$\\cos 3x\\cos 5x=\\tfrac12(\\cos 8x+\\cos 2x)$.",
+                  calculation: "\\cos 3x\\cos 5x=\\tfrac12(\\cos 8x+\\cos 2x)",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\tfrac{1}{16}\\sin 8x+\\tfrac{1}{4}\\sin 2x+C$.",
+                  calculation: "\\frac{\\sin 8x}{16}+\\frac{\\sin 2x}{4}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\cos 3x\\cos 5x\\,dx=\\frac{\\sin 8x}{16}+\\frac{\\sin 2x}{4}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.48",
+              title: "$\\sin 2x\\cos 3x$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin 2x\\\\,\\\\cos 3x\\\\,dx$.",
+              goal: "Përdorni $\\sin A\\cos B=\\tfrac12(\\sin(A+B)+\\sin(A-B))$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Ktheni në një shumë",
+                  why: "$\\sin 2x\\cos 3x=\\tfrac12(\\sin 5x+\\sin(-x))=\\tfrac12(\\sin 5x-\\sin x)$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$-\\frac{\\cos 5x}{10}+\\frac{\\cos x}{2}+C$.",
+                  calculation: "-\\frac{\\cos 5x}{10}+\\frac{\\cos x}{2}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\sin 2x\\cos 3x\\,dx=-\\frac{\\cos 5x}{10}+\\frac{\\cos x}{2}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.49",
+              title: "$\\sin 4x\\sin 7x$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin 4x\\\\,\\\\sin 7x\\\\,dx$.",
+              goal: "Përdorni identitetin e produktit të sinusëve.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Identiteti",
+                  why: "$\\sin A\\sin B=\\tfrac12\\bigl(\\cos(A-B)-\\cos(A+B)\\bigr)$.",
+                  calculation: "\\sin 4x\\sin 7x=\\tfrac12(\\cos 3x-\\cos 11x)",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\frac{\\sin 3x}{6}-\\frac{\\sin 11x}{22}+C$.",
+                  calculation: "\\frac{\\sin 3x}{6}-\\frac{\\sin 11x}{22}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\sin 4x\\sin 7x\\,dx=\\frac{\\sin 3x}{6}-\\frac{\\sin 11x}{22}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.50",
+              title: "$\\sin^{2}(3x)$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin^{2}(3x)\\\\,dx$.",
+              goal: "Përdorni identitetin e uljes së fuqisë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Ulni fuqinë",
+                  why: "$\\sin^{2}\\theta=\\frac{1-\\cos 2\\theta}{2}$ with $\\theta=3x$.",
+                  calculation: "\\sin^{2}(3x)=\\frac{1-\\cos 6x}{2}",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\frac{x}{2}-\\frac{\\sin 6x}{12}+C$.",
+                  calculation: "\\frac{x}{2}-\\frac{\\sin 6x}{12}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\sin^{2}(3x)\\,dx=\\frac{x}{2}-\\frac{\\sin 6x}{12}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.51",
+              title: "$\\cos^{2}(4x)$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\cos^{2}(4x)\\\\,dx$.",
+              goal: "Përdorni $\\cos^{2}\\theta=\\frac{1+\\cos 2\\theta}{2}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Ulni fuqinë",
+                  why: "$\\cos^{2}(4x)=\\frac{1+\\cos 8x}{2}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\frac{x}{2}+\\frac{\\sin 8x}{16}+C$.",
+                  calculation: "\\frac{x}{2}+\\frac{\\sin 8x}{16}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\cos^{2}(4x)\\,dx=\\frac{x}{2}+\\frac{\\sin 8x}{16}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.52",
+              title: "Integrali i $a^{\\ln x}$ / lidhur me logaritmin",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{a^{\\\\ln x}}{x}\\\\,dx$ for $a>0$, $a\\\\neq 1$ (equivalently treat $\\\\int a^{\\\\ln x}\\\\frac{dx}{x}$).",
+              goal: "Zëvendësoni $t=\\ln x$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Vendosni $t=\\ln x$",
+                  why: "Atëherë $dt=dx/x$.",
+                  calculation: "\\int a^{t}\\,dt",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni the exponential",
+                  why: "$\\frac{a^{t}}{\\ln a}+C$ kur $a\\neq 1$.",
+                  calculation: "\\frac{a^{\\ln x}}{\\ln a}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Rasti i veçantë $a=1$",
+                  why: "Nëse $a=1$ integranda është $1/x$ and the answer is $\\ln|x|+C$.",
+                  notes: "Libri i regjistron të dy the $a\\neq 1$ and $a=1$ cases.",
+                },
+              ],
+            },
+            {
+              id: "1.53",
+              title: "Zëvendësim për modelin $x^{2}/(1+x^{4})$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+1}\\\\,dx$ (equivalently the book’s split of related $x^{4}\\\\pm 1$ forms).",
+              goal: "Pjesëtoni me $x^{2}$ / përdorni zëvendësime të tipit $t=x-1/x$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni numëruesin dhe emëruesin me $x^{2}$",
+                  why: "Përgatitni një zëvendësim $t=x-\\frac{1}{x}$ or $t=x+\\frac{1}{x}$.",
+                  calculation: "\\int\\frac{1+\\frac{1}{x^{2}}}{x^{2}+\\frac{1}{x^{2}}}\\,dx",
+                },
+                {
+                  id: "s2",
+                  title: "Vendosni $t=x-1/x$",
+                  why: "Atëherë $dt=(1+1/x^{2})\\,dx$ and $x^{2}+1/x^{2}=t^{2}+2$.",
+                },
+                {
+                  id: "s3",
+                  title: "Përfundoni me arktangent",
+                  why: "$\\int\\frac{dt}{t^{2}+2}=\\frac{1}{\\sqrt{2}}\\arctan\\frac{t}{\\sqrt{2}}+C$, then return to $x$.",
+                  notes: "Ky është zbërthimi standard “$t=x\\pm 1/x$” trick featured in 1.53–1.55.",
+                },
+              ],
+            },
+            {
+              id: "1.54",
+              title: "Shoqëruesi $t=x+1/x$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{x^{2}-1}{x^{4}+1}\\\\,dx$ using $t=x+\\\\frac{1}{x}$.",
+              goal: "Pasqyroni metodën e mëparshme me zëvendësimin plus.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni me $x^{2}$",
+                  why: "$\\int\\frac{1-1/x^{2}}{x^{2}+1/x^{2}}\\,dx$.",
+                },
+                {
+                  id: "s2",
+                  title: "Vendosni $t=x+1/x$",
+                  why: "Atëherë $dt=(1-1/x^{2})\\,dx$ and $x^{2}+1/x^{2}=t^{2}-2$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "$\\int\\frac{dt}{t^{2}-2}$ është logaritmike; kthehuni te $x$.",
+                  calculation: "\\frac{1}{2\\sqrt{2}}\\ln\\Bigl|\\frac{t-\\sqrt{2}}{t+\\sqrt{2}}\\Bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.55",
+              title: "Reduktim më i vështirë $x\\pm 1/x$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+x^{3}-x+1}\\\\,dx$ (book denominator of similar shape).",
+              goal: "Faktorizoni ose rishkruani për të mundësuar $t=x-1/x$, pastaj përfundoni me arktangent.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni me $x^{2}$ and rearrange",
+                  why: "Synoni një shprehje në $x-1/x$.",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësoni $t=x-1/x$",
+                  why: "Integrali bëhet rational in $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Plotësoni dhe integroni",
+                  why: "Reduktoni to an arctangent (as in the book’s final $\\arctan$ expression).",
+                  notes: "Ndiqni algjebrën në PDF solution for the precise coefficients.",
+                },
+              ],
+            },
+            {
+              id: "1.56",
+              title: "Zëvendësim trigonometrik për $\\sqrt{b^{2}-a^{2}x^{2}}$",
+              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sqrt{b^{2}-a^{2}x^{2}}\\\\,dx$ for $a,b>0$.",
+              goal: "Përdorni $ax=b\\sin u$ (ose $t=ax/b$ pastaj $t=\\sin u$).",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rishkallëzoni",
+                  why: "Shkruani $\\sqrt{b^{2}-a^{2}x^{2}}=b\\sqrt{1-(ax/b)^{2}}$ and set $t=ax/b$.",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësim trigonometrik",
+                  why: "Lejoni $t=\\sin u$, so $\\sqrt{1-t^{2}}=\\cos u$ and $dt=\\cos u\\,du$.",
+                  calculation: "\\int\\sqrt{1-t^{2}}\\,dt=\\int\\cos^{2}u\\,du",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni $\\cos^{2}u$",
+                  why: "Përdorni $\\cos^{2}u=\\frac{1+\\cos 2u}{2}$, then return to $t$ and $x$.",
+                  formula: "\\int\\sqrt{b^{2}-a^{2}x^{2}}\\,dx=\\frac{x}{2}\\sqrt{b^{2}-a^{2}x^{2}}+\\frac{b^{2}}{2a}\\arcsin\\frac{ax}{b}+C",
+                  notes: "Kjo përputhet me përzierjen përfundimtare të librit of algebraic and arcsine terms.",
                 },
               ],
             },
@@ -757,7 +1386,7 @@ export const integrationCourseSq: Course = {
             'Polinom × log, eksponenciale ose trig — derivoni faktorin që thjeshtohet.',
           examples: [
             {
-              id: 'ex-1-57',
+              id: '1.57',
               title: 'Integrimi i $x\\ln x$',
               prompt: 'Llogaritni $\\displaystyle \\int x\\ln x\\,dx$.',
               goal: 'Lejoni $u=\\ln x$ që derivimi të heqë logaritmin.',
@@ -784,7 +1413,7 @@ export const integrationCourseSq: Course = {
               ],
             },
             {
-              id: 'ex-1-58',
+              id: '1.58',
               title: 'Integrimi i $x e^{x}$',
               prompt: 'Llogaritni $\\displaystyle \\int x e^{x}\\,dx$.',
               goal: 'Derivoni faktorin polinomial dhe integroni eksponencialen.',
@@ -804,7 +1433,7 @@ export const integrationCourseSq: Course = {
               ],
             },
             {
-              id: 'ex-1-60',
+              id: '1.60',
               title: 'Integrimi i $x\\sin x$',
               prompt: 'Llogaritni $\\displaystyle \\int x\\sin x\\,dx$.',
               goal: 'Ushtroni pjesët me një faktor trigonometrik si $dv$.',
@@ -823,26 +1452,8 @@ export const integrationCourseSq: Course = {
                 },
               ],
             },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'parts-applications',
-      number: 5,
-      title: 'Zbatime të Integrimit me Pjesë',
-      description:
-        'Pjesë të përsëritura, ide redukimi dhe integrale që përziejnë radikalet me polinomet.',
-      exercises: '1.69–1.81',
-      sections: [
-        {
-          id: 'parts-advanced',
-          title: 'Pjesë të përsëritura dhe forma të përziera',
-          summary:
-            'Kur një hap me pjesë nuk mjafton, përsëritni metodën ose rirregulloni ekuacionin.',
-          examples: [
-            {
-              id: 'ex-1-61',
+{
+              id: '1.61',
               title: 'Pjesë dy herë për $x^{2}\\cos x$',
               prompt: 'Llogaritni $\\displaystyle \\int x^{2}\\cos x\\,dx$.',
               goal: 'Ulni shkallën e polinomit me dy aplikime të pjesëve.',
@@ -863,8 +1474,8 @@ export const integrationCourseSq: Course = {
                 },
               ],
             },
-            {
-              id: 'ex-1-63',
+{
+              id: '1.63',
               title: 'Eksponenciale × sinus',
               prompt: 'Llogaritni $\\displaystyle \\int e^{x}\\sin x\\,dx$.',
               goal: 'Përdorni pjesët dy herë dhe zgjidhni për integralin fillestar.',
@@ -891,6 +1502,24 @@ export const integrationCourseSq: Course = {
                 },
               ],
             },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'parts-applications',
+      number: 5,
+      title: 'Zbatime të Integrimit me Pjesë',
+      description:
+        'Pjesë të përsëritura, ide redukimi dhe integrale që përziejnë radikalet me polinomet.',
+      exercises: '1.69–1.81',
+      sections: [
+        {
+          id: 'parts-advanced',
+          title: 'Pjesë të përsëritura dhe forma të përziera',
+          summary:
+            'Kur një hap me pjesë nuk mjafton, përsëritni metodën ose rirregulloni ekuacionin.',
+          examples: [
           ],
         },
       ],
