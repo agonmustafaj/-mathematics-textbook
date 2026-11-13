@@ -1612,7 +1612,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.66",
-              title: "Pjesë për $x^{2}/\\\\sqrt{1-x^{2}}$",
+              title: "Pjesë për $x^{2}/\\sqrt{1-x^{2}}$",
               prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}}{\\sqrt{1-x^{2}}}\\,dx$.",
               goal: "Shkruani $x^{2}=1-(1-x^{2})$ dhe/ose përdorni pjesët me zëvendësim trigonometrik.",
               steps: [
@@ -1636,7 +1636,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.67",
-              title: "$\\\\int\\\\sqrt{b^{2}-a^{2}x^{2}}\\\\,dx$ me pjesë",
+              title: "$\\int\\sqrt{b^{2}-a^{2}x^{2}}\\,dx$ me pjesë",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{b^{2}-a^{2}x^{2}}\\,dx$ për $a,b>0$.",
               goal: "Rishkallëzoni, pastaj përdorni pjesët (ose zëvendësim trig) për të marrë përzierjen standarde të termave algjebrikë dhe arcsinus.",
               steps: [
@@ -1648,7 +1648,7 @@ export const integrationCourseSq: Course = {
                 {
                   id: "s2",
                   title: "Integroni $\\sqrt{1-t^{2}}$",
-                  why: "Përdorni pjesë me $u=\\sqrt{1-t^{2}}$, $dv=dt$, ose zëvendësimin $t=\\\\sin\\\\theta$.",
+                  why: "Përdorni pjesë me $u=\\sqrt{1-t^{2}}$, $dv=dt$, ose zëvendësimin $t=\\sin\\theta$.",
                 },
                 {
                   id: "s3",
@@ -1702,7 +1702,7 @@ export const integrationCourseSq: Course = {
           examples: [
             {
               id: "1.69",
-              title: "$\\\\int\\\\sqrt{a^{2}x^{2}\\\\pm b^{2}}\\\\,dx$",
+              title: "$\\int\\sqrt{a^{2}x^{2}\\pm b^{2}}\\,dx$",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{a^{2}x^{2}\\pm b^{2}}\\,dx$ për $a,b>0$.",
               goal: "Rishkallëzoni dhe përdorni pjesët / formulën standarde me log.",
               steps: [
@@ -1714,7 +1714,7 @@ export const integrationCourseSq: Course = {
                 {
                   id: "s2",
                   title: "Integroni $\\sqrt{t^{2}\\pm 1}$",
-                  why: "Pjesë me $u=\\\\sqrt{t^{2}\\\\pm 1}$ jep një term log plus $\\\\tfrac12 t\\\\sqrt{t^{2}\\\\pm 1}$.",
+                  why: "Pjesë me $u=\\sqrt{t^{2}\\pm 1}$ jep një term log plus $\\tfrac12 t\\sqrt{t^{2}\\pm 1}$.",
                 },
                 {
                   id: "s3",
@@ -1725,7 +1725,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.70",
-              title: "$\\\\int\\\\sqrt{4-x^{2}}\\\\,dx$",
+              title: "$\\int\\sqrt{4-x^{2}}\\,dx$",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{4-x^{2}}\\,dx$.",
               goal: "Përdorni formulën e rrethit / zëvendësimin $x=2\\sin\\theta$.",
               steps: [
@@ -1749,7 +1749,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.71",
-              title: "$\\\\int\\\\sqrt{3-x^{2}}\\\\,dx$",
+              title: "$\\int\\sqrt{3-x^{2}}\\,dx$",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{3-x^{2}}\\,dx$.",
               goal: "E njëjta familje me $a=\\sqrt{3}$.",
               steps: [
@@ -1773,7 +1773,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.72",
-              title: "$\\\\int\\\\sqrt{x^{2}+16}\\\\,dx$",
+              title: "$\\int\\sqrt{x^{2}+16}\\,dx$",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{x^{2}+16}\\,dx$.",
               goal: "Përdorni formën hiperbolike / log për $\\sqrt{x^{2}+a^{2}}$.",
               steps: [
@@ -1797,7 +1797,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.73",
-              title: "$\\\\int\\\\sqrt{x^{2}-3}\\\\,dx$",
+              title: "$\\int\\sqrt{x^{2}-3}\\,dx$",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{x^{2}-3}\\,dx$.",
               goal: "Përdorni formën log për $\\sqrt{x^{2}-a^{2}}$.",
               steps: [
@@ -1821,8 +1821,8 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.74",
-              title: "$\\\\int\\\\sqrt{ax^{2}+bx+c}\\\\,dx$ (metoda)",
-              prompt: "Përshkruani si të llogaritni $\\displaystyle \\int \\sqrt{ax^{2}+bx+c}\\,dx$ për $a\\\\neq 0$.",
+              title: "$\\int\\sqrt{ax^{2}+bx+c}\\,dx$ (metoda)",
+              prompt: "Përshkruani si të llogaritni $\\displaystyle \\int \\sqrt{ax^{2}+bx+c}\\,dx$ për $a\\neq 0$.",
               goal: "Plotësoni katrorin dhe reduktoni në një nga tre integralet standarde me rrënjë.",
               steps: [
                 {
@@ -1845,7 +1845,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.75",
-              title: "Shembull konkret $\\\\sqrt{-x^{2}+5x-3}$",
+              title: "Shembull konkret $\\sqrt{-x^{2}+5x-3}$",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{-x^{2}+5x-3}\\,dx$.",
               goal: "Plotësoni katrorin nën rrënjë, pastaj përdorni formulën $\\sqrt{a^{2}-t^{2}}$.",
               steps: [
@@ -1868,7 +1868,7 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.76",
-              title: "Shembull konkret $\\\\sqrt{x^{2}+4x+3}$",
+              title: "Shembull konkret $\\sqrt{x^{2}+4x+3}$",
               prompt: "Llogaritni $\\displaystyle \\int \\sqrt{x^{2}+4x+3}\\,dx$.",
               goal: "Plotësoni katrorin në $(x+2)^{2}-1$, pastaj përdorni formulën $\\sqrt{t^{2}-a^{2}}$.",
               steps: [
@@ -1892,7 +1892,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.77",
               title: "Reduktim për $(ax^{2}+b)^{-n}$",
-              prompt: "Derivoni një qasje reduktoni për $\\displaystyle I_{n}=\\\\int \\\\frac{dx}{(ax^{2}+b)^{n}}$.",
+              prompt: "Derivoni një qasje reduktoni për $\\displaystyle I_{n}=\\int \\frac{dx}{(ax^{2}+b)^{n}}$.",
               goal: "Përdorni pjesët për të lidhur $I_{n}$ me $I_{n-1}$.",
               steps: [
                 {
@@ -1908,7 +1908,7 @@ export const integrationCourseSq: Course = {
                 {
                   id: "s3",
                   title: "Rasti bazë",
-                  why: "Kur $n=1$, $I_{1}=\\frac{1}{\\sqrt{ab}}\\\\arctan\\\\bigl(x\\\\sqrt{a/b}\\\\bigr)$ (për $a,b>0$), ose formë log nëse shenjat ndryshojnë.",
+                  why: "Kur $n=1$, $I_{1}=\\frac{1}{\\sqrt{ab}}\\arctan\\bigl(x\\sqrt{a/b}\\bigr)$ (për $a,b>0$), ose formë log nëse shenjat ndryshojnë.",
                   notes: "Përsëritni reduktimin derisa të arrini $I_{1}$.",
                 },
               ],
@@ -1916,7 +1916,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.78",
               title: "Reduktim për $(ax^{2}+bx+c)^{-n}$",
-              prompt: "Përshkruani si të llogaritni $\\displaystyle \\\\int \\\\frac{dx}{(ax^{2}+bx+c)^{n}}$.",
+              prompt: "Përshkruani si të llogaritni $\\displaystyle \\int \\frac{dx}{(ax^{2}+bx+c)^{n}}$.",
               goal: "Plotësoni katrorin, pastaj zbatoni reduktimin e 1.77.",
               steps: [
                 {
@@ -1939,36 +1939,36 @@ export const integrationCourseSq: Course = {
             {
               id: "1.79",
               title: "Numërues linear mbi $(ax^{2}+bx+c)^{n}$",
-              prompt: "Llogaritni integrale të formës $\\displaystyle \\\\int \\\\frac{ax+b}{(ax^{2}+bx+c)^{n}}\\,dx$.",
+              prompt: "Llogaritni integrale të formës $\\displaystyle \\int \\frac{ax+b}{(ax^{2}+bx+c)^{n}}\\,dx$.",
               goal: "Ndajeni në një pjesë derivati-i-emëruesit plus një konstante mbi një fuqi.",
               steps: [
                 {
                   id: "s1",
                   title: "Përputhni derivatin",
-                  why: "Shkruani $ax+b=\\\\alpha(2ax+b)+\\\\beta$.",
+                  why: "Shkruani $ax+b=\\alpha(2ax+b)+\\beta$.",
                 },
                 {
                   id: "s2",
                   title: "Pjesa e parë",
-                  why: "$\\\\alpha\\\\int (ax^{2}+bx+c)^{-n}d(ax^{2}+bx+c)$ është integral fuqie në kuadratike.",
+                  why: "$\\alpha\\int (ax^{2}+bx+c)^{-n}d(ax^{2}+bx+c)$ është integral fuqie në kuadratike.",
                 },
                 {
                   id: "s3",
                   title: "Mbetja",
-                  why: "$\\\\beta\\\\int (ax^{2}+bx+c)^{-n}\\\\,dx$ trajtohet me 1.78.",
+                  why: "$\\beta\\int (ax^{2}+bx+c)^{-n}\\,dx$ trajtohet me 1.78.",
                 },
               ],
             },
             {
               id: "1.80",
               title: "Shembull konkret me fuqi racionale",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{3x+5}{(4x^{2}+7x-3)^{3}}\\,dx$ (koeficientë të kësaj forme në libër).",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{3x+5}{(4x^{2}+7x-3)^{3}}\\,dx$ (koeficientë të kësaj forme në libër).",
               goal: "Zbatoni ndarjen e 1.79, pastaj reduktoni fuqinë e mbetur.",
               steps: [
                 {
                   id: "s1",
                   title: "Përputhni $8x+7$",
-                  why: "Derivati i $4x^{2}+7x-3$ është $8x+7$; zgjidhni $3x+5=\\\\alpha(8x+7)+\\\\beta$.",
+                  why: "Derivati i $4x^{2}+7x-3$ është $8x+7$; zgjidhni $3x+5=\\alpha(8x+7)+\\beta$.",
                 },
                 {
                   id: "s2",
@@ -1984,25 +1984,25 @@ export const integrationCourseSq: Course = {
             },
             {
               id: "1.81",
-              title: "Reduktim për $\\\\int\\\\sin^{n}x\\\\,dx$",
-              prompt: "Derivoni formulën e reduktimit për $\\displaystyle I_{n}=\\\\int \\\\sin^{n}x\\,dx$.",
+              title: "Reduktim për $\\int\\sin^{n}x\\,dx$",
+              prompt: "Derivoni formulën e reduktimit për $\\displaystyle I_{n}=\\int \\sin^{n}x\\,dx$.",
               goal: "Shkruani $\\sin^{n}x=\\sin^{n-1}x\\sin x$ dhe integroni me pjesë.",
               steps: [
                 {
                   id: "s1",
                   title: "Vendosni pjesët",
-                  why: "Le të jetë $u=\\\\sin^{n-1}x$, $dv=\\\\sin x\\\\,dx$, pra $du=(n-1)\\\\sin^{n-2}x\\\\cos x\\\\,dx$, $v=-\\\\cos x$.",
+                  why: "Le të jetë $u=\\sin^{n-1}x$, $dv=\\sin x\\,dx$, pra $du=(n-1)\\sin^{n-2}x\\cos x\\,dx$, $v=-\\cos x$.",
                 },
                 {
                   id: "s2",
                   title: "Rirregulloni",
-                  why: "Merrni $I_{n}=-\\\\frac{\\\\sin^{n-1}x\\\\cos x}{n}+\\\\frac{n-1}{n}I_{n-2}$.",
+                  why: "Merrni $I_{n}=-\\frac{\\sin^{n-1}x\\cos x}{n}+\\frac{n-1}{n}I_{n-2}$.",
                   formula: "I_{n}=-\\frac{\\sin^{n-1}x\\cos x}{n}+\\frac{n-1}{n}I_{n-2}",
                 },
                 {
                   id: "s3",
                   title: "Përsëritni",
-                  why: "Përsëritni derisa të arrini $I_{0}=\\\\int dx=x$ ose $I_{1}=\\\\int\\\\sin x\\\\,dx=-\\\\cos x$.",
+                  why: "Përsëritni derisa të arrini $I_{0}=\\int dx=x$ ose $I_{1}=\\int\\sin x\\,dx=-\\cos x$.",
                   notes: "Ky është reduktimi klasik i tipit Wallis për fuqitë e sinusit.",
                 },
               ],

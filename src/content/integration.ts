@@ -1612,7 +1612,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.66",
-              title: "Parts for $x^{2}/\\\\sqrt{1-x^{2}}$",
+              title: "Parts for $x^{2}/\\sqrt{1-x^{2}}$",
               prompt: "Evaluate $\\displaystyle \\int \\frac{x^{2}}{\\sqrt{1-x^{2}}}\\,dx$.",
               goal: "Write $x^{2}=1-(1-x^{2})$ and/or use parts with a trig substitution outlook.",
               steps: [
@@ -1636,7 +1636,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.67",
-              title: "$\\\\int\\\\sqrt{b^{2}-a^{2}x^{2}}\\\\,dx$ via parts",
+              title: "$\\int\\sqrt{b^{2}-a^{2}x^{2}}\\,dx$ via parts",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{b^{2}-a^{2}x^{2}}\\,dx$ for $a,b>0$.",
               goal: "Rescale, then use parts (or trig sub) to obtain the standard mix of algebraic and arcsine terms.",
               steps: [
@@ -1648,7 +1648,7 @@ export const integrationCourse: Course = {
                 {
                   id: "s2",
                   title: "Integrate $\\sqrt{1-t^{2}}$",
-                  why: "Use parts with $u=\\sqrt{1-t^{2}}$, $dv=dt$, or the trig substitution $t=\\\\sin\\\\theta$.",
+                  why: "Use parts with $u=\\sqrt{1-t^{2}}$, $dv=dt$, or the trig substitution $t=\\sin\\theta$.",
                 },
                 {
                   id: "s3",
@@ -1702,7 +1702,7 @@ export const integrationCourse: Course = {
           examples: [
             {
               id: "1.69",
-              title: "$\\\\int\\\\sqrt{a^{2}x^{2}\\\\pm b^{2}}\\\\,dx$",
+              title: "$\\int\\sqrt{a^{2}x^{2}\\pm b^{2}}\\,dx$",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{a^{2}x^{2}\\pm b^{2}}\\,dx$ for $a,b>0$.",
               goal: "Rescale and use parts / the standard log formula.",
               steps: [
@@ -1714,7 +1714,7 @@ export const integrationCourse: Course = {
                 {
                   id: "s2",
                   title: "Integrate $\\sqrt{t^{2}\\pm 1}$",
-                  why: "Parts with $u=\\\\sqrt{t^{2}\\\\pm 1}$ yields a log term plus $\\\\tfrac12 t\\\\sqrt{t^{2}\\\\pm 1}$.",
+                  why: "Parts with $u=\\sqrt{t^{2}\\pm 1}$ yields a log term plus $\\tfrac12 t\\sqrt{t^{2}\\pm 1}$.",
                 },
                 {
                   id: "s3",
@@ -1725,7 +1725,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.70",
-              title: "$\\\\int\\\\sqrt{4-x^{2}}\\\\,dx$",
+              title: "$\\int\\sqrt{4-x^{2}}\\,dx$",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{4-x^{2}}\\,dx$.",
               goal: "Use the circle formula / trig sub $x=2\\sin\\theta$.",
               steps: [
@@ -1749,7 +1749,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.71",
-              title: "$\\\\int\\\\sqrt{3-x^{2}}\\\\,dx$",
+              title: "$\\int\\sqrt{3-x^{2}}\\,dx$",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{3-x^{2}}\\,dx$.",
               goal: "Same family with $a=\\sqrt{3}$.",
               steps: [
@@ -1773,7 +1773,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.72",
-              title: "$\\\\int\\\\sqrt{x^{2}+16}\\\\,dx$",
+              title: "$\\int\\sqrt{x^{2}+16}\\,dx$",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{x^{2}+16}\\,dx$.",
               goal: "Use the hyperbolic / log form for $\\sqrt{x^{2}+a^{2}}$.",
               steps: [
@@ -1797,7 +1797,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.73",
-              title: "$\\\\int\\\\sqrt{x^{2}-3}\\\\,dx$",
+              title: "$\\int\\sqrt{x^{2}-3}\\,dx$",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{x^{2}-3}\\,dx$.",
               goal: "Use the log form for $\\sqrt{x^{2}-a^{2}}$.",
               steps: [
@@ -1821,8 +1821,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.74",
-              title: "$\\\\int\\\\sqrt{ax^{2}+bx+c}\\\\,dx$ (method)",
-              prompt: "Describe how to evaluate $\\displaystyle \\int \\sqrt{ax^{2}+bx+c}\\,dx$ for $a\\\\neq 0$.",
+              title: "$\\int\\sqrt{ax^{2}+bx+c}\\,dx$ (method)",
+              prompt: "Describe how to evaluate $\\displaystyle \\int \\sqrt{ax^{2}+bx+c}\\,dx$ for $a\\neq 0$.",
               goal: "Complete the square and reduce to one of the three standard radical integrals.",
               steps: [
                 {
@@ -1845,7 +1845,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.75",
-              title: "Concrete $\\\\sqrt{-x^{2}+5x-3}$ style",
+              title: "Concrete $\\sqrt{-x^{2}+5x-3}$ style",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{-x^{2}+5x-3}\\,dx$.",
               goal: "Complete the square under the root, then use the $\\sqrt{a^{2}-t^{2}}$ formula.",
               steps: [
@@ -1868,7 +1868,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.76",
-              title: "Concrete $\\\\sqrt{x^{2}+4x+3}$",
+              title: "Concrete $\\sqrt{x^{2}+4x+3}$",
               prompt: "Evaluate $\\displaystyle \\int \\sqrt{x^{2}+4x+3}\\,dx$.",
               goal: "Complete the square to $(x+2)^{2}-1$, then use the $\\sqrt{t^{2}-a^{2}}$ formula.",
               steps: [
@@ -1892,7 +1892,7 @@ export const integrationCourse: Course = {
             {
               id: "1.77",
               title: "Reduction for $(ax^{2}+b)^{-n}$",
-              prompt: "Derive a reduction approach for $\\displaystyle I_{n}=\\\\int \\\\frac{dx}{(ax^{2}+b)^{n}}$.",
+              prompt: "Derive a reduction approach for $\\displaystyle I_{n}=\\int \\frac{dx}{(ax^{2}+b)^{n}}$.",
               goal: "Use parts to relate $I_{n}$ to $I_{n-1}$.",
               steps: [
                 {
@@ -1908,7 +1908,7 @@ export const integrationCourse: Course = {
                 {
                   id: "s3",
                   title: "Base case",
-                  why: "When $n=1$, $I_{1}=\\frac{1}{\\sqrt{ab}}\\\\arctan\\\\bigl(x\\\\sqrt{a/b}\\\\bigr)$ (for $a,b>0$), or a log form if signs differ.",
+                  why: "When $n=1$, $I_{1}=\\frac{1}{\\sqrt{ab}}\\arctan\\bigl(x\\sqrt{a/b}\\bigr)$ (for $a,b>0$), or a log form if signs differ.",
                   notes: "Iterate the reduction until you reach $I_{1}$.",
                 },
               ],
@@ -1916,7 +1916,7 @@ export const integrationCourse: Course = {
             {
               id: "1.78",
               title: "Reduction for $(ax^{2}+bx+c)^{-n}$",
-              prompt: "Describe how to evaluate $\\displaystyle \\\\int \\\\frac{dx}{(ax^{2}+bx+c)^{n}}$.",
+              prompt: "Describe how to evaluate $\\displaystyle \\int \\frac{dx}{(ax^{2}+bx+c)^{n}}$.",
               goal: "Complete the square, then apply the reduction of 1.77.",
               steps: [
                 {
@@ -1939,36 +1939,36 @@ export const integrationCourse: Course = {
             {
               id: "1.79",
               title: "Linear numerator over $(ax^{2}+bx+c)^{n}$",
-              prompt: "Evaluate integrals of the form $\\displaystyle \\\\int \\\\frac{ax+b}{(ax^{2}+bx+c)^{n}}\\,dx$.",
+              prompt: "Evaluate integrals of the form $\\displaystyle \\int \\frac{ax+b}{(ax^{2}+bx+c)^{n}}\\,dx$.",
               goal: "Split into a derivative-of-denominator piece plus a constant over a power.",
               steps: [
                 {
                   id: "s1",
                   title: "Match the derivative",
-                  why: "Write $ax+b=\\\\alpha(2ax+b)+\\\\beta$.",
+                  why: "Write $ax+b=\\alpha(2ax+b)+\\beta$.",
                 },
                 {
                   id: "s2",
                   title: "First piece",
-                  why: "$\\\\alpha\\\\int (ax^{2}+bx+c)^{-n}d(ax^{2}+bx+c)$ is a power integral in the quadratic.",
+                  why: "$\\alpha\\int (ax^{2}+bx+c)^{-n}d(ax^{2}+bx+c)$ is a power integral in the quadratic.",
                 },
                 {
                   id: "s3",
                   title: "Remainder",
-                  why: "$\\\\beta\\\\int (ax^{2}+bx+c)^{-n}\\\\,dx$ is handled by 1.78.",
+                  why: "$\\beta\\int (ax^{2}+bx+c)^{-n}\\,dx$ is handled by 1.78.",
                 },
               ],
             },
             {
               id: "1.80",
               title: "Concrete rational power example",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{3x+5}{(4x^{2}+7x-3)^{3}}\\,dx$ (book coefficients of this shape).",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{3x+5}{(4x^{2}+7x-3)^{3}}\\,dx$ (book coefficients of this shape).",
               goal: "Apply the split of 1.79, then reduce the remaining power.",
               steps: [
                 {
                   id: "s1",
                   title: "Match $8x+7$",
-                  why: "The derivative of $4x^{2}+7x-3$ is $8x+7$; solve $3x+5=\\\\alpha(8x+7)+\\\\beta$.",
+                  why: "The derivative of $4x^{2}+7x-3$ is $8x+7$; solve $3x+5=\\alpha(8x+7)+\\beta$.",
                 },
                 {
                   id: "s2",
@@ -1984,25 +1984,25 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.81",
-              title: "Reduction for $\\\\int\\\\sin^{n}x\\\\,dx$",
-              prompt: "Derive the reduction formula for $\\displaystyle I_{n}=\\\\int \\\\sin^{n}x\\\\,dx$.",
+              title: "Reduction for $\\int\\sin^{n}x\\,dx$",
+              prompt: "Derive the reduction formula for $\\displaystyle I_{n}=\\int \\sin^{n}x\\,dx$.",
               goal: "Write $\\sin^{n}x=\\sin^{n-1}x\\sin x$ and integrate by parts.",
               steps: [
                 {
                   id: "s1",
                   title: "Set up parts",
-                  why: "Let $u=\\\\sin^{n-1}x$, $dv=\\\\sin x\\\\,dx$, so $du=(n-1)\\\\sin^{n-2}x\\\\cos x\\\\,dx$, $v=-\\\\cos x$.",
+                  why: "Let $u=\\sin^{n-1}x$, $dv=\\sin x\\,dx$, so $du=(n-1)\\sin^{n-2}x\\cos x\\,dx$, $v=-\\cos x$.",
                 },
                 {
                   id: "s2",
                   title: "Rearrange",
-                  why: "Obtain $I_{n}=-\\\\frac{\\\\sin^{n-1}x\\\\cos x}{n}+\\\\frac{n-1}{n}I_{n-2}$.",
+                  why: "Obtain $I_{n}=-\\frac{\\sin^{n-1}x\\cos x}{n}+\\frac{n-1}{n}I_{n-2}$.",
                   formula: "I_{n}=-\\frac{\\sin^{n-1}x\\cos x}{n}+\\frac{n-1}{n}I_{n-2}",
                 },
                 {
                   id: "s3",
                   title: "Iterate",
-                  why: "Repeat until you reach $I_{0}=\\\\int dx=x$ or $I_{1}=\\\\int\\\\sin x\\\\,dx=-\\\\cos x$.",
+                  why: "Repeat until you reach $I_{0}=\\int dx=x$ or $I_{1}=\\int\\sin x\\,dx=-\\cos x$.",
                   notes: "This is the classic wallis-style reduction for sine powers.",
                 },
               ],
