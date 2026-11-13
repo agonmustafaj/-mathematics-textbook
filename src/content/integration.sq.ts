@@ -474,7 +474,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.21",
               title: "Eksponencialja e $x^{4}$",
-              prompt: "Llogaritni $\\displaystyle \\int x^{3} a^{x^{4}}\\,dx$ për $a>0$, $a\\\\neq 1$.",
+              prompt: "Llogaritni $\\displaystyle \\int x^{3} a^{x^{4}}\\,dx$ për $a>0$, $a\\neq 1$.",
               goal: "Lejoni $u=x^{4}$ që $du$ të përputhet me $x^{3}\\,dx$.",
               steps: [
                 {
@@ -499,7 +499,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.22",
               title: "Model logaritmik trigonometrik",
-              prompt: "Llogaritni $\\displaystyle \\int \\frac{\\\\cos x}{4+\\\\sin x}\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{\\cos x}{4+\\sin x}\\,dx$.",
               goal: "Lejoni që $u$ të jetë shprehja derivati i së cilës është në numërues.",
               steps: [
                 {
@@ -524,7 +524,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.23",
               title: "Integrimi i $\\sin^{2}x$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\sin^{2}x\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\sin^{2}x\\,dx$.",
               goal: "Përdorni një identitet me kënd të dyfishtë, pastaj integroni.",
               steps: [
                 {
@@ -550,7 +550,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.24",
               title: "Fuqi tek e kosinusit",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\cos^{3}x\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\cos^{3}x\\,dx$.",
               goal: "Ruani një kosinus për $du$ dhe konvertoni pjesën tjetër me $\\cos^{2}=1-\\sin^{2}$.",
               steps: [
                 {
@@ -576,7 +576,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.25",
               title: "Forma e arksinusit $\\sqrt{b^{2}-a^{2}x^{2}}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{b^{2}-a^{2}x^{2}}}$ për $a,b>0$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{b^{2}-a^{2}x^{2}}}$ për $a,b>0$.",
               goal: "Rishkallëzoni te integrali standard i arksinusit.",
               steps: [
                 {
@@ -602,7 +602,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.26",
               title: "Forma logaritmike $\\sqrt{a^{2}x^{2}\\pm b^{2}}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{a^{2}x^{2}\\\\pm b^{2}}}$ për $a,b>0$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{a^{2}x^{2}\\pm b^{2}}}$ për $a,b>0$.",
               goal: "Rishkallëzoni te $\\int\\frac{dt}{\\sqrt{t^{2}\\pm 1}}$.",
               steps: [
                 {
@@ -628,7 +628,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.27",
               title: "Forma e arktangjentit $b^{2}+a^{2}x^{2}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{b^{2}+a^{2}x^{2}}$ për $a,b>0$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{b^{2}+a^{2}x^{2}}$ për $a,b>0$.",
               goal: "Rishkallëzoni te integrali standard i arktangjentit.",
               steps: [
                 {
@@ -654,7 +654,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.28",
               title: "Struktura e pjesshme për $1/(x^{2}-1)$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{x^{2}-1}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{2}-1}$.",
               goal: "Faktorizoni dhe përdorni një diferencë logaritmesh.",
               steps: [
                 {
@@ -679,7 +679,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.29",
               title: "Forma logaritmike $\\sqrt{a^{2}x^{2}-b^{2}}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{a^{2}x^{2}-b^{2}}}$ për $a,b>0$ dhe $|ax|>b$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{a^{2}x^{2}-b^{2}}}$ për $a,b>0$ dhe $|ax|>b$.",
               goal: "Rishkallëzoni te $\\int\\frac{dt}{\\sqrt{t^{2}-1}}$.",
               steps: [
                 {
@@ -830,7 +830,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.34",
               title: "Polinom mbi një kuadratike",
-              prompt: "Shpjegoni si të llogaritni $\\displaystyle \\int \\frac{P_{n}(x)}{ax^{2}+bx+c}\\,dx$ when $\\\\deg P_{n}\\\\ge 2$.",
+              prompt: "Shpjegoni si të llogaritni $\\displaystyle \\int \\frac{P_{n}(x)}{ax^{2}+bx+c}\\,dx$ when $\\deg P_{n}\\ge 2$.",
               goal: "Së pari pjesëtoni polinomet, pastaj integroni mbetjen e duhur.",
               steps: [
                 {
@@ -879,7 +879,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.36",
               title: "Arksinus për $\\sqrt{4-x^{2}}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\\\sqrt{4-x^{2}}}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{4-x^{2}}}$.",
               goal: "Njohni një integral të shkallëzuar të arksinusit.",
               steps: [
                 {
@@ -905,7 +905,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.37",
               title: "Arksinus për $\\sqrt{3-x^{2}}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\\\sqrt{3-x^{2}}}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{3-x^{2}}}$.",
               goal: "I njëjti model me $a=\\sqrt{3}$.",
               steps: [
                 {
@@ -929,7 +929,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.38",
               title: "Formë logaritmike për $\\sqrt{x^{2}+25}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}+25}}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}+25}}$.",
               goal: "Përdorni formulën standarde logaritmike / hiperbolike.",
               steps: [
                 {
@@ -954,7 +954,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.39",
               title: "Formë logaritmike për $\\sqrt{x^{2}-3}$",
-              prompt: "Llogaritni $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}-3}}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}-3}}$.",
               goal: "Përdorni formulën e tabelës për $\\sqrt{x^{2}-a^{2}}$.",
               steps: [
                 {
@@ -978,7 +978,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.40",
               title: "Familja $\\sqrt{ax^{2}+bx+c}$ (metoda)",
-              prompt: "Përshkruani si të llogaritni $\\displaystyle \\\\int \\\\sqrt{ax^{2}+bx+c}\\\\,dx$ (or $\\\\int\\\\frac{dx}{\\\\sqrt{ax^{2}+bx+c}}$) according to the sign of $a$ and $\\\\Delta$.",
+              prompt: "Përshkruani si të llogaritni $\\displaystyle \\int \\sqrt{ax^{2}+bx+c}\\,dx$ (or $\\int\\frac{dx}{\\sqrt{ax^{2}+bx+c}}$) according to the sign of $a$ and $\\Delta$.",
               goal: "Plotësoni katrorin dhe reduktoni te një nga tre format e tabelës.",
               steps: [
                 {
@@ -1002,7 +1002,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.41",
               title: "Arksinus pas plotësimit të katrorit",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{-x^{2}+2x+3}}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{-x^{2}+2x+3}}$.",
               goal: "Plotësoni katrorin nën rrënjë, pastaj përdorni arksinusin.",
               steps: [
                 {
@@ -1027,7 +1027,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.42",
               title: "Logaritëm pas plotësimit të katrorit",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{x^{2}+2x+3}}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}+2x+3}}$.",
               goal: "Plotësoni katrorin te $(x+1)^{2}+2$, pastaj përdorni formulën logaritmike.",
               steps: [
                 {
@@ -1051,7 +1051,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.43",
               title: "$(px+q)/\\sqrt{ax^{2}+bx+c}$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{px+q}{\\\\sqrt{ax^{2}+bx+c}}\\,dx$ for $a\\\\neq 0$, $p\\\\neq 0$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{px+q}{\\sqrt{ax^{2}+bx+c}}\\,dx$ for $a\\neq 0$, $p\\neq 0$.",
               goal: "Ndani në një pjesë derivat-i-radikandit plus një konstante mbi rrënjë.",
               steps: [
                 {
@@ -1075,7 +1075,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.44",
               title: "Shembull konkret linear-mbi-rrënjë",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{3x+5}{\\\\sqrt{4x^{2}-2x+5}}\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{3x+5}{\\sqrt{4x^{2}-2x+5}}\\,dx$.",
               goal: "Ndani duke përdorur derivatin e $4x^{2}-2x+5$, pastaj plotësoni katrorin te mbetja.",
               steps: [
                 {
@@ -1099,7 +1099,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.45",
               title: "Produkt në shumë për $\\sin ax\\cos bx$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\sin(ax)\\cos(bx)\\,dx$ for $a\\neq\\pm b$.",
               goal: "Ktheni produktin në shumë sinusesh, pastaj integroni.",
               steps: [
                 {
@@ -1124,7 +1124,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.46",
               title: "Produkt në shumë për $\\cos ax\\cos bx$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\cos(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\cos(ax)\\cos(bx)\\,dx$ for $a\\neq\\pm b$.",
               goal: "Përdorni identitetin e produktit të kosinuseve.",
               steps: [
                 {
@@ -1148,7 +1148,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.47",
               title: "$\\cos 3x\\cos 5x$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\cos 3x\\\\,\\\\cos 5x\\\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\cos 3x\\,\\cos 5x\\,dx$.",
               goal: "Specializoni identitetin e mëparshëm.",
               steps: [
                 {
@@ -1173,7 +1173,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.48",
               title: "$\\sin 2x\\cos 3x$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin 2x\\\\,\\\\cos 3x\\\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\sin 2x\\,\\cos 3x\\,dx$.",
               goal: "Përdorni $\\sin A\\cos B=\\tfrac12(\\sin(A+B)+\\sin(A-B))$.",
               steps: [
                 {
@@ -1197,7 +1197,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.49",
               title: "$\\sin 4x\\sin 7x$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin 4x\\\\,\\\\sin 7x\\\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\sin 4x\\,\\sin 7x\\,dx$.",
               goal: "Përdorni identitetin e produktit të sinusëve.",
               steps: [
                 {
@@ -1222,7 +1222,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.50",
               title: "$\\sin^{2}(3x)$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sin^{2}(3x)\\\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\sin^{2}(3x)\\,dx$.",
               goal: "Përdorni identitetin e uljes së fuqisë.",
               steps: [
                 {
@@ -1247,7 +1247,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.51",
               title: "$\\cos^{2}(4x)$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\cos^{2}(4x)\\\\,dx$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\cos^{2}(4x)\\,dx$.",
               goal: "Përdorni $\\cos^{2}\\theta=\\frac{1+\\cos 2\\theta}{2}$.",
               steps: [
                 {
@@ -1271,7 +1271,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.52",
               title: "Integrali i $a^{\\ln x}$ / lidhur me logaritmin",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{a^{\\\\ln x}}{x}\\\\,dx$ for $a>0$, $a\\\\neq 1$ (equivalently treat $\\\\int a^{\\\\ln x}\\\\frac{dx}{x}$).",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{a^{\\ln x}}{x}\\,dx$ for $a>0$, $a\\neq 1$ (equivalently treat $\\int a^{\\ln x}\\frac{dx}{x}$).",
               goal: "Zëvendësoni $t=\\ln x$.",
               steps: [
                 {
@@ -1297,7 +1297,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.53",
               title: "Zëvendësim për modelin $x^{2}/(1+x^{4})$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+1}\\\\,dx$ (equivalently the book’s split of related $x^{4}\\\\pm 1$ forms).",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}+1}{x^{4}+1}\\,dx$ (equivalently the book’s split of related $x^{4}\\pm 1$ forms).",
               goal: "Pjesëtoni me $x^{2}$ / përdorni zëvendësime të tipit $t=x-1/x$.",
               steps: [
                 {
@@ -1322,7 +1322,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.54",
               title: "Shoqëruesi $t=x+1/x$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{x^{2}-1}{x^{4}+1}\\\\,dx$ using $t=x+\\\\frac{1}{x}$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}-1}{x^{4}+1}\\,dx$ using $t=x+\\frac{1}{x}$.",
               goal: "Pasqyroni metodën e mëparshme me zëvendësimin plus.",
               steps: [
                 {
@@ -1346,7 +1346,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.55",
               title: "Reduktim më i vështirë $x\\pm 1/x$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+x^{3}-x+1}\\\\,dx$ (book denominator of similar shape).",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}+1}{x^{4}+x^{3}-x+1}\\,dx$ (book denominator of similar shape).",
               goal: "Faktorizoni ose rishkruani për të mundësuar $t=x-1/x$, pastaj përfundoni me arktangent.",
               steps: [
                 {
@@ -1370,7 +1370,7 @@ export const integrationCourseSq: Course = {
             {
               id: "1.56",
               title: "Zëvendësim trigonometrik për $\\sqrt{b^{2}-a^{2}x^{2}}$",
-              prompt: "Llogaritni $\\displaystyle \\\\int \\\\sqrt{b^{2}-a^{2}x^{2}}\\\\,dx$ for $a,b>0$.",
+              prompt: "Llogaritni $\\displaystyle \\int \\sqrt{b^{2}-a^{2}x^{2}}\\,dx$ for $a,b>0$.",
               goal: "Përdorni $ax=b\\sin u$ (ose $t=ax/b$ pastaj $t=\\sin u$).",
               steps: [
                 {
