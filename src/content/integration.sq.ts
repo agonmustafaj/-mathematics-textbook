@@ -2012,63 +2012,415 @@ export const integrationCourseSq: Course = {
       ],
     },
     {
-      id: 'rational-functions',
+      id: "rational-functions",
       number: 6,
-      title: 'Integrimi i Funksioneve Racionale',
-      description:
-        'Thyesa të pjesshme: zbërtheni $\\frac{P(x)}{Q(x)}$ në pjesë më të thjeshta që integrohen me tabelën.',
-      exercises: '1.82–1.97',
+      title: "Integrimi i Funksioneve Racionale",
+      description: "Thyesa të pjesshme: ndani $\\frac{P(x)}{Q(x)}$ në pjesë më të thjeshta që integrohen nga tabela.",
+      exercises: "1.82–1.97",
       sections: [
         {
-          id: 'partial-fractions',
-          title: 'Zbërthimi në thyesa të pjesshme',
-          summary:
-            'Faktorizoni emëruesin, shkruani koeficientët e panjohur, pastaj integroni term pas termi.',
+          id: "partial-fractions",
+          title: "Zbërthimi në thyesa të pjesshme",
+          summary: "Faktorizoni emëruesin, shkruani koeficientë të papërcaktuar, pastaj integroni term pas termi.",
           examples: [
             {
-              id: 'ex-1-82',
-              title: 'Faktorë linearë të ndryshëm',
-              prompt: 'Llogaritni $\\displaystyle \\int \\frac{dx}{x(x+5)}$.',
-              goal: 'Zbërtheni në thyesa të pjesshme dhe integroni logaritmet.',
+              id: "1.82",
+              title: "Faktorë linearë të ndryshëm",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x(x+5)}$.",
+              goal: "Ndajeni në thyesa të pjesshme dhe integroni logaritmet.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Vendosni thyesat e pjesshme',
-                  why: 'Emëruesi faktorizohet si $x(x+5)$ me rrënjë lineare të ndryshme.',
-                  calculation: '\\frac{1}{x(x+5)} = \\frac{A}{x}+\\frac{B}{x+5}',
+                  id: "s1",
+                  title: "Vendosni thyesat e pjesshme",
+                  why: "Emëruesi faktorizohet si $x(x+5)$ me rrënjë lineare të ndryshme.",
+                  calculation: "\\frac{1}{x(x+5)}=\\frac{A}{x}+\\frac{B}{x+5}",
                 },
                 {
-                  id: 's2',
-                  title: 'Gjeni $A$ dhe $B$',
-                  why: 'Pastrojeni emëruesin: $1=A(x+5)+Bx$. Krahasimi i koeficientëve jep $A=\\tfrac15$, $B=-\\tfrac15$.',
-                  calculation: '\\frac{1}{x(x+5)} = \\frac{1}{5}\\Bigl(\\frac{1}{x}-\\frac{1}{x+5}\\Bigr)',
+                  id: "s2",
+                  title: "Zgjidhni $A$ dhe $B$",
+                  why: "Pastrojeni: $1=A(x+5)+Bx$. Koeficientët japin $A=\\tfrac15$, $B=-\\tfrac15$.",
+                  calculation: "\\frac{1}{x(x+5)}=\\frac15\\Bigl(\\frac{1}{x}-\\frac{1}{x+5}\\Bigr)",
                 },
                 {
-                  id: 's3',
-                  title: 'Integroni',
-                  why: 'Çdo term është logaritëm.',
-                  calculation:
-                    '\\tfrac15\\ln|x| - \\tfrac15\\ln|x+5|+C = \\tfrac15\\ln\\Bigl|\\frac{x}{x+5}\\Bigr|+C',
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Çdo term është logaritëm.",
+                  calculation: "\\tfrac15\\ln\\Bigl|\\frac{x}{x+5}\\Bigr|+C",
                 },
               ],
             },
             {
-              id: 'ex-1-83',
-              title: 'Së pari pjesëtimi i polinomeve',
-              prompt: 'Llogaritni $\\displaystyle \\int \\frac{x^{3}}{x^{2}+1}\\,dx$.',
-              goal: 'Kur shkallët nuk janë të duhura, pjesëtoni para se të integroni.',
+              id: "1.83",
+              title: "Pjesëtim pastaj arktangjent",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{3}}{x^{2}+1}\\,dx$.",
+              goal: "Së pari pjesëtoni; mbetja jep log dhe arktangjent.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Pjesëtoni',
-                  why: 'Shkalla e numëruesit e tejkalon atë të emëruesit, prandaj shkruani një polinom plus një mbetje të duhur.',
-                  calculation: '\\frac{x^{3}}{x^{2}+1} = x - \\frac{x}{x^{2}+1}',
+                  id: "s1",
+                  title: "Pjesëtoni",
+                  why: "$\\frac{x^{3}}{x^{2}+1}=x-\\frac{x}{x^{2}+1}$.",
+                  calculation: "x-\\frac{x}{x^{2}+1}",
                 },
                 {
-                  id: 's2',
-                  title: 'Integroni çdo pjesë',
-                  why: 'Termi i parë është elementar; i dyti përputhet me $\\tfrac12\\ln(x^{2}+1)$ pas $u=x^{2}+1$.',
-                  calculation: '\\frac{x^{2}}{2} - \\tfrac12\\ln(x^{2}+1)+C',
+                  id: "s2",
+                  title: "Rishkruani mbetjen",
+                  why: "$\\int\\frac{x}{x^{2}+1}\\,dx=\\tfrac12\\ln(x^{2}+1)$.",
+                  calculation: "\\int\\Bigl(x-\\frac{x}{x^{2}+1}\\Bigr)\\,dx",
+                },
+                {
+                  id: "s3",
+                  title: "Përfundoni",
+                  why: "Forma e librit:",
+                  calculation: "\\frac{x^{2}}{2}-\\frac12\\ln(x^{2}+1)+C",
+                },
+              ],
+            },
+            {
+              id: "1.84",
+              title: "Shkallë e lartë mbi $x^{2}-1$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{6}}{x^{2}-1}\\,dx$.",
+              goal: "Pjesëtoni polinomet, pastaj ndani mbetjen e duhur.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni",
+                  why: "$\\frac{x^{6}}{x^{2}-1}=x^{4}+x^{2}+1+\\frac{1}{x^{2}-1}$.",
+                  calculation: "x^{4}+x^{2}+1+\\frac{1}{x^{2}-1}",
+                },
+                {
+                  id: "s2",
+                  title: "Thyesa të pjesshme",
+                  why: "$\\frac{1}{x^{2}-1}=\\frac{1/2}{x-1}-\\frac{1/2}{x+1}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Fuqitë integrohen nga tabela; pjesa tjetër janë logaritme.",
+                  calculation: "\\frac{x^{5}}{5}+\\frac{x^{3}}{3}+x+\\tfrac12\\ln\\Bigl|\\frac{x-1}{x+1}\\Bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.85",
+              title: "Faktorë linearë pas pjesëtimit",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{3}+1}{x^{2}-3x+2}\\,dx$.",
+              goal: "Pjesëtoni me $(x-1)(x-2)$, pastaj integroni thyesat e pjesshme.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni",
+                  why: "Pjesëtimi i polinomeve jep një herës linear plus një mbetje lineare mbi kuadratikën.",
+                  calculation: "\\frac{x^{3}+1}{x^{2}-3x+2}=x+\\frac72+\\frac{\\frac72 x-5}{(x-1)(x-2)}",
+                },
+                {
+                  id: "s2",
+                  title: "Ndani",
+                  why: "$\\frac{\\frac72 x-5}{(x-1)(x-2)}=\\frac{A}{x-1}+\\frac{B}{x-2}$ me $A=-\\tfrac12$, $B=9$.",
+                  calculation: "-\\frac{1/2}{x-1}+\\frac{9}{x-2}",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Kombinoni herësin dhe logaritmet.",
+                  calculation: "\\frac{x^{2}}{2}+\\frac72 x-\\frac12\\ln|x-1|+9\\ln|x-2|+C",
+                },
+              ],
+            },
+            {
+              id: "1.86",
+              title: "Faktori kubik $x^{3}+1$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{3}+1}$.",
+              goal: "Faktorizoni $x^{3}+1=(x+1)(x^{2}-x+1)$ dhe ndani.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Faktorizoni dhe vendosni",
+                  why: "$\\frac{1}{x^{3}+1}=\\frac{A}{x+1}+\\frac{Bx+D}{x^{2}-x+1}$.",
+                  calculation: "\\frac{A}{x+1}+\\frac{Bx+D}{x^{2}-x+1}",
+                },
+                {
+                  id: "s2",
+                  title: "Zgjidhni koeficientët",
+                  why: "$A=\\tfrac13$, $B=-\\tfrac13$, $D=\\tfrac23$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Pjesa lineare-mbi-kuadratike ndahet në log dhe arktangjent pasi plotësohet katrori.",
+                  calculation: "\\tfrac13\\ln|x+1|-\\tfrac16\\ln(x^{2}-x+1)+\\tfrac{1}{\\sqrt3}\\arctan\\frac{2x-1}{\\sqrt3}+C",
+                },
+              ],
+            },
+            {
+              id: "1.87",
+              title: "Diferenca e fuqive të katërta",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{4}-1}$.",
+              goal: "Faktorizoni $x^{4}-1=(x-1)(x+1)(x^{2}+1)$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Thyesa të pjesshme",
+                  why: "$\\frac{1}{x^{4}-1}=\\frac{A}{x-1}+\\frac{B}{x+1}+\\frac{Ex+F}{x^{2}+1}$.",
+                  calculation: "A=\\tfrac14,\\ B=-\\tfrac14,\\ E=0,\\ F=-\\tfrac12",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "Logaritme nga faktorët linearë; arktangjent nga $x^{2}+1$.",
+                  calculation: "\\tfrac14\\ln\\Bigl|\\frac{x-1}{x+1}\\Bigr|-\\tfrac12\\arctan x+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\frac{dx}{x^{4}-1}=\\frac14\\ln\\bigl|\\frac{x-1}{x+1}\\bigr|-\\frac12\\arctan x+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.88",
+              title: "$x^{4}+1$ me faktorë kuadratikë",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{4}+1}$.",
+              goal: "Shkruani $x^{4}+1=(x^{2}+\\sqrt2 x+1)(x^{2}-\\sqrt2 x+1)$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Faktorizoni",
+                  why: "$x^{4}+1=(x^{2}+\\sqrt{2}x+1)(x^{2}-\\sqrt{2}x+1)$.",
+                },
+                {
+                  id: "s2",
+                  title: "Ndani",
+                  why: "$\\frac{1}{x^{4}+1}=\\frac{Ax+B}{x^{2}+\\sqrt{2}x+1}+\\frac{Ex+F}{x^{2}-\\sqrt{2}x+1}$ me $A=-E=\\frac{1}{2\\sqrt2}$, $B=F=\\frac12$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Çdo pjesë është log i një kuadratike plus arktangjent pasi plotësohet katrori.",
+                  calculation: "\\tfrac{1}{2\\sqrt2}\\ln\\frac{x^{2}+\\sqrt2 x+1}{x^{2}-\\sqrt2 x+1}+\\tfrac{1}{\\sqrt2}\\arctan(\\sqrt2 x+1)+\\tfrac{1}{\\sqrt2}\\arctan(\\sqrt2 x-1)+C",
+                },
+              ],
+            },
+            {
+              id: "1.89",
+              title: "Faktorë të përsëritur në një kuartik",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{3}+8x^{2}+6x+4}{x^{4}+4x^{3}+2x^{2}+4x+1}\\,dx$.",
+              goal: "Ndajeni në thyesa të pjesshme sipas faktorizimit të librit.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Faktorizoni emëruesin",
+                  why: "Libri faktorizon kuartikën dhe vendos koeficientë të papërcaktuar.",
+                },
+                {
+                  id: "s2",
+                  title: "Zgjidhni sistemin",
+                  why: "Krahasimi i koeficientëve jep konstantet e zgjidhjes.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni term pas termi",
+                  why: "Antiderivata është përzierje fuqish, logaritmesh dhe arktangjenti.",
+                  calculation: "\\tfrac14\\ln|x|-\\tfrac14\\ln|x+2|-\\ln|x^{2}+2|-\\tfrac{3}{2x}-\\tfrac{1}{x+2}+\\tfrac{7}{4}\\arctan\\frac{x}{\\sqrt2}+C",
+                },
+              ],
+            },
+            {
+              id: "1.90",
+              title: "Zëvendësim për $x/(x^{8}-1)$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x}{x^{8}-1}\\,dx$.",
+              goal: "Përdorni $t=x^{2}$ për të reduktuar në integralin 1.87.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zëvendësoni",
+                  why: "Le të jetë $t=x^{2}$, $dt=2x\\,dx$, pra $\\tfrac12\\int\\frac{dt}{t^{4}-1}$.",
+                  calculation: "\\tfrac12\\int\\frac{dt}{t^{4}-1}",
+                },
+                {
+                  id: "s2",
+                  title: "Ripërdorni 1.87",
+                  why: "Zbatoni rezultatin e thyesave të pjesshme për $\\int\\frac{dt}{t^{4}-1}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "Zëvendësoni $t=x^{2}$.",
+                  calculation: "\\tfrac18\\ln\\Bigl|\\frac{x^{2}-1}{x^{2}+1}\\Bigr|-\\tfrac14\\arctan(x^{2})+C",
+                },
+              ],
+            },
+            {
+              id: "1.91",
+              title: "Rishkrim i $(x^{8}-1)/(x(x^{8}+1))$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{8}-1}{x(x^{8}+1)}\\,dx$.",
+              goal: "Shkruani algjebrikisht për të shmangur nëntë koeficientë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rishkruani",
+                  why: "$\\frac{x^{8}-1}{x(x^{8}+1)}=\\frac{1}{x}-\\frac{2x^{7}}{x^{8}+1}$.",
+                  calculation: "\\frac{1}{x}-\\frac{2x^{7}}{x^{8}+1}",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "Termi i parë është $\\ln|x|$; i dyti $\\tfrac14\\ln(x^{8}+1)$ me $u=x^{8}+1$.",
+                  calculation: "\\ln|x|-\\tfrac14\\ln|x^{8}+1|+C",
+                },
+                {
+                  id: "s3",
+                  title: "Kombinoni",
+                  why: "$\\displaystyle \\ln\\Bigl|\\frac{x}{(x^{8}+1)^{1/4}}\\Bigr|+C$.",
+                  calculation: "\\ln|x|-\\tfrac14\\ln|x^{8}+1|+C",
+                },
+              ],
+            },
+            {
+              id: "1.92",
+              title: "Zëvendësim fuqie në $1/(x^{6}-x^{3})$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{6}-x^{3}}$.",
+              goal: "Faktorizoni dhe përdorni $t=1-1/x^{3}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Faktorizoni",
+                  why: "$\\frac{1}{x^{6}-x^{3}}=\\frac{1}{x^{3}(x^{3}-1)}$.",
+                  calculation: "\\frac{1}{x^{3}(x^{3}-1)}",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësoni",
+                  why: "Le të jetë $t=1-\\frac{1}{x^{3}}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni në $t$",
+                  why: "Integranda bëhet zhvillim binomial / integral tabele në $t$; kthehuni te $x$.",
+                },
+              ],
+            },
+            {
+              id: "1.93",
+              title: "Tre faktorë linearë/fuqi",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{2}(x-1)}$.",
+              goal: "Ndajeni në $\\frac{A}{x}+\\frac{B}{x^{2}}+\\frac{D}{x-1}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Thyesa të pjesshme",
+                  why: "$\\frac{1}{x^{2}(x-1)}=\\frac{A}{x}+\\frac{B}{x^{2}}+\\frac{D}{x-1}$.",
+                  calculation: "A=-1,\\ B=-1,\\ D=1",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$-\\ln|x|+\\frac{1}{x}+\\ln|x-1|+C$.",
+                  calculation: "\\ln\\Bigl|\\frac{x-1}{x}\\Bigr|+\\frac{1}{x}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\frac{dx}{x^{2}(x-1)}=\\ln\\bigl|\\frac{x-1}{x}\\bigr|+\\frac{1}{x}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.94",
+              title: "Emërues kuartik simetrik",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}+1}{x^{4}+3x^{2}+1}\\,dx$.",
+              goal: "Pjesëtoni me $x^{2}$ (ose $t=x-1/x$) për të shfrytëzuar simetrinë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni me $x^{2}$",
+                  why: "$\\int\\frac{1+1/x^{2}}{x^{2}+3+1/x^{2}}\\,dx$.",
+                  calculation: "\\int\\frac{1+x^{-2}}{(x-x^{-1})^{2}+5}\\,dx",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësoni $t=x-1/x$",
+                  why: "$dt=(1+1/x^{2})\\,dx$, emëruesi $t^{2}+5$.",
+                  calculation: "\\int\\frac{dt}{t^{2}+5}",
+                },
+                {
+                  id: "s3",
+                  title: "Përfundoni",
+                  why: "$\\frac{1}{\\sqrt5}\\arctan\\frac{t}{\\sqrt5}+C$.",
+                  calculation: "\\frac{1}{\\sqrt5}\\arctan\\frac{x^{2}-1}{x\\sqrt5}+C",
+                },
+              ],
+            },
+            {
+              id: "1.95",
+              title: "Fuqi çift mbi $x^{6}-1$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{4}+1}{x^{6}-1}\\,dx$.",
+              goal: "Ndajeni në pjesë që reduktohen me $t=x-1/x$ dhe $t=x^{3}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Ndarje algjebrike",
+                  why: "Shkruani integrandën si shumë që izolon modelet e tipit 1.94 dhe një faktor kubik.",
+                },
+                {
+                  id: "s2",
+                  title: "Trajtoni $I_1$",
+                  why: "Përdorni $t=x-1/x$ si në 1.94.",
+                },
+                {
+                  id: "s3",
+                  title: "Trajtoni $I_2$",
+                  why: "Me $t=x^{3}$ integrali i dytë bëhet $\\int\\frac{dt}{t^{2}-1}$.",
+                  calculation: "\\text{Kombinoni të dy antiderivatat dhe shtoni }+C",
+                },
+              ],
+            },
+            {
+              id: "1.96",
+              title: "Emërues i tipit ciklotomik",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}-1}{x^{4}+x^{3}+x^{2}+x+1}\\,dx$.",
+              goal: "Njohni $x^{5}-1=(x-1)(\\cdots)$ dhe zëvendësoni $t=x+1/x$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Pjesëtoni me $x^{2}$",
+                  why: "$\\int\\frac{1-1/x^{2}}{(x+x^{-1})^{2}+(x+x^{-1})-1}\\,dx$.",
+                },
+                {
+                  id: "s2",
+                  title: "Vendosni $t=x+1/x$",
+                  why: "$dt=(1-1/x^{2})\\,dx$.",
+                  calculation: "\\int\\frac{dt}{t^{2}+t-1}",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Plotësoni katrorin / logaritme në $t$, pastaj kthehuni te $x$.",
+                  calculation: "\\tfrac{2}{\\sqrt5}\\artanh\\Bigl(\\frac{2t+1}{\\sqrt5}\\Bigr)+C",
+                },
+              ],
+            },
+            {
+              id: "1.97",
+              title: "Familja $\\int(x^{2n}-1)/(x^{n}+1)\\,dx$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2n}-1}{x^{n}+1}\\,dx$ për $n\\in\\mathbb{N}$.",
+              goal: "Faktorizoni ose rishkruani, pastaj zëvendësoni nëse duhet.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Identiteti algjebrik",
+                  why: "$\\frac{x^{2n}-1}{x^{n}+1}=x^{n}-1$.",
+                  calculation: "x^{n}-1",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\int(x^{n}-1)\\,dx=\\frac{x^{n+1}}{n+1}-x+C$.",
+                  calculation: "\\frac{x^{n+1}}{n+1}-x+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shënim",
+                  why: "Nëse libri trajton $\\int\\frac{x^{2n}-1}{x^{2n}+1}\\,dx$, rishkruani si $1-\\frac{2}{x^{2n}+1}$.",
                 },
               ],
             },
@@ -2077,46 +2429,231 @@ export const integrationCourseSq: Course = {
       ],
     },
     {
-      id: 'irrational-functions',
+      id: "irrational-functions",
       number: 7,
-      title: 'Integrimi i Funksioneve Irracionale',
-      description:
-        'Zëvendësime që racionalizojnë rrënjët dhe i kthejnë ato në integrande racionale.',
-      exercises: '1.98–1.106',
+      title: "Integrimi i Funksioneve Irracionale",
+      description: "Zëvendësime racionalizuese që e kthejnë rrënjën në integrandë racionale.",
+      exercises: "1.98–1.106",
       sections: [
         {
-          id: 'roots',
-          title: 'Zëvendësime me rrënjë',
-          summary:
-            'Zgjidhni një fuqi të një shprehjeje lineare që pastron të gjitha rrënjët njëherësh.',
+          id: "roots",
+          title: "Zëvendësime me rrënjë",
+          summary: "Zgjidhni një fuqi të një shprehjeje lineare (ose thyesore-lineare) që pastron çdo rrënjë menjëherë.",
           examples: [
             {
-              id: 'ex-1-98',
-              title: 'Pastrimi i $\\sqrt{x}$ dhe $\\sqrt[3]{x}$',
-              prompt: 'Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{x}+\\sqrt[3]{x}}$.',
-              goal: 'Përdorni $t=x^{1/6}$ që të dyja rrënjët të bëhen fuqi të plota të $t$.',
+              id: "1.98",
+              title: "Pastrimi i $\\sqrt{x}$ dhe $\\sqrt[3]{x}$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{x}+\\sqrt[3]{x}}$.",
+              goal: "Përdorni $t=x^{1/6}$ që të dyja rrënjët të bëhen fuqi të plota të $t$.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Zgjidhni QMP-në e indekseve të rrënjëve',
-                  why: 'Indekset $2$ dhe $3$ kanë QMP $6$, prandaj vendosni $x=t^{6}$.',
-                  calculation: 'x=t^{6},\\quad dx=6t^{5}\\,dt,\\quad \\sqrt{x}=t^{3},\\quad \\sqrt[3]{x}=t^{2}',
+                  id: "s1",
+                  title: "Zgjidhni MPM e indekseve",
+                  why: "Indekset $2$ dhe $3$ kanë MPM $6$, prandaj $x=t^{6}$.",
+                  calculation: "x=t^{6},\\ dx=6t^{5}\\,dt,\\ \\sqrt{x}=t^{3},\\ \\sqrt[3]{x}=t^{2}",
                 },
                 {
-                  id: 's2',
-                  title: 'Zëvendësoni',
-                  why: 'Integranda bëhet racionale në $t$.',
-                  calculation:
-                    '\\int\\frac{6t^{5}}{t^{3}+t^{2}}\\,dt = 6\\int\\frac{t^{3}}{t+1}\\,dt',
+                  id: "s2",
+                  title: "Zëvendësoni",
+                  why: "$\\int\\frac{6t^{5}}{t^{3}+t^{2}}\\,dt=6\\int\\frac{t^{3}}{t+1}\\,dt$.",
+                  calculation: "6\\int(t^{2}-t+1-\\tfrac{1}{t+1})\\,dt",
                 },
                 {
-                  id: 's3',
-                  title: 'Pjesëtoni dhe integroni',
-                  why: 'Pjesëtimi i polinomeve jep terma që integrohen me tabelën; pastaj kthehuni te $x$.',
-                  calculation:
-                    '6\\int\\bigl(t^{2}-t+1-\\tfrac{1}{t+1}\\bigr)\\,dt = 2t^{3}-3t^{2}+6t-6\\ln|t+1|+C',
-                  notes:
-                    'Në fund zëvendësoni $t=x^{1/6}$ për ta shprehur përgjigjen në $x$.',
+                  id: "s3",
+                  title: "Integroni dhe kthehuni",
+                  why: "$2t^{3}-3t^{2}+6t-6\\ln|t+1|+C$ me $t=x^{1/6}$.",
+                  calculation: "2x^{1/2}-3x^{1/3}+6x^{1/6}-6\\ln|x^{1/6}+1|+C",
+                },
+              ],
+            },
+            {
+              id: "1.99",
+              title: "Integrimi i $1/(\\sqrt[4]{x+1}+1)$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt[4]{x+1}+1}$.",
+              goal: "Vendosni $t=\\sqrt[4]{x+1}$, pastaj reduktoni integrandën racionale.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zëvendësoni",
+                  why: "$x=t^{4}-1$, $dx=4t^{3}\\,dt$.",
+                  calculation: "\\int\\frac{4t^{3}}{t+1}\\,dt=4\\int\\bigl(t^{2}-t+1-\\tfrac{1}{t+1}\\bigr)\\,dt",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni në $t$",
+                  why: "$\\frac{4}{3}t^{3}-2t^{2}+4t-4\\ln|t+1|+C$.",
+                  calculation: "\\tfrac43 t^{3}-2t^{2}+4t-4\\ln|t+1|+C",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "Zëvendësoni $t=\\sqrt[4]{x+1}$.",
+                  calculation: "\\tfrac43(x+1)^{3/4}-2\\sqrt{x+1}+4\\sqrt[4]{x+1}-4\\ln|\\sqrt[4]{x+1}+1|+C",
+                },
+              ],
+            },
+            {
+              id: "1.100",
+              title: "Rrënja e një shprehjeje kubike",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}+x}{\\sqrt[3]{x^{3}+2}}\\,dx$.",
+              goal: "Vendosni $t^{3}=x^{3}+2$ që $t^{2}\\,dt=x^{2}\\,dx$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zëvendësoni",
+                  why: "$t^{3}=x^{3}+2$. Shprehni numëruesin me $x^{3}=t^{3}-2$.",
+                },
+                {
+                  id: "s2",
+                  title: "Reduktoni",
+                  why: "Integrali bëhet funksion racional i $t$; ndajeni si në kapitullin 6.",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "Shkruani antiderivatën me $\\sqrt[3]{x^{3}+2}$.",
+                },
+              ],
+            },
+            {
+              id: "1.101",
+              title: "Fuqi të $(x-a)$ dhe $(x-b)$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{(x-a)^{n+1}(x-b)^{n}}$ për $n\\in\\mathbb{N}$.",
+              goal: "Zëvendësoni $t^{n}=\\dfrac{x-b}{x-a}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zëvendësoni",
+                  why: "$t^{n}=\\frac{x-b}{x-a}$ jep $x$ dhe $dx$ në terma të $t$.",
+                },
+                {
+                  id: "s2",
+                  title: "Thjeshtoni integrandën",
+                  why: "Fuqitë anulohen dhe mbetet një shumëfish i $\\int t^{-2}\\,dt$.",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "$\\dfrac{n}{b-a}\\Bigl(\\dfrac{x-a}{x-b}\\Bigr)^{1/n}+C$.",
+                  calculation: "\\frac{n}{b-a}\\Bigl(\\frac{x-a}{x-b}\\Bigr)^{1/n}+C",
+                },
+              ],
+            },
+            {
+              id: "1.102",
+              title: "Linear mbi $\\sqrt{x^{2}-2x}$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x\\,dx}{\\sqrt{x^{2}-2x}}$.",
+              goal: "Plotësoni katrorin / shkruani si pjesë derivati plus konstante mbi rrënjë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Plotësoni katrorin",
+                  why: "$x^{2}-2x=(x-1)^{2}-1$.",
+                },
+                {
+                  id: "s2",
+                  title: "Ndani numëruesin",
+                  why: "Shkruani $x=(x-1)+1$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Pjesa e përputhur është $\\sqrt{x^{2}-2x}$; mbetja është standard.",
+                  calculation: "\\sqrt{x^{2}-2x}+\\ln|x-1+\\sqrt{x^{2}-2x}|+C",
+                },
+              ],
+            },
+            {
+              id: "1.103",
+              title: "Zëvendësim reciprok $t=1+1/x$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x^{3/5}(x+1)^{2/5}}$.",
+              goal: "Vendosni $t=1+\\frac{1}{x}=\\frac{x+1}{x}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zëvendësoni",
+                  why: "$t=\\frac{x+1}{x}$, $x=\\frac{1}{t-1}$, $dx=-\\frac{dt}{(t-1)^{2}}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Thjeshtoni",
+                  why: "Integranda bëhet fuqi racionale e $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni dhe kthehuni",
+                  why: "$\\frac{5}{3}\\bigl(\\frac{x+1}{x}\\bigr)^{3/5}+C$.",
+                  calculation: "\\tfrac53\\Bigl(\\frac{x+1}{x}\\Bigr)^{3/5}+C",
+                },
+              ],
+            },
+            {
+              id: "1.104",
+              title: "Kuartik nën rrënjë katrore",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}+1}{\\sqrt{x^{4}+4x^{2}+8}}\\,dx$.",
+              goal: "Përdorni strukturën $(x^{2}+2)^{2}+(2x)^{2}$ dhe zëvendësime Ojler.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rishkruani radikandin",
+                  why: "$x^{4}+4x^{2}+8=(x^{2}+2)^{2}+4x^{2}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësim Ojler",
+                  why: "Vendosni një lidhje lineare/kuadratike midis $\\sqrt{\\cdots}$ dhe $x$.",
+                },
+                {
+                  id: "s3",
+                  title: "Përfundoni",
+                  why: "Reduktoni në integrale racionale dhe kthehuni te $x$.",
+                },
+              ],
+            },
+            {
+              id: "1.105",
+              title: "Kuadratike joproporionale nën rrënjë",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x-1}{(x^{2}-x+1)\\sqrt{x^{2}+1}}\\,dx$.",
+              goal: "Përdorni zëvendësimin $x=\\frac{t-1}{t+1}$ që heq termat linearë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zgjidhni $a,b$",
+                  why: "Libri gjen $a=1$, $b=-1$, pra $x=\\frac{t-1}{t+1}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Ndani në $I_1-I_2$",
+                  why: "Pas zëvendësimit integrali ndahet në arktangjent dhe logaritëm.",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "Rimbledhni në ndryshoren fillestare.",
+                  calculation: "\\tfrac12\\arctan\\frac{x-1}{x+1}-\\tfrac14\\ln\\Bigl|\\frac{\\sqrt{x^{2}+1}-1}{\\sqrt{x^{2}+1}+1}\\Bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.106",
+              title: "Rasti i dytë Ojler $bp=a$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x+2}{(x^{2}-3x+2)\\sqrt{x^{2}-2x}}\\,dx$.",
+              goal: "Kur përputhet rasti i librit, vendosni $t=x+\\frac{p}{x}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Identifikoni rastin",
+                  why: "Libri shënon $bp=a$ dhe vendos $t=x-\\frac{1}{x}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Reduktoni",
+                  why: "Integrali bëhet shumë integralesh racionale në $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Kthehuni te $x$",
+                  why: "Shprehni logaritmet dhe termat algjebrikë përmes $t(x)$.",
                 },
               ],
             },
