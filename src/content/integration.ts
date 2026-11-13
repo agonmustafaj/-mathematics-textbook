@@ -2672,37 +2672,157 @@ export const integrationCourse: Course = {
       ],
     },
     {
-      id: 'trigonometric-integrals',
+      id: "trigonometric-integrals",
       number: 8,
-      title: 'Trigonometric Integrals',
-      description:
-        'Powers and products of sine and cosine, including Weierstrass $t=\\tan(x/2)$ when needed.',
-      exercises: '1.107–1.112',
+      title: "Euler Substitutions and Binomial Integrals",
+      description: "Euler substitutions for $\\sqrt{ax^{2}+bx+c}$ and the binomial checklist for $\\int x^{m}(a+bx^{n})^{p}\\,dx$.",
+      exercises: "1.107–1.112",
       sections: [
         {
-          id: 'trig-powers',
-          title: 'Powers of sine and cosine',
-          summary:
-            'Use identities or a $t$-substitution to reduce trig integrals to rational ones.',
+          id: "euler-binomial",
+          title: "Euler substitutions and binomial roots",
+          summary: "Choose the Euler form from the sign of $a$ or $c$, or apply the rational-power binomial tests.",
           examples: [
             {
-              id: 'ex-1-111',
-              title: 'Odd power of sine',
-              prompt: 'Evaluate $\\displaystyle \\int \\sin^{3}x\\,dx$.',
-              goal: 'Save one sine for $du$ and convert the rest with $\\sin^{2}=1-\\cos^{2}$.',
+              id: "1.107",
+              title: "Euler sub for square root of quadratic",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{x+\\sqrt{x^{2}+x+1}}$.",
+              goal: "Since $a=1>0$, set $\\sqrt{x^{2}+x+1}=t-x$.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Factor one sine',
-                  why: 'Write $\\sin^{3}x=\\sin^{2}x\\cdot\\sin x=(1-\\cos^{2}x)\\sin x$.',
-                  calculation: '\\int\\sin^{3}x\\,dx = \\int(1-\\cos^{2}x)\\sin x\\,dx',
+                  id: "s1",
+                  title: "Euler substitution",
+                  why: "Set $\\sqrt{x^{2}+x+1}=t-x$. Squaring yields $x=\\frac{t^{2}-1}{2t+1}$.",
+                  calculation: "x=\\frac{t^{2}-1}{2t+1}",
                 },
                 {
-                  id: 's2',
-                  title: 'Substitute $u=\\cos x$',
-                  why: 'Then $du=-\\sin x\\,dx$.',
-                  calculation:
-                    '-\\int(1-u^{2})\\,du = -u+\\frac{u^{3}}{3}+C = -\\cos x+\\frac{\\cos^{3}x}{3}+C',
+                  id: "s2",
+                  title: "Express $dx$",
+                  why: "Differentiate to get $dx$ as a rational function of $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate in $t$",
+                  why: "The PDF reduces to logarithms in $t$; return via $t=x+\\sqrt{x^{2}+x+1}$.",
+                  calculation: "\\ln|t|-\\tfrac32\\ln|2t+1|+C",
+                },
+              ],
+            },
+            {
+              id: "1.108",
+              title: "Euler sub when $c>0$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}-x+2}}$.",
+              goal: "With $c=2>0$, set $\\sqrt{x^{2}-x+2}=1-tx$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Euler substitution",
+                  why: "Set $\\sqrt{x^{2}-x+2}=1-tx$. Square and solve for $x$.",
+                },
+                {
+                  id: "s2",
+                  title: "Reduce",
+                  why: "The integral becomes rational in $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate and return",
+                  why: "Logarithmic answer in $t$, with $t=\\frac{1-\\sqrt{x^{2}-x+2}}{x}$.",
+                },
+              ],
+            },
+            {
+              id: "1.109",
+              title: "Shared quadratic under a root",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{x^{2}-x+1}{(x^{2}+x+1)\\sqrt{x^{2}+x+1}}\\,dx$.",
+              goal: "Set $t\\sqrt{x^{2}+x+1}=x+\\frac12$ to cancel the shared quadratic structure.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Define the substitution",
+                  why: "Because $x^{2}+x+1$ appears both outside and under the root, set $t\\sqrt{x^{2}+x+1}=x+\\frac12$.",
+                },
+                {
+                  id: "s2",
+                  title: "Differentiate",
+                  why: "Obtain $dx$ in terms of $t$ and cancel the radicand.",
+                },
+                {
+                  id: "s3",
+                  title: "Finish",
+                  why: "The result is elementary in $t$; return to $x$.",
+                },
+              ],
+            },
+            {
+              id: "1.110",
+              title: "Binomial root with matching differential",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{x\\,dx}{\\sqrt[3]{x^{2}+1}}$.",
+              goal: "Set $t^{3}=x^{2}+1$ so $3t^{2}\\,dt=2x\\,dx$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Substitute",
+                  why: "$t^{3}=x^{2}+1$, $3t^{2}\\,dt=2x\\,dx$.",
+                  calculation: "\\int\\frac{x\\,dx}{\\sqrt[3]{x^{2}+1}}=\\tfrac32\\int t\\,dt",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\tfrac34 t^{2}+C$.",
+                  calculation: "\\tfrac34(x^{2}+1)^{2/3}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\frac{x\\,dx}{\\sqrt[3]{x^{2}+1}}=\\frac34(x^{2}+1)^{2/3}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.111",
+              title: "Binomial criterion $\\frac{m+1}{n}+p\\in\\mathbb{Z}$",
+              prompt: "Evaluate $\\displaystyle \\int x\\sqrt[3]{x^{3}-1}\\,dx$.",
+              goal: "Here $\\frac{m+1}{n}+p\\in\\mathbb{Z}$, so use a reciprocal-style substitution.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Check the criterion",
+                  why: "With $m=1$, $n=3$, $p=\\frac13$, one has $\\frac{m+1}{n}+p\\in\\mathbb{Z}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Substitute",
+                  why: "Follow the PDF with $t^{3}=1-\\frac{1}{x^{3}}$ (or the equivalent $a+bx^{n}=t^{n}x^{k}$ form).",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate in $t$",
+                  why: "Reduce to a rational integral and return to $x$.",
+                },
+              ],
+            },
+            {
+              id: "1.112",
+              title: "Binomial criterion $\\frac{m+1}{n}\\in\\mathbb{Z}$",
+              prompt: "Evaluate $\\displaystyle \\int \\sqrt[3]{x^{4}+x}\\,dx$.",
+              goal: "Rewrite as $x^{1/3}(x^{3}+1)^{1/3}$ and use the integer $\\frac{m+1}{n}$ test.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rewrite",
+                  why: "$\\sqrt[3]{x^{4}+x}=x^{1/3}(x^{3}+1)^{1/3}$.",
+                  calculation: "x^{1/3}(x^{3}+1)^{1/3}",
+                },
+                {
+                  id: "s2",
+                  title: "Apply the binomial substitution",
+                  why: "With $\\frac{m+1}{n}\\in\\mathbb{Z}$, set $x^{3}+1=t^{3}$ (or the PDF’s matching power).",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate in $t$",
+                  why: "Reduce, integrate, and return to $x$.",
                 },
               ],
             },
@@ -2711,76 +2831,206 @@ export const integrationCourse: Course = {
       ],
     },
     {
-      id: 'trigonometric-applications',
+      id: "trigonometric-applications",
       number: 9,
-      title: 'Applications of Trigonometric Integrals',
-      description:
-        'Rational functions of sine and cosine via $t=\\tan(x/2)$ or symmetry shortcuts.',
-      exercises: '1.113–1.120',
+      title: "Integration of Trigonometric Functions",
+      description: "Rational functions of sine and cosine via $t=\\tan(x/2)$ or symmetry shortcuts.",
+      exercises: "1.113–1.120",
       sections: [
         {
-          id: 'weierstrass',
-          title: 'Weierstrass and symmetry tricks',
-          summary:
-            'When $R(\\sin x,\\cos x)$ is rational, a tangent half-angle substitution rationalizes the integral.',
+          id: "weierstrass",
+          title: "Weierstrass and symmetry tricks",
+          summary: "When $R(\\sin x,\\cos x)$ is rational, a tangent half-angle substitution (or an evenness shortcut) rationalizes the integral.",
           examples: [
             {
-              id: 'ex-1-113',
-              title: 'Half-angle substitution',
-              prompt: 'Evaluate $\\displaystyle \\int \\frac{dx}{\\sin x+\\cos x+3}$.',
-              goal: 'Use $t=\\tan(x/2)$ to convert into a rational integral in $t$.',
+              id: "1.113",
+              title: "Half-angle substitution",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sin x+\\cos x+3}$.",
+              goal: "Use $t=\\tan(x/2)$ to convert into a rational integral in $t$.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Recall the Weierstrass formulas',
-                  why: 'Every trig function becomes a rational expression in $t=\\tan(x/2)$.',
-                  formula:
-                    't=\\tan\\tfrac{x}{2},\\quad \\sin x=\\frac{2t}{1+t^{2}},\\quad \\cos x=\\frac{1-t^{2}}{1+t^{2}},\\quad dx=\\frac{2\\,dt}{1+t^{2}}',
+                  id: "s1",
+                  title: "Weierstrass formulas",
+                  why: "Every trig function becomes rational in $t=\\tan(x/2)$.",
+                  formula: "t=\\tan\\tfrac{x}{2},\\ \\sin x=\\frac{2t}{1+t^{2}},\\ \\cos x=\\frac{1-t^{2}}{1+t^{2}},\\ dx=\\frac{2\\,dt}{1+t^{2}}",
                 },
                 {
-                  id: 's2',
-                  title: 'Substitute',
-                  why: 'The denominator and differential combine into a quadratic in $t$.',
-                  calculation:
-                    '\\int\\frac{2\\,dt/(1+t^{2})}{\\frac{2t}{1+t^{2}}+\\frac{1-t^{2}}{1+t^{2}}+3} = \\int\\frac{2\\,dt}{-t^{2}+2t+4}',
+                  id: "s2",
+                  title: "Substitute",
+                  why: "The denominator and differential combine into a quadratic in $t$.",
+                  calculation: "\\int\\frac{2\\,dt}{5-(t-1)^{2}}",
                 },
                 {
-                  id: 's3',
-                  title: 'Complete and integrate',
-                  why: 'Complete the square (or shift) to reach an arctangent.',
-                  calculation:
-                    '\\int\\frac{2\\,dt}{5-(t-1)^{2}} \\rightarrow \\text{arctangent in }t=\\tan(x/2)',
-                  notes:
-                    'The final answer can be written as $\\arctan\\bigl(\\tan(x/2)-1\\bigr)$ up to a constant factor from completing the square.',
+                  id: "s3",
+                  title: "Integrate",
+                  why: "Complete the square to an arctangent in $t=\\tan(x/2)$.",
+                  calculation: "\\tfrac{2}{\\sqrt5}\\arctan\\frac{\\tan(x/2)-1}{\\sqrt5}+C",
                 },
               ],
             },
             {
-              id: 'ex-1-114',
-              title: 'Symmetry shortcut $t=\\tan x$',
-              prompt:
-                'Evaluate $\\displaystyle \\int \\frac{\\sin x-\\cos x}{\\sin x+\\cos x}\\,dx$.',
-              goal: 'Use the odd/even symmetry in $\\sin$ and $\\cos$ to justify $t=\\tan x$.',
+              id: "1.114",
+              title: "Symmetry shortcut $t=\\tan x$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{\\sin x-\\cos x}{\\sin x+\\cos x}\\,dx$.",
+              goal: "Use odd/even symmetry in $\\sin$ and $\\cos$ to justify $t=\\tan x$.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Divide by $\\cos x$',
-                  why: 'Writing everything in $\\tan x$ prepares a direct substitution.',
-                  calculation:
-                    '\\frac{\\sin x-\\cos x}{\\sin x+\\cos x} = \\frac{\\tan x-1}{\\tan x+1}',
+                  id: "s1",
+                  title: "Divide by $\\cos x$",
+                  why: "$\\frac{\\tan x-1}{\\tan x+1}$.",
+                  calculation: "\\frac{\\tan x-1}{\\tan x+1}",
                 },
                 {
-                  id: 's2',
-                  title: 'Set $t=\\tan x$',
-                  why: 'Then $dt=\\sec^{2}x\\,dx=(1+t^{2})\\,dx$, and the integral simplifies.',
-                  calculation:
-                    '\\int\\frac{t-1}{(t+1)(1+t^{2})}\\cdot(1+t^{2})\\,dt = \\int\\frac{t-1}{t+1}\\,dt',
+                  id: "s2",
+                  title: "Set $t=\\tan x$",
+                  why: "Then $dt=\\sec^{2}x\\,dx=(1+t^{2})\\,dx$.",
+                  calculation: "\\int\\frac{t-1}{t+1}\\,dt",
                 },
                 {
-                  id: 's3',
-                  title: 'Finish',
-                  why: 'Rewrite and integrate: logarithmic answer in $\\tan x$.',
-                  calculation: '\\int\\Bigl(1-\\frac{2}{t+1}\\Bigr)\\,dt = t-2\\ln|t+1|+C = \\tan x-2\\ln|\\tan x+1|+C',
+                  id: "s3",
+                  title: "Finish",
+                  why: "$t-2\\ln|t+1|+C=\\tan x-2\\ln|\\tan x+1|+C$.",
+                  calculation: "\\tan x-2\\ln|\\tan x+1|+C",
+                },
+              ],
+            },
+            {
+              id: "1.115",
+              title: "Even integrand in $\\sin,\\cos$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{\\cos^{2}x}{\\cos^{4}x+\\sin^{4}x+\\sin^{2}2x}\\,dx$.",
+              goal: "Use the evenness rule to set $t=\\sin x$ (or $t=\\tan x$).",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Verify the rule",
+                  why: "The PDF notes that this rational function of sine and cosine permits $t=\\sin x$.",
+                },
+                {
+                  id: "s2",
+                  title: "Substitute",
+                  why: "Rewrite in $\\sin x$ and $d(\\sin x)$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate",
+                  why: "Obtain a rational integral in $t=\\sin x$ and return.",
+                },
+              ],
+            },
+            {
+              id: "1.116",
+              title: "$1/(\\sin^{6}x+\\cos^{6}x)$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sin^{6}x+\\cos^{6}x}$.",
+              goal: "Reduce with identities, then integrate the resulting double-angle form.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rewrite",
+                  why: "$\\sin^{6}x+\\cos^{6}x=1-3\\sin^{2}x\\cos^{2}x=1-\\tfrac34\\sin^{2}2x$.",
+                  calculation: "1-\\tfrac34\\sin^{2}2x",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\int\\frac{dx}{1-\\frac34\\sin^{2}2x}$ is standard after a $u=2x$ or $t=\\tan 2x$ step.",
+                },
+                {
+                  id: "s3",
+                  title: "Closed form",
+                  why: "The PDF expresses the answer through an arctangent in $\\tan 2x$.",
+                },
+              ],
+            },
+            {
+              id: "1.117",
+              title: "Linear combination of sine and cosine",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{a\\sin x+b\\cos x}{c\\sin x+d\\cos x}\\,dx$.",
+              goal: "Write the numerator as $\\alpha$ times the derivative of the denominator plus a multiple of the denominator itself.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Match the derivative",
+                  why: "Denominator derivative is $c\\cos x-d\\sin x$. Solve for $\\alpha,\\beta$ in $a\\sin+b\\cos=\\alpha(c\\cos-d\\sin)+\\beta(c\\sin+d\\cos)$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\alpha\\ln|c\\sin x+d\\cos x|+\\beta\\int\\frac{dx}{c\\sin x+d\\cos x}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Finish the remainder",
+                  why: "The remaining integral uses Weierstrass or a phase shift $R\\sin(x-\\phi)$.",
+                },
+              ],
+            },
+            {
+              id: "1.118",
+              title: "Concrete linear combination",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{\\sin x-3\\cos x}{4\\sin x+5\\cos x}\\,dx$.",
+              goal: "Same split as 1.117 with explicit coefficients.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Match coefficients",
+                  why: "Write $\\sin x-3\\cos x=A(4\\cos x-5\\sin x)+B(4\\sin x+5\\cos x)$ and solve for $A,B$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate the log piece",
+                  why: "$A\\ln|4\\sin x+5\\cos x|$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate the constant remainder",
+                  why: "$B\\int\\frac{dx}{4\\sin x+5\\cos x}$ via Weierstrass or $R\\sin(x-\\phi)$.",
+                },
+              ],
+            },
+            {
+              id: "1.119",
+              title: "Affine numerator and denominator",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{a\\sin x+b\\cos x+c}{c\\sin x+d\\cos x+e}\\,dx$.",
+              goal: "If the linear trig part of the denominator vanishes the integral is tabular; otherwise match a multiple of its derivative.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Nondegenerate case",
+                  why: "Assume $c^{2}+d^{2}\\neq0$. Match $\\alpha$ times the derivative of the denominator.",
+                },
+                {
+                  id: "s2",
+                  title: "Remainder",
+                  why: "The leftover is of the form $\\int\\frac{dx}{R\\sin(x-\\phi)+e}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Weierstrass",
+                  why: "Finish with $t=\\tan(x/2)$ if needed.",
+                },
+              ],
+            },
+            {
+              id: "1.120",
+              title: "Quadratic over linear in sine and cosine",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{\\sin^{2}x+\\cos x-1}{\\sin x+\\cos x-2}\\,dx$.",
+              goal: "Match $A(\\cos x-\\sin x)+B(\\sin x+\\cos x)+E$ to the numerator.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Match the derivative",
+                  why: "Denominator derivative is $\\cos x-\\sin x$. Solve for $A,B,E$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate the log piece",
+                  why: "$A\\ln|\\sin x+\\cos x-2|$.",
+                },
+                {
+                  id: "s3",
+                  title: "Finish the remainder",
+                  why: "Treat the leftover linear-over-linear pieces as in 1.117–1.119.",
+                  calculation: "A\\ln|\\sin x+\\cos x-2|+(\\text{elementary remainder})+C",
                 },
               ],
             },
