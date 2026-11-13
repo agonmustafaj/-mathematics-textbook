@@ -2,7 +2,7 @@ import type { Course } from './types'
 
 /**
  * Albanian (sq) Integration course — same ids as English for stable routes.
- * Chapter titles match the bilingual curriculum table.
+ * Chapter titles match the EN module; exercise ranges are authoring metadata only.
  */
 export const integrationCourseSq: Course = {
   id: 'integration',
