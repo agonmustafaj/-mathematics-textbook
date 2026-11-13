@@ -17,7 +17,7 @@ export const integrationCourse: Course = {
       number: 1,
       title: "Introduction to Integration Theory",
       description: "Primitive functions, the indefinite integral, and the basic table of antiderivatives.",
-      exercises: "1.4–1.14",
+      exercises: "1.4–1.15",
       sections: [
         {
           id: "basics",
@@ -300,6 +300,32 @@ export const integrationCourse: Course = {
                   id: "s3",
                   title: "State the answer",
                   why: "$\\displaystyle \\int\\bigl(\\frac{3}{\\sqrt{1-x^{2}}}-\\frac{1}{\\sqrt{1+x^{2}}}\\bigr)\\,dx = 3\\arcsin x-\\ln\\bigl|x+\\sqrt{1+x^{2}}\\bigr|+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.15",
+              title: "Recover $f$ from $f'$ through a point",
+              prompt: "Find the function $f$ that passes through $M(1,0)$ and satisfies $f'(x)=3x^{2}-1$.",
+              goal: "Integrate $f'$, then use the point to fix $+C$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Integrate the derivative",
+                  why: "Every antiderivative of $f'$ is a candidate for $f$.",
+                  calculation: "\\int(3x^{2}-1)\\,dx=x^{3}-x+C",
+                },
+                {
+                  id: "s2",
+                  title: "Apply $f(1)=0$",
+                  why: "Substitute the given point to solve for $C$.",
+                  calculation: "f(1)=1-1+C=0\\implies C=0",
+                },
+                {
+                  id: "s3",
+                  title: "State the function",
+                  why: "With $C=0$ the unique solution through $M$ is $f(x)=x^{3}-x$.",
+                  calculation: "f(x)=x^{3}-x",
                 },
               ],
             },

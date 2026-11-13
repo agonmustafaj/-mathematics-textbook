@@ -30,7 +30,9 @@ export function SectionPage() {
         <nav className="crumb" aria-label="Breadcrumb">
           <Link to="/">{t.course}</Link>
           <span aria-hidden="true">/</span>
-          <span>{t.chapterShort(chapter.number, chapter.title)}</span>
+          <span>
+            {t.chapterLabel(chapter.number)} · <MathText text={chapter.title} />
+          </span>
         </nav>
 
         <header className="section-hero">
