@@ -204,7 +204,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.11",
-              title: "Integrating $\\\\tan^{2}x$",
+              title: "Integrating $\\tan^{2}x$",
               prompt: "Evaluate $\\displaystyle \\int \\tan^{2}x\\,dx$.",
               goal: "Use $1+\\tan^{2}x=\\sec^{2}x$ to reduce to a table integral.",
               steps: [
@@ -230,7 +230,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.12",
-              title: "Integrating $\\\\cot^{2}x$",
+              title: "Integrating $\\cot^{2}x$",
               prompt: "Evaluate $\\displaystyle \\int \\cot^{2}x\\,dx$.",
               goal: "Use $1+\\cot^{2}x=\\csc^{2}x$.",
               steps: [
@@ -255,7 +255,7 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.13",
-              title: "Rewrite $\\\\frac{x^{2}}{1+x^{2}}$",
+              title: "Rewrite $\\frac{x^{2}}{1+x^{2}}$",
               prompt: "Evaluate $\\displaystyle \\int \\frac{x^{2}}{1+x^{2}}\\,dx$.",
               goal: "Algebraically rewrite so an arctangent appears.",
               steps: [
@@ -474,7 +474,7 @@ export const integrationCourse: Course = {
             {
               id: "1.21",
               title: "Exponential of $x^{4}$",
-              prompt: "Evaluate $\\displaystyle \\int x^{3} a^{x^{4}}\\,dx$ for $a>0$, $a\\\\neq 1$.",
+              prompt: "Evaluate $\\displaystyle \\int x^{3} a^{x^{4}}\\,dx$ for $a>0$, $a\\neq 1$.",
               goal: "Let $u=x^{4}$ so that $du$ matches $x^{3}\\,dx$.",
               steps: [
                 {
@@ -499,7 +499,7 @@ export const integrationCourse: Course = {
             {
               id: "1.22",
               title: "Trigonometric log pattern",
-              prompt: "Evaluate $\\displaystyle \\int \\frac{\\\\cos x}{4+\\\\sin x}\\,dx$.",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{\\cos x}{4+\\sin x}\\,dx$.",
               goal: "Let $u$ be the expression whose derivative sits in the numerator.",
               steps: [
                 {
@@ -523,8 +523,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.23",
-              title: "Integrating $\\\\sin^{2}x$",
-              prompt: "Evaluate $\\displaystyle \\int \\\\sin^{2}x\\,dx$.",
+              title: "Integrating $\\sin^{2}x$",
+              prompt: "Evaluate $\\displaystyle \\int \\sin^{2}x\\,dx$.",
               goal: "Use a double-angle identity, then integrate.",
               steps: [
                 {
@@ -550,7 +550,7 @@ export const integrationCourse: Course = {
             {
               id: "1.24",
               title: "Odd power of cosine",
-              prompt: "Evaluate $\\displaystyle \\int \\\\cos^{3}x\\,dx$.",
+              prompt: "Evaluate $\\displaystyle \\int \\cos^{3}x\\,dx$.",
               goal: "Save one cosine for $du$ and convert the rest with $\\cos^{2}=1-\\sin^{2}$.",
               steps: [
                 {
@@ -575,8 +575,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.25",
-              title: "Arcsine form $\\\\sqrt{b^{2}-a^{2}x^{2}}$",
-              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{b^{2}-a^{2}x^{2}}}$ for $a,b>0$.",
+              title: "Arcsine form $\\sqrt{b^{2}-a^{2}x^{2}}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{b^{2}-a^{2}x^{2}}}$ for $a,b>0$.",
               goal: "Rescale to the standard arcsine integral.",
               steps: [
                 {
@@ -601,8 +601,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.26",
-              title: "Log form $\\\\sqrt{a^{2}x^{2}\\\\pm b^{2}}$",
-              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{a^{2}x^{2}\\\\pm b^{2}}}$ for $a,b>0$.",
+              title: "Log form $\\sqrt{a^{2}x^{2}\\pm b^{2}}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{a^{2}x^{2}\\pm b^{2}}}$ for $a,b>0$.",
               goal: "Rescale to $\\int\\frac{dt}{\\sqrt{t^{2}\\pm 1}}$.",
               steps: [
                 {
@@ -627,8 +627,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.27",
-              title: "Arctangent form $\\\\sqrt{b^{2}+a^{2}x^{2}}$ in the denominator style",
-              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{b^{2}+a^{2}x^{2}}$ for $a,b>0$.",
+              title: "Arctangent form $\\sqrt{b^{2}+a^{2}x^{2}}$ in the denominator style",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{b^{2}+a^{2}x^{2}}$ for $a,b>0$.",
               goal: "Rescale to the standard arctangent integral. (Companion to the book’s $\\sqrt{b^{2}+a^{2}x^{2}}$ family.)",
               steps: [
                 {
@@ -654,7 +654,7 @@ export const integrationCourse: Course = {
             {
               id: "1.28",
               title: "Partial structure for $1/(x^{2}-1)$",
-              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{x^{2}-1}$.",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{x^{2}-1}$.",
               goal: "Factor and use a difference of logs (or hyperbolic arctanh).",
               steps: [
                 {
@@ -678,8 +678,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.29",
-              title: "Log form $\\\\sqrt{a^{2}x^{2}-b^{2}}$",
-              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{a^{2}x^{2}-b^{2}}}$ for $a,b>0$ and $|ax|>b$.",
+              title: "Log form $\\sqrt{a^{2}x^{2}-b^{2}}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{a^{2}x^{2}-b^{2}}}$ for $a,b>0$ and $|ax|>b$.",
               goal: "Rescale to $\\int\\frac{dt}{\\sqrt{t^{2}-1}}$.",
               steps: [
                 {
@@ -830,7 +830,7 @@ export const integrationCourse: Course = {
             {
               id: "1.34",
               title: "Polynomial over a quadratic",
-              prompt: "Explain how to evaluate $\\displaystyle \\int \\frac{P_{n}(x)}{ax^{2}+bx+c}\\,dx$ when $\\\\deg P_{n}\\\\ge 2$.",
+              prompt: "Explain how to evaluate $\\displaystyle \\int \\frac{P_{n}(x)}{ax^{2}+bx+c}\\,dx$ when $\\deg P_{n}\\ge 2$.",
               goal: "Divide polynomials first, then integrate the proper remainder.",
               steps: [
                 {
@@ -878,8 +878,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.36",
-              title: "Arcsine for $\\\\sqrt{4-x^{2}}$",
-              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\\\sqrt{4-x^{2}}}$.",
+              title: "Arcsine for $\\sqrt{4-x^{2}}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{4-x^{2}}}$.",
               goal: "Recognize a scaled arcsine integral.",
               steps: [
                 {
@@ -904,8 +904,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.37",
-              title: "Arcsine for $\\\\sqrt{3-x^{2}}$",
-              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\\\sqrt{3-x^{2}}}$.",
+              title: "Arcsine for $\\sqrt{3-x^{2}}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{3-x^{2}}}$.",
               goal: "Same pattern with $a=\\sqrt{3}$.",
               steps: [
                 {
@@ -928,8 +928,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.38",
-              title: "Log form for $\\\\sqrt{x^{2}+25}$",
-              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}+25}}$.",
+              title: "Log form for $\\sqrt{x^{2}+25}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}+25}}$.",
               goal: "Use the standard log / inverse-hyperbolic formula.",
               steps: [
                 {
@@ -953,8 +953,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.39",
-              title: "Log form for $\\\\sqrt{x^{2}-3}$",
-              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}-3}}$.",
+              title: "Log form for $\\sqrt{x^{2}-3}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}-3}}$.",
               goal: "Use the table formula for $\\sqrt{x^{2}-a^{2}}$.",
               steps: [
                 {
@@ -977,8 +977,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.40",
-              title: "Integral $\\\\sqrt{ax^{2}+bx+c}$ family (method)",
-              prompt: "Describe how to evaluate $\\displaystyle \\\\int \\\\sqrt{ax^{2}+bx+c}\\\\,dx$ (or $\\\\int\\\\frac{dx}{\\\\sqrt{ax^{2}+bx+c}}$) according to the sign of $a$ and $\\\\Delta$.",
+              title: "Integral $\\sqrt{ax^{2}+bx+c}$ family (method)",
+              prompt: "Describe how to evaluate $\\displaystyle \\int \\sqrt{ax^{2}+bx+c}\\,dx$ (or $\\int\\frac{dx}{\\sqrt{ax^{2}+bx+c}}$) according to the sign of $a$ and $\\Delta$.",
               goal: "Complete the square and reduce to one of the three table forms $\\sqrt{t^{2}\\pm k^{2}}$ or $\\sqrt{k^{2}-t^{2}}$.",
               steps: [
                 {
@@ -1002,7 +1002,7 @@ export const integrationCourse: Course = {
             {
               id: "1.41",
               title: "Arcsine after completing the square",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{-x^{2}+2x+3}}$.",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{-x^{2}+2x+3}}$.",
               goal: "Complete the square under the root, then use arcsine.",
               steps: [
                 {
@@ -1027,7 +1027,7 @@ export const integrationCourse: Course = {
             {
               id: "1.42",
               title: "Log after completing the square",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{x^{2}+2x+3}}$.",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}+2x+3}}$.",
               goal: "Complete the square to $ (x+1)^{2}+2 $, then use the log formula.",
               steps: [
                 {
@@ -1050,8 +1050,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.43",
-              title: "$(px+q)/\\\\sqrt{ax^{2}+bx+c}$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{px+q}{\\\\sqrt{ax^{2}+bx+c}}\\,dx$ for $a\\\\neq 0$, $p\\\\neq 0$.",
+              title: "$(px+q)/\\sqrt{ax^{2}+bx+c}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{px+q}{\\sqrt{ax^{2}+bx+c}}\\,dx$ for $a\\neq 0$, $p\\neq 0$.",
               goal: "Split into a derivative-of-radicand piece plus a constant over a square root.",
               steps: [
                 {
@@ -1075,7 +1075,7 @@ export const integrationCourse: Course = {
             {
               id: "1.44",
               title: "Concrete linear-over-root example",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{3x+5}{\\\\sqrt{4x^{2}-2x+5}}\\,dx$.",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{3x+5}{\\sqrt{4x^{2}-2x+5}}\\,dx$.",
               goal: "Split using the derivative of $4x^{2}-2x+5$, then complete the square on the remainder.",
               steps: [
                 {
@@ -1098,8 +1098,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.45",
-              title: "Product-to-sum for $\\\\sin ax\\\\cos bx$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              title: "Product-to-sum for $\\sin ax\\cos bx$",
+              prompt: "Evaluate $\\displaystyle \\int \\sin(ax)\\cos(bx)\\,dx$ for $a\\neq\\pm b$.",
               goal: "Convert the product to a sum of sines, then integrate.",
               steps: [
                 {
@@ -1123,8 +1123,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.46",
-              title: "Product-to-sum for $\\\\cos ax\\\\cos bx$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\cos(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              title: "Product-to-sum for $\\cos ax\\cos bx$",
+              prompt: "Evaluate $\\displaystyle \\int \\cos(ax)\\cos(bx)\\,dx$ for $a\\neq\\pm b$.",
               goal: "Use the cosine product identity.",
               steps: [
                 {
@@ -1147,8 +1147,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.47",
-              title: "$\\\\cos 3x\\\\cos 5x$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\cos 3x\\\\,\\\\cos 5x\\\\,dx$.",
+              title: "$\\cos 3x\\cos 5x$",
+              prompt: "Evaluate $\\displaystyle \\int \\cos 3x\\,\\cos 5x\\,dx$.",
               goal: "Specialize the previous identity.",
               steps: [
                 {
@@ -1172,8 +1172,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.48",
-              title: "$\\\\sin 2x\\\\cos 3x$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin 2x\\\\,\\\\cos 3x\\\\,dx$.",
+              title: "$\\sin 2x\\cos 3x$",
+              prompt: "Evaluate $\\displaystyle \\int \\sin 2x\\,\\cos 3x\\,dx$.",
               goal: "Use $\\sin A\\cos B=\\tfrac12(\\sin(A+B)+\\sin(A-B))$.",
               steps: [
                 {
@@ -1196,8 +1196,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.49",
-              title: "$\\\\sin 4x\\\\sin 7x$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin 4x\\\\,\\\\sin 7x\\\\,dx$.",
+              title: "$\\sin 4x\\sin 7x$",
+              prompt: "Evaluate $\\displaystyle \\int \\sin 4x\\,\\sin 7x\\,dx$.",
               goal: "Use the sine product identity.",
               steps: [
                 {
@@ -1221,8 +1221,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.50",
-              title: "$\\\\sin^{2}(3x)$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin^{2}(3x)\\\\,dx$.",
+              title: "$\\sin^{2}(3x)$",
+              prompt: "Evaluate $\\displaystyle \\int \\sin^{2}(3x)\\,dx$.",
               goal: "Use the power-reduction identity.",
               steps: [
                 {
@@ -1246,8 +1246,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.51",
-              title: "$\\\\cos^{2}(4x)$",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\cos^{2}(4x)\\\\,dx$.",
+              title: "$\\cos^{2}(4x)$",
+              prompt: "Evaluate $\\displaystyle \\int \\cos^{2}(4x)\\,dx$.",
               goal: "Use $\\cos^{2}\\theta=\\frac{1+\\cos 2\\theta}{2}$.",
               steps: [
                 {
@@ -1270,8 +1270,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.52",
-              title: "Integral of $a^{\\\\ln x}$ / related log-power",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{a^{\\\\ln x}}{x}\\\\,dx$ for $a>0$, $a\\\\neq 1$ (equivalently treat $\\\\int a^{\\\\ln x}\\\\frac{dx}{x}$).",
+              title: "Integral of $a^{\\ln x}$ / related log-power",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{a^{\\ln x}}{x}\\,dx$ for $a>0$, $a\\neq 1$ (equivalently treat $\\int a^{\\ln x}\\frac{dx}{x}$).",
               goal: "Substitute $t=\\ln x$.",
               steps: [
                 {
@@ -1297,7 +1297,7 @@ export const integrationCourse: Course = {
             {
               id: "1.53",
               title: "Substitution for $x^{2}/(1+x^{4})$ pattern",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+1}\\\\,dx$ (equivalently the book’s split of related $x^{4}\\\\pm 1$ forms).",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{x^{2}+1}{x^{4}+1}\\,dx$ (equivalently the book’s split of related $x^{4}\\pm 1$ forms).",
               goal: "Divide by $x^{2}$ / use $t=x-1/x$ style substitutions.",
               steps: [
                 {
@@ -1322,7 +1322,7 @@ export const integrationCourse: Course = {
             {
               id: "1.54",
               title: "The $t=x+1/x$ companion",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{x^{2}-1}{x^{4}+1}\\\\,dx$ using $t=x+\\\\frac{1}{x}$.",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{x^{2}-1}{x^{4}+1}\\,dx$ using $t=x+\\frac{1}{x}$.",
               goal: "Mirror the previous method with the plus substitution.",
               steps: [
                 {
@@ -1345,8 +1345,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.55",
-              title: "Harder $x\\\\pm 1/x$ reduction",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+x^{3}-x+1}\\\\,dx$ (book denominator of similar shape).",
+              title: "Harder $x\\pm 1/x$ reduction",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{x^{2}+1}{x^{4}+x^{3}-x+1}\\,dx$ (book denominator of similar shape).",
               goal: "Factor or rewrite to enable $t=x-1/x$, then finish with arctangent.",
               steps: [
                 {
@@ -1369,8 +1369,8 @@ export const integrationCourse: Course = {
             },
             {
               id: "1.56",
-              title: "Trigonometric substitution for $\\\\sqrt{b^{2}-a^{2}x^{2}}$ area form",
-              prompt: "Evaluate $\\displaystyle \\\\int \\\\sqrt{b^{2}-a^{2}x^{2}}\\\\,dx$ for $a,b>0$.",
+              title: "Trigonometric substitution for $\\sqrt{b^{2}-a^{2}x^{2}}$ area form",
+              prompt: "Evaluate $\\displaystyle \\int \\sqrt{b^{2}-a^{2}x^{2}}\\,dx$ for $a,b>0$.",
               goal: "Use $ax=b\\sin u$ (or the book’s $t=ax/b$ then $t=\\sin u$).",
               steps: [
                 {
