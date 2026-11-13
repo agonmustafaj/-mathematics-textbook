@@ -2662,37 +2662,157 @@ export const integrationCourseSq: Course = {
       ],
     },
     {
-      id: 'trigonometric-integrals',
+      id: "trigonometric-integrals",
       number: 8,
-      title: 'Integralet Trigonometrike',
-      description:
-        'Fuqi dhe produkte të sinusit dhe kosinusit, përfshirë $t=\\tan(x/2)$ kur nevojitet.',
-      exercises: '1.107–1.112',
+      title: "Zëvendësimet Ojler dhe Integralet Binomiale",
+      description: "Zëvendësimet Ojler për $\\sqrt{ax^{2}+bx+c}$ dhe lista e kontrollit binomiale për $\\int x^{m}(a+bx^{n})^{p}\\,dx$.",
+      exercises: "1.107–1.112",
       sections: [
         {
-          id: 'trig-powers',
-          title: 'Fuqitë e sinusit dhe kosinusit',
-          summary:
-            'Përdorni identitete ose një zëvendësim $t$ për t’i kthyer integralet trigonometrike në racionale.',
+          id: "euler-binomial",
+          title: "Zëvendësimet Ojler dhe rrënjët binomiale",
+          summary: "Zgjidhni formën Ojler nga shenja e $a$ ose $c$, ose zbatoni testet e fuqive racionale binomiale.",
           examples: [
             {
-              id: 'ex-1-111',
-              title: 'Fuqi tek e sinusit',
-              prompt: 'Llogaritni $\\displaystyle \\int \\sin^{3}x\\,dx$.',
-              goal: 'Ruani një sinus për $du$ dhe konvertoni pjesën tjetër me $\\sin^{2}=1-\\cos^{2}$.',
+              id: "1.107",
+              title: "Zëvendësim Ojler për rrënjën e kuadratikes",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{x+\\sqrt{x^{2}+x+1}}$.",
+              goal: "Me $a=1>0$, vendosni $\\sqrt{x^{2}+x+1}=t-x$.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Faktorizoni një sinus',
-                  why: 'Shkruani $\\sin^{3}x=\\sin^{2}x\\cdot\\sin x=(1-\\cos^{2}x)\\sin x$.',
-                  calculation: '\\int\\sin^{3}x\\,dx = \\int(1-\\cos^{2}x)\\sin x\\,dx',
+                  id: "s1",
+                  title: "Zëvendësim Ojler",
+                  why: "Vendosni $\\sqrt{x^{2}+x+1}=t-x$. Me ngritje në katror: $x=\\frac{t^{2}-1}{2t+1}$.",
+                  calculation: "x=\\frac{t^{2}-1}{2t+1}",
                 },
                 {
-                  id: 's2',
-                  title: 'Zëvendësoni $u=\\cos x$',
-                  why: 'Atëherë $du=-\\sin x\\,dx$.',
-                  calculation:
-                    '-\\int(1-u^{2})\\,du = -u+\\frac{u^{3}}{3}+C = -\\cos x+\\frac{\\cos^{3}x}{3}+C',
+                  id: "s2",
+                  title: "Shprehni $dx$",
+                  why: "Diferencioni jep $dx$ si funksion racional i $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni në $t$",
+                  why: "Libri redukton në logaritme në $t$; kthehuni me $t=x+\\sqrt{x^{2}+x+1}$.",
+                  calculation: "\\ln|t|-\\tfrac32\\ln|2t+1|+C",
+                },
+              ],
+            },
+            {
+              id: "1.108",
+              title: "Zëvendësim Ojler kur $c>0$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sqrt{x^{2}-x+2}}$.",
+              goal: "Me $c=2>0$, vendosni $\\sqrt{x^{2}-x+2}=1-tx$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zëvendësim Ojler",
+                  why: "Vendosni $\\sqrt{x^{2}-x+2}=1-tx$. Ngrini në katror dhe zgjidhni për $x$.",
+                },
+                {
+                  id: "s2",
+                  title: "Reduktoni",
+                  why: "Integrali bëhet racional në $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni dhe kthehuni",
+                  why: "Përgjigje logaritmike në $t$, me $t=\\frac{1-\\sqrt{x^{2}-x+2}}{x}$.",
+                },
+              ],
+            },
+            {
+              id: "1.109",
+              title: "Kuadratike e përbashkët nën rrënjë",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x^{2}-x+1}{(x^{2}+x+1)\\sqrt{x^{2}+x+1}}\\,dx$.",
+              goal: "Vendosni $t\\sqrt{x^{2}+x+1}=x+\\frac12$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Përcaktoni zëvendësimin",
+                  why: "Me $x^{2}+x+1$ jashtë dhe nën rrënjë, vendosni $t\\sqrt{x^{2}+x+1}=x+\\frac12$.",
+                },
+                {
+                  id: "s2",
+                  title: "Diferencioni",
+                  why: "Merrni $dx$ në terma të $t$ dhe anuloni radikandin.",
+                },
+                {
+                  id: "s3",
+                  title: "Përfundoni",
+                  why: "Rezultati është elementar në $t$; kthehuni te $x$.",
+                },
+              ],
+            },
+            {
+              id: "1.110",
+              title: "Rrënjë binomiale me diferencial të përputhur",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{x\\,dx}{\\sqrt[3]{x^{2}+1}}$.",
+              goal: "Vendosni $t^{3}=x^{2}+1$ që $3t^{2}\\,dt=2x\\,dx$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Zëvendësoni",
+                  why: "$t^{3}=x^{2}+1$, $3t^{2}\\,dt=2x\\,dx$.",
+                  calculation: "\\int\\frac{x\\,dx}{\\sqrt[3]{x^{2}+1}}=\\tfrac32\\int t\\,dt",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\tfrac34 t^{2}+C$.",
+                  calculation: "\\tfrac34(x^{2}+1)^{2/3}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani përgjigjen",
+                  why: "$\\displaystyle \\int\\frac{x\\,dx}{\\sqrt[3]{x^{2}+1}}=\\frac34(x^{2}+1)^{2/3}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.111",
+              title: "Kriteri binomial $\\frac{m+1}{n}+p\\in\\mathbb{Z}$",
+              prompt: "Llogaritni $\\displaystyle \\int x\\sqrt[3]{x^{3}-1}\\,dx$.",
+              goal: "Këtu $\\frac{m+1}{n}+p\\in\\mathbb{Z}$, prandaj përdorni zëvendësim të tipit reciprok.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Kontrolloni kriterin",
+                  why: "Me $m=1$, $n=3$, $p=\\frac13$, kemi $\\frac{m+1}{n}+p\\in\\mathbb{Z}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësoni",
+                  why: "Ndiqni librin me $t^{3}=1-\\frac{1}{x^{3}}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni në $t$",
+                  why: "Reduktoni në integral racional dhe kthehuni te $x$.",
+                },
+              ],
+            },
+            {
+              id: "1.112",
+              title: "Kriteri binomial $\\frac{m+1}{n}\\in\\mathbb{Z}$",
+              prompt: "Llogaritni $\\displaystyle \\int \\sqrt[3]{x^{4}+x}\\,dx$.",
+              goal: "Rishkruani si $x^{1/3}(x^{3}+1)^{1/3}$ dhe përdorni testin $\\frac{m+1}{n}\\in\\mathbb{Z}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rishkruani",
+                  why: "$\\sqrt[3]{x^{4}+x}=x^{1/3}(x^{3}+1)^{1/3}$.",
+                  calculation: "x^{1/3}(x^{3}+1)^{1/3}",
+                },
+                {
+                  id: "s2",
+                  title: "Zbatoni zëvendësimin binomial",
+                  why: "Me $\\frac{m+1}{n}\\in\\mathbb{Z}$, vendosni $x^{3}+1=t^{3}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni në $t$",
+                  why: "Reduktoni, integroni dhe kthehuni te $x$.",
                 },
               ],
             },
@@ -2701,76 +2821,206 @@ export const integrationCourseSq: Course = {
       ],
     },
     {
-      id: 'trigonometric-applications',
+      id: "trigonometric-applications",
       number: 9,
-      title: 'Zbatime të Integraleve Trigonometrike',
-      description:
-        'Funksione racionale të sinusit dhe kosinusit përmes $t=\\tan(x/2)$ ose shkurtimesh simetrie.',
-      exercises: '1.113–1.120',
+      title: "Integrimi i Funksioneve Trigonometrike",
+      description: "Funksione racionale të sinusit dhe kosinusit me $t=\\tan(x/2)$ ose shkurtore simetrie.",
+      exercises: "1.113–1.120",
       sections: [
         {
-          id: 'weierstrass',
-          title: 'Weierstrass dhe truket e simetrisë',
-          summary:
-            'Kur $R(\\sin x,\\cos x)$ është racionale, zëvendësimi me gjysmë-kënd e racionalizon integralin.',
+          id: "weierstrass",
+          title: "Weierstrass dhe truket e simetrisë",
+          summary: "Kur $R(\\sin x,\\cos x)$ është racional, zëvendësimi i gjysmë-këndit (ose një shkurtore çiftësie) e racionalizon integralin.",
           examples: [
             {
-              id: 'ex-1-113',
-              title: 'Zëvendësimi me gjysmë-kënd',
-              prompt: 'Llogaritni $\\displaystyle \\int \\frac{dx}{\\sin x+\\cos x+3}$.',
-              goal: 'Përdorni $t=\\tan(x/2)$ për ta kthyer në një integral racional në $t$.',
+              id: "1.113",
+              title: "Zëvendësimi i gjysmë-këndit",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sin x+\\cos x+3}$.",
+              goal: "Përdorni $t=\\tan(x/2)$ për ta kthyer në integral racional në $t$.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Kujtoni formulat e Weierstrass',
-                  why: 'Çdo funksion trigonometrik bëhet një shprehje racionale në $t=\\tan(x/2)$.',
-                  formula:
-                    't=\\tan\\tfrac{x}{2},\\quad \\sin x=\\frac{2t}{1+t^{2}},\\quad \\cos x=\\frac{1-t^{2}}{1+t^{2}},\\quad dx=\\frac{2\\,dt}{1+t^{2}}',
+                  id: "s1",
+                  title: "Formulat e Weierstrass",
+                  why: "Çdo funksion trig bëhet racional në $t=\\tan(x/2)$.",
+                  formula: "t=\\tan\\tfrac{x}{2},\\ \\sin x=\\frac{2t}{1+t^{2}},\\ \\cos x=\\frac{1-t^{2}}{1+t^{2}},\\ dx=\\frac{2\\,dt}{1+t^{2}}",
                 },
                 {
-                  id: 's2',
-                  title: 'Zëvendësoni',
-                  why: 'Emëruesi dhe diferenciali bashkohen në një kuadratike në $t$.',
-                  calculation:
-                    '\\int\\frac{2\\,dt/(1+t^{2})}{\\frac{2t}{1+t^{2}}+\\frac{1-t^{2}}{1+t^{2}}+3} = \\int\\frac{2\\,dt}{-t^{2}+2t+4}',
+                  id: "s2",
+                  title: "Zëvendësoni",
+                  why: "Emëruesi dhe diferencialii kombinohen në një kuadratike në $t$.",
+                  calculation: "\\int\\frac{2\\,dt}{5-(t-1)^{2}}",
                 },
                 {
-                  id: 's3',
-                  title: 'Plotësoni dhe integroni',
-                  why: 'Plotësoni katrorin (ose zhvendosni) për të arritur një arktangjent.',
-                  calculation:
-                    '\\int\\frac{2\\,dt}{5-(t-1)^{2}} \\rightarrow \\text{arktangent në }t=\\tan(x/2)',
-                  notes:
-                    'Përgjigja përfundimtare mund të shkruhet si $\\arctan\\bigl(\\tan(x/2)-1\\bigr)$ me një faktor konstant nga plotësimi i katrorit.',
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Plotësoni katrorin në arktangjent në $t=\\tan(x/2)$.",
+                  calculation: "\\tfrac{2}{\\sqrt5}\\arctan\\frac{\\tan(x/2)-1}{\\sqrt5}+C",
                 },
               ],
             },
             {
-              id: 'ex-1-114',
-              title: 'Shkurtim simetrie $t=\\tan x$',
-              prompt:
-                'Llogaritni $\\displaystyle \\int \\frac{\\sin x-\\cos x}{\\sin x+\\cos x}\\,dx$.',
-              goal: 'Përdorni simetrinë tek/çift në $\\sin$ dhe $\\cos$ për të justifikuar $t=\\tan x$.',
+              id: "1.114",
+              title: "Shkurtore simetrie $t=\\tan x$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{\\sin x-\\cos x}{\\sin x+\\cos x}\\,dx$.",
+              goal: "Përdorni simetrinë teke/çift të $\\sin$ dhe $\\cos$ për $t=\\tan x$.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Pjesëtoni me $\\cos x$',
-                  why: 'Shkrimi i gjithçkaje në $\\tan x$ përgatit një zëvendësim të drejtpërdrejtë.',
-                  calculation:
-                    '\\frac{\\sin x-\\cos x}{\\sin x+\\cos x} = \\frac{\\tan x-1}{\\tan x+1}',
+                  id: "s1",
+                  title: "Pjesëtoni me $\\cos x$",
+                  why: "$\\frac{\\tan x-1}{\\tan x+1}$.",
+                  calculation: "\\frac{\\tan x-1}{\\tan x+1}",
                 },
                 {
-                  id: 's2',
-                  title: 'Vendosni $t=\\tan x$',
-                  why: 'Atëherë $dt=\\sec^{2}x\\,dx=(1+t^{2})\\,dx$, dhe integrali thjeshtohet.',
-                  calculation:
-                    '\\int\\frac{t-1}{(t+1)(1+t^{2})}\\cdot(1+t^{2})\\,dt = \\int\\frac{t-1}{t+1}\\,dt',
+                  id: "s2",
+                  title: "Vendosni $t=\tan x$",
+                  why: "Atëherë $dt=\\sec^{2}x\\,dx=(1+t^{2})\\,dx$.",
+                  calculation: "\\int\\frac{t-1}{t+1}\\,dt",
                 },
                 {
-                  id: 's3',
-                  title: 'Përfundoni',
-                  why: 'Rishkruani dhe integroni: përgjigje logaritmike në $\\tan x$.',
-                  calculation: '\\int\\Bigl(1-\\frac{2}{t+1}\\Bigr)\\,dt = t-2\\ln|t+1|+C = \\tan x-2\\ln|\\tan x+1|+C',
+                  id: "s3",
+                  title: "Përfundoni",
+                  why: "$t-2\\ln|t+1|+C=\\tan x-2\\ln|\\tan x+1|+C$.",
+                  calculation: "\\tan x-2\\ln|\\tan x+1|+C",
+                },
+              ],
+            },
+            {
+              id: "1.115",
+              title: "Integrandë çift në sinus dhe kosinus",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{\\cos^{2}x}{\\cos^{4}x+\\sin^{4}x+\\sin^{2}2x}\\,dx$.",
+              goal: "Përdorni rregullën e çiftësisë për $t=\\sin x$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Verifikoni rregullën",
+                  why: "Libri lejon $t=\\sin x$ për këtë funksion racional.",
+                },
+                {
+                  id: "s2",
+                  title: "Zëvendësoni",
+                  why: "Rishkruani në $\\sin x$ dhe $d(\\sin x)$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni",
+                  why: "Merrni një integral racional në $t=\\sin x$ dhe kthehuni.",
+                },
+              ],
+            },
+            {
+              id: "1.116",
+              title: "$1/(\\sin^{6}x+\\cos^{6}x)$",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{dx}{\\sin^{6}x+\\cos^{6}x}$.",
+              goal: "Reduktoni me identitete, pastaj integroni formën me kënd të dyfishtë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rishkruani",
+                  why: "$\\sin^{6}x+\\cos^{6}x=1-3\\sin^{2}x\\cos^{2}x=1-\\tfrac34\\sin^{2}2x$.",
+                  calculation: "1-\\tfrac34\\sin^{2}2x",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\int\\frac{dx}{1-\\frac34\\sin^{2}2x}$ është standard pas $u=2x$ ose $t=\\tan 2x$.",
+                },
+                {
+                  id: "s3",
+                  title: "Forma e mbyllur",
+                  why: "Libri e shpreh përgjigjen me arktangjent në $\\tan 2x$.",
+                },
+              ],
+            },
+            {
+              id: "1.117",
+              title: "Kombinimi linear i sinusit dhe kosinusit",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{a\\sin x+b\\cos x}{c\\sin x+d\\cos x}\\,dx$.",
+              goal: "Shkruani numëruesin si $\\alpha$ herë derivati i emëruesit plus një shumëfish i emëruesit.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Përputhni derivatin",
+                  why: "Derivati i emëruesit është $c\\cos x-d\\sin x$. Zgjidhni $\\alpha,\\beta$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni",
+                  why: "$\\alpha\\ln|c\\sin x+d\\cos x|+\\beta\\int\\frac{dx}{c\\sin x+d\\cos x}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Përfundoni mbetjen",
+                  why: "Integrali i mbetur përdor Weierstrass ose zhvendosje faze.",
+                },
+              ],
+            },
+            {
+              id: "1.118",
+              title: "Kombinimi linear konkret",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{\\sin x-3\\cos x}{4\\sin x+5\\cos x}\\,dx$.",
+              goal: "E njëjta ndarje si 1.117 me koeficientë eksplicitë.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Përputhni koeficientët",
+                  why: "Shkruani $\\sin x-3\\cos x=A(4\\cos x-5\\sin x)+B(4\\sin x+5\\cos x)$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni pjesën log",
+                  why: "$A\\ln|4\\sin x+5\\cos x|$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integroni mbetjen konstante",
+                  why: "$B\\int\\frac{dx}{4\\sin x+5\\cos x}$ me Weierstrass ose $R\\sin(x-\\phi)$.",
+                },
+              ],
+            },
+            {
+              id: "1.119",
+              title: "Numërues dhe emërues afinë",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{a\\sin x+b\\cos x+c}{c\\sin x+d\\cos x+e}\\,dx$.",
+              goal: "Nëse pjesa lineare e emëruesit zhduket, integrali është tabelor; përndryshe përputhni një shumëfish të derivatit.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rasti jodegjenerues",
+                  why: "Supozoni $c^{2}+d^{2}\\neq0$. Përputhni $\\alpha$ herë derivatin e emëruesit.",
+                },
+                {
+                  id: "s2",
+                  title: "Mbetja",
+                  why: "Mbetet $\\int\\frac{dx}{R\\sin(x-\\phi)+e}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Weierstrass",
+                  why: "Përfundoni me $t=\\tan(x/2)$ nëse duhet.",
+                },
+              ],
+            },
+            {
+              id: "1.120",
+              title: "Kuadratike mbi lineare në sinus dhe kosinus",
+              prompt: "Llogaritni $\\displaystyle \\int \\frac{\\sin^{2}x+\\cos x-1}{\\sin x+\\cos x-2}\\,dx$.",
+              goal: "Përputhni $A(\\cos x-\\sin x)+B(\\sin x+\\cos x)+E$ me numëruesin.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Përputhni derivatin",
+                  why: "Derivati i emëruesit është $\\cos x-\\sin x$. Zgjidhni $A,B,E$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integroni pjesën log",
+                  why: "$A\\ln|\\sin x+\\cos x-2|$.",
+                },
+                {
+                  id: "s3",
+                  title: "Përfundoni mbetjen",
+                  why: "Trajtoni pjesët e mbetura si në 1.117–1.119.",
+                  calculation: "A\\ln|\\sin x+\\cos x-2|+(\\text{mbetje elementare})+C",
                 },
               ],
             },
