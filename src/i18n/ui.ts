@@ -50,6 +50,12 @@ export type UiStrings = {
   startFirstSection: string
   courseIntro: string
   chapterLabel: (n: number) => string
+  exercisesLabel: (range: string) => string
+  curriculumHeading: string
+  curriculumColChapter: string
+  curriculumColSq: string
+  curriculumColEn: string
+  curriculumColExercises: string
   exampleCount: (n: number) => string
   course: string
   section: string
@@ -82,6 +88,12 @@ export const ui: Record<Locale, UiStrings> = {
     courseIntro:
       'Choose a chapter, then a section. Each section walks through worked examples one at a time, with every algebraic move explained.',
     chapterLabel: (n) => `Chapter ${n}`,
+    exercisesLabel: (range) => `Exercises ${range}`,
+    curriculumHeading: 'Chapter outline',
+    curriculumColChapter: 'Chapter',
+    curriculumColSq: 'Shqip',
+    curriculumColEn: 'English',
+    curriculumColExercises: 'Exercises',
     exampleCount: (n) => (n === 1 ? '1 example' : `${n} examples`),
     course: 'Course',
     section: 'Section',
@@ -113,6 +125,12 @@ export const ui: Record<Locale, UiStrings> = {
     courseIntro:
       'Zgjidh një kapitull, pastaj një seksion. Çdo seksion i shpjegon shembujt një nga një, me çdo hap algjebrik të qartë.',
     chapterLabel: (n) => `Kapitulli ${n}`,
+    exercisesLabel: (range) => `Detyrat ${range}`,
+    curriculumHeading: 'Struktura e kapitujve',
+    curriculumColChapter: 'Chapter',
+    curriculumColSq: 'Shqip',
+    curriculumColEn: 'English',
+    curriculumColExercises: 'Detyrat',
     exampleCount: (n) => (n === 1 ? '1 shembull' : `${n} shembuj`),
     course: 'Kursi',
     section: 'Seksioni',

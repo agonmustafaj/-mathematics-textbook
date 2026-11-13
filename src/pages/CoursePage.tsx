@@ -10,6 +10,8 @@ import { useLocale } from '../i18n/LocaleContext'
 export function CoursePage() {
   const { locale, t } = useLocale()
   const course = getCourse(locale)
+  const courseEn = getCourse('en')
+  const courseSq = getCourse('sq')
   const firstSection = course.chapters[0]?.sections[0]
 
   return (
@@ -59,12 +61,57 @@ export function CoursePage() {
           <p>{t.courseIntro}</p>
         </div>
 
+        <div className="curriculum">
+          <h3 className="curriculum__title">{t.curriculumHeading}</h3>
+          <div className="curriculum__scroll">
+            <table className="curriculum__table">
+              <thead>
+                <tr>
+                  <th scope="col">{t.curriculumColChapter}</th>
+                  <th scope="col">{t.curriculumColSq}</th>
+                  <th scope="col">{t.curriculumColEn}</th>
+                  <th scope="col">{t.curriculumColExercises}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {course.chapters.map((chapter, index) => {
+                  const en = courseEn.chapters[index]
+                  const sq = courseSq.chapters[index]
+                  const section = chapter.sections[0]
+                  const href = section
+                    ? `/chapter/${chapter.id}/section/${section.id}`
+                    : '#chapters'
+                  return (
+                    <tr key={chapter.id}>
+                      <td className="curriculum__num">
+                        <Link to={href}>{chapter.number}</Link>
+                      </td>
+                      <td>
+                        <Link to={href}>{sq?.title ?? chapter.title}</Link>
+                      </td>
+                      <td>
+                        <Link to={href}>{en?.title ?? chapter.title}</Link>
+                      </td>
+                      <td className="curriculum__exercises">
+                        {chapter.exercises ?? '—'}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <ol className="chapter-list">
           {course.chapters.map((chapter) => (
             <li key={chapter.id} className="chapter-block">
               <div className="chapter-block__heading">
                 <span className="chapter-block__number">{t.chapterLabel(chapter.number)}</span>
                 <h3>{chapter.title}</h3>
+                {chapter.exercises ? (
+                  <p className="chapter-block__exercises">{t.exercisesLabel(chapter.exercises)}</p>
+                ) : null}
                 <p>{chapter.description}</p>
               </div>
               <ul className="section-list">

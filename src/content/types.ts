@@ -32,6 +32,8 @@ export type Chapter = {
   number: number
   title: string
   description: string
+  /** Textbook exercise range shown on the course outline (e.g. "1.4–1.14"). */
+  exercises?: string
   sections: Section[]
 }
 
