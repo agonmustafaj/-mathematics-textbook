@@ -681,60 +681,689 @@ export const integrationCourse: Course = {
       ],
     },
     {
-      id: 'substitution-applications',
+      id: "substitution-applications",
       number: 3,
-      title: 'Applications of the Substitution Method',
-      description:
-        'Harder substitutions: completing the square, trig products, and nested forms.',
-      exercises: '1.30–1.56',
+      title: "Applications of the Substitution Method",
+      description: "Harder substitutions: completing the square, trig products, and nested forms.",
+      exercises: "1.30–1.56",
       sections: [
         {
-          id: 'advanced-sub',
-          title: 'Completing the square & trig products',
-          summary:
-            'Prepare the integrand first, then substitute so arcsine, arctangent, or logarithms appear.',
+          id: "advanced-sub",
+          title: "Completing the square, roots, and trig products",
+          summary: "Prepare the integrand, substitute, and reduce to table formulas (log, arctan, arcsine, power-reduction).",
           examples: [
             {
-              id: 'ex-1-31',
-              title: 'Complete the square, then substitute',
-              prompt: 'Evaluate $\\displaystyle \\int \\frac{dx}{x^{2}+2x+2}$.',
-              goal: 'Rewrite the quadratic as a sum of squares, then use arctangent.',
+              id: "1.30",
+              title: "Integral $1/(ax^{2}+bx+c)$ by completing the square",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{ax^{2}+bx+c}$ for $a>0$, treating the cases $\\Delta=b^{2}-4ac>0$ and $\\Delta<0$.",
+              goal: "Complete the square, rescale, and reduce to a log or arctangent form.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Complete the square',
-                  why: 'The middle term $2x$ suggests $(x+1)^{2}$.',
-                  calculation: 'x^{2}+2x+2 = (x+1)^{2}+1',
+                  id: "s1",
+                  title: "Complete the square",
+                  why: "Factor $a$ and rewrite the quadratic as a shifted square plus a constant involving $\\Delta=b^{2}-4ac$.",
+                  calculation: "ax^{2}+bx+c=a\\Bigl(\\bigl(x+\\tfrac{b}{2a}\\bigr)^{2}-\\tfrac{\\Delta}{4a^{2}}\\Bigr)",
                 },
                 {
-                  id: 's2',
-                  title: 'Substitute $u=x+1$',
-                  why: 'The integral becomes the standard arctangent form.',
-                  calculation:
-                    '\\int\\frac{du}{u^{2}+1} = \\arctan u + C = \\arctan(x+1)+C',
+                  id: "s2",
+                  title: "Substitute $t=x+b/(2a)$",
+                  why: "The integral becomes a constant times $\\int\\frac{dt}{t^{2}\\pm k^{2}}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Case $\\Delta>0$",
+                  why: "Then $t^{2}-k^{2}$ appears and the antiderivative is logarithmic:",
+                  formula: "\\int\\frac{dt}{t^{2}-k^{2}}=\\frac{1}{2k}\\ln\\Bigl|\\frac{t-k}{t+k}\\Bigr|+C",
+                },
+                {
+                  id: "s4",
+                  title: "Case $\\Delta<0$",
+                  why: "Then $t^{2}+k^{2}$ appears and the antiderivative is an arctangent:",
+                  formula: "\\int\\frac{dt}{t^{2}+k^{2}}=\\frac{1}{k}\\arctan\\frac{t}{k}+C",
+                  notes: "Return to $x$ by substituting $t=x+\\frac{b}{2a}$ and $k=\\sqrt{|\\Delta|}/(2a)$.",
                 },
               ],
             },
             {
-              id: 'ex-1-47',
-              title: 'Product-to-sum for cosines',
-              prompt: 'Evaluate $\\displaystyle \\int \\cos 3x\\,\\cos 5x\\,dx$.',
-              goal: 'Use a product-to-sum identity, then integrate term by term.',
+              id: "1.31",
+              title: "Complete the square for $x^{2}+2x+2$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{x^{2}+2x+2}$.",
+              goal: "Complete the square, then use arctangent.",
               steps: [
                 {
-                  id: 's1',
-                  title: 'Apply the identity',
-                  why: 'Products of cosines become a sum of cosines of sum and difference angles.',
-                  formula: '\\cos A\\cos B = \\tfrac12\\bigl(\\cos(A+B)+\\cos(A-B)\\bigr)',
-                  calculation:
-                    '\\cos 3x\\cos 5x = \\tfrac12\\bigl(\\cos 8x+\\cos(-2x)\\bigr) = \\tfrac12(\\cos 8x+\\cos 2x)',
+                  id: "s1",
+                  title: "Complete the square",
+                  why: "$x^{2}+2x+2=(x+1)^{2}+1$.",
+                  calculation: "x^{2}+2x+2=(x+1)^{2}+1",
                 },
                 {
-                  id: 's2',
-                  title: 'Integrate',
-                  why: 'Each cosine integrates with a constant factor.',
-                  calculation:
-                    '\\tfrac12\\int(\\cos 8x+\\cos 2x)\\,dx = \\tfrac{1}{16}\\sin 8x + \\tfrac{1}{4}\\sin 2x + C',
+                  id: "s2",
+                  title: "Set $u=x+1$",
+                  why: "Then $du=dx$.",
+                  calculation: "\\int\\frac{du}{u^{2}+1}=\\arctan u+C",
+                },
+                {
+                  id: "s3",
+                  title: "Return to $x$",
+                  why: "$\\arctan(x+1)+C$.",
+                  calculation: "\\arctan(x+1)+C",
+                },
+              ],
+            },
+            {
+              id: "1.32",
+              title: "Log form after completing the square",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{x^{2}+2x-1}$.",
+              goal: "Complete the square to reach a difference of squares.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Complete the square",
+                  why: "$x^{2}+2x-1=(x+1)^{2}-2$.",
+                  calculation: "x^{2}+2x-1=(x+1)^{2}-2",
+                },
+                {
+                  id: "s2",
+                  title: "Set $u=x+1$",
+                  why: "$\\int\\frac{du}{u^{2}-(\\sqrt{2})^{2}}$.",
+                  formula: "\\int\\frac{du}{u^{2}-a^{2}}=\\frac{1}{2a}\\ln\\Bigl|\\frac{u-a}{u+a}\\Bigr|+C",
+                },
+                {
+                  id: "s3",
+                  title: "Finish",
+                  why: "$\\frac{1}{2\\sqrt{2}}\\ln\\bigl|\\frac{x+1-\\sqrt{2}}{x+1+\\sqrt{2}}\\bigr|+C$.",
+                  calculation: "\\frac{1}{2\\sqrt{2}}\\ln\\Bigl|\\frac{x+1-\\sqrt{2}}{x+1+\\sqrt{2}}\\Bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.33",
+              title: "Linear over quadratic",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{ax+b}{ax^{2}+bx+c}\\,dx$ when the coefficients match so the numerator is nearly the derivative of the denominator (general pattern with parameters $a,b,c$).",
+              goal: "Split into a derivative-of-denominator piece plus a remainder handled like exercise 1.30.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Compare with the derivative",
+                  why: "The derivative of $ax^{2}+bx+c$ is $2ax+b$. Rewrite the numerator as a multiple of that derivative plus a constant.",
+                  calculation: "ax+b=\\alpha(2ax+b)+\\beta",
+                },
+                {
+                  id: "s2",
+                  title: "Split the integral",
+                  why: "One piece becomes $\\alpha\\int\\frac{d(ax^{2}+bx+c)}{ax^{2}+bx+c}=\\alpha\\ln|ax^{2}+bx+c|$.",
+                },
+                {
+                  id: "s3",
+                  title: "Handle the remainder",
+                  why: "The leftover constant over the quadratic is reduced by completing the square exactly as in 1.30.",
+                  notes: "This is the standard “log + arctan/log” decomposition for linear-over-quadratic integrands.",
+                },
+              ],
+            },
+            {
+              id: "1.34",
+              title: "Polynomial over a quadratic",
+              prompt: "Explain how to evaluate $\\displaystyle \\int \\frac{P_{n}(x)}{ax^{2}+bx+c}\\,dx$ when $\\\\deg P_{n}\\\\ge 2$.",
+              goal: "Divide polynomials first, then integrate the proper remainder.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Polynomial division",
+                  why: "Write $P_{n}(x)=Q_{n-2}(x)(ax^{2}+bx+c)+Rx+S$.",
+                  calculation: "\\frac{P_{n}(x)}{ax^{2}+bx+c}=Q_{n-2}(x)+\\frac{Rx+S}{ax^{2}+bx+c}",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate the quotient",
+                  why: "$\\int Q_{n-2}(x)\\,dx$ is a sum of table power integrals.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate the remainder",
+                  why: "Reduce $\\int\\frac{Rx+S}{ax^{2}+bx+c}\\,dx$ using the method of 1.33 / 1.30.",
+                  notes: "After division the hard part is always linear-over-quadratic.",
+                },
+              ],
+            },
+            {
+              id: "1.35",
+              title: "Long division then complete the square",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{x^{6}+5x^{4}+7x^{2}+3x+9}{x^{2}+2x+6}\\,dx$ (book form with the given numerator/denominator pair).",
+              goal: "Divide, integrate the polynomial quotient, then treat the linear remainder.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Divide the polynomials",
+                  why: "Obtain a degree-4 quotient plus a linear remainder over $x^{2}+2x+6$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate the quotient term by term",
+                  why: "Each power integrates by the power rule.",
+                },
+                {
+                  id: "s3",
+                  title: "Handle the remainder",
+                  why: "Complete the square in $x^{2}+2x+6=(x+1)^{2}+5$ and finish with a logarithm and an arctangent.",
+                  notes: "The book’s final answer combines a polynomial, $\\ln(x^{2}+2x+6)$, and an $\\arctan$ term.",
+                },
+              ],
+            },
+            {
+              id: "1.36",
+              title: "Arcsine for $\\\\sqrt{4-x^{2}}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\\\sqrt{4-x^{2}}}$.",
+              goal: "Recognize a scaled arcsine integral.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Factor 4 inside the root",
+                  why: "$\\sqrt{4-x^{2}}=2\\sqrt{1-(x/2)^{2}}$.",
+                  calculation: "\\int\\frac{dx}{2\\sqrt{1-(x/2)^{2}}}",
+                },
+                {
+                  id: "s2",
+                  title: "Set $t=x/2$",
+                  why: "Then $dx=2\\,dt$.",
+                  calculation: "\\int\\frac{dt}{\\sqrt{1-t^{2}}}=\\arcsin t+C",
+                },
+                {
+                  id: "s3",
+                  title: "Return to $x$",
+                  why: "$\\arcsin(x/2)+C$.",
+                  calculation: "\\arcsin\\frac{x}{2}+C",
+                },
+              ],
+            },
+            {
+              id: "1.37",
+              title: "Arcsine for $\\\\sqrt{3-x^{2}}$",
+              prompt: "Evaluate $\\displaystyle \\int \\frac{dx}{\\\\sqrt{3-x^{2}}}$.",
+              goal: "Same pattern with $a=\\sqrt{3}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Write a scaled form",
+                  why: "$\\sqrt{3-x^{2}}=\\sqrt{3}\\sqrt{1-x^{2}/3}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Substitute $t=x/\\sqrt{3}$",
+                  why: "Reduce to $\\int\\frac{dt}{\\sqrt{1-t^{2}}}$.",
+                  calculation: "\\arcsin\\frac{x}{\\sqrt{3}}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\frac{dx}{\\sqrt{3-x^{2}}}=\\arcsin\\frac{x}{\\sqrt{3}}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.38",
+              title: "Log form for $\\\\sqrt{x^{2}+25}$",
+              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}+25}}$.",
+              goal: "Use the standard log / inverse-hyperbolic formula.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Recognize the table form",
+                  why: "$\\int\\frac{dx}{\\sqrt{x^{2}+a^{2}}}=\\ln\\bigl|x+\\sqrt{x^{2}+a^{2}}\\bigr|+C$ with $a=5$.",
+                  formula: "\\int\\frac{dx}{\\sqrt{x^{2}+a^{2}}}=\\ln\\bigl|x+\\sqrt{x^{2}+a^{2}}\\bigr|+C",
+                },
+                {
+                  id: "s2",
+                  title: "Substitute $a=5$",
+                  why: "$\\ln\\bigl|x+\\sqrt{x^{2}+25}\\bigr|+C$.",
+                  calculation: "\\ln\\bigl|x+\\sqrt{x^{2}+25}\\bigr|+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\frac{dx}{\\sqrt{x^{2}+25}}=\\ln\\bigl|x+\\sqrt{x^{2}+25}\\bigr|+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.39",
+              title: "Log form for $\\\\sqrt{x^{2}-3}$",
+              prompt: "Evaluate $\\displaystyle \\int \\\\frac{dx}{\\\\sqrt{x^{2}-3}}$.",
+              goal: "Use the table formula for $\\sqrt{x^{2}-a^{2}}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Identify $a=\\sqrt{3}$",
+                  why: "$\\int\\frac{dx}{\\sqrt{x^{2}-a^{2}}}=\\ln\\bigl|x+\\sqrt{x^{2}-a^{2}}\\bigr|+C$.",
+                },
+                {
+                  id: "s2",
+                  title: "Write the answer",
+                  why: "$\\ln\\bigl|x+\\sqrt{x^{2}-3}\\bigr|+C$.",
+                  calculation: "\\ln\\bigl|x+\\sqrt{x^{2}-3}\\bigr|+C",
+                },
+                {
+                  id: "s3",
+                  title: "Domain note",
+                  why: "This formula applies for $|x|>\\sqrt{3}$.",
+                },
+              ],
+            },
+            {
+              id: "1.40",
+              title: "Integral $\\\\sqrt{ax^{2}+bx+c}$ family (method)",
+              prompt: "Describe how to evaluate $\\displaystyle \\\\int \\\\sqrt{ax^{2}+bx+c}\\\\,dx$ (or $\\\\int\\\\frac{dx}{\\\\sqrt{ax^{2}+bx+c}}$) according to the sign of $a$ and $\\\\Delta$.",
+              goal: "Complete the square and reduce to one of the three table forms $\\sqrt{t^{2}\\pm k^{2}}$ or $\\sqrt{k^{2}-t^{2}}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Complete the square",
+                  why: "Shift $x$ so the radicand becomes $A(t^{2}\\pm k^{2})$ or $A(k^{2}-t^{2})$.",
+                },
+                {
+                  id: "s2",
+                  title: "Choose the table formula",
+                  why: "Use arcsine for $k^{2}-t^{2}$, and log (or inverse hyperbolic) forms for $t^{2}\\pm k^{2}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Return to $x$",
+                  why: "Undo the linear shift $t=x+b/(2a)$.",
+                  notes: "Exercise 1.40 in the book is the general template used by 1.36–1.39 and 1.41–1.42.",
+                },
+              ],
+            },
+            {
+              id: "1.41",
+              title: "Arcsine after completing the square",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{-x^{2}+2x+3}}$.",
+              goal: "Complete the square under the root, then use arcsine.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Complete the square",
+                  why: "$-x^{2}+2x+3=4-(x-1)^{2}$.",
+                  calculation: "-x^{2}+2x+3=4-(x-1)^{2}",
+                },
+                {
+                  id: "s2",
+                  title: "Set $u=x-1$",
+                  why: "$\\int\\frac{du}{\\sqrt{4-u^{2}}}=\\arcsin(u/2)+C$.",
+                  calculation: "\\arcsin\\frac{x-1}{2}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\frac{dx}{\\sqrt{-x^{2}+2x+3}}=\\arcsin\\frac{x-1}{2}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.42",
+              title: "Log after completing the square",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{dx}{\\\\sqrt{x^{2}+2x+3}}$.",
+              goal: "Complete the square to $ (x+1)^{2}+2 $, then use the log formula.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Complete the square",
+                  why: "$x^{2}+2x+3=(x+1)^{2}+2$.",
+                },
+                {
+                  id: "s2",
+                  title: "Set $u=x+1$",
+                  why: "$\\int\\frac{du}{\\sqrt{u^{2}+2}}=\\ln\\bigl|u+\\sqrt{u^{2}+2}\\bigr|+C$.",
+                },
+                {
+                  id: "s3",
+                  title: "Return to $x$",
+                  why: "$\\ln\\bigl|x+1+\\sqrt{x^{2}+2x+3}\\bigr|+C$.",
+                  calculation: "\\ln\\bigl|x+1+\\sqrt{x^{2}+2x+3}\\bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.43",
+              title: "$(px+q)/\\\\sqrt{ax^{2}+bx+c}$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{px+q}{\\\\sqrt{ax^{2}+bx+c}}\\,dx$ for $a\\\\neq 0$, $p\\\\neq 0$.",
+              goal: "Split into a derivative-of-radicand piece plus a constant over a square root.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Match the derivative of the radicand",
+                  why: "Write $px+q=\\alpha(2ax+b)+\\beta$.",
+                },
+                {
+                  id: "s2",
+                  title: "First integral",
+                  why: "$\\alpha\\int\\frac{d(ax^{2}+bx+c)}{\\sqrt{ax^{2}+bx+c}}=2\\alpha\\sqrt{ax^{2}+bx+c}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Second integral",
+                  why: "$\\beta\\int\\frac{dx}{\\sqrt{ax^{2}+bx+c}}$ is handled by completing the square as in 1.40.",
+                  notes: "This is the companion of 1.33 for square-root denominators.",
+                },
+              ],
+            },
+            {
+              id: "1.44",
+              title: "Concrete linear-over-root example",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{3x+5}{\\\\sqrt{4x^{2}-2x+5}}\\,dx$.",
+              goal: "Split using the derivative of $4x^{2}-2x+5$, then complete the square on the remainder.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Write the numerator via the derivative",
+                  why: "$\\frac{d}{dx}(4x^{2}-2x+5)=8x-2$. Solve $3x+5=\\alpha(8x-2)+\\beta$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate the matched piece",
+                  why: "Produces a multiple of $\\sqrt{4x^{2}-2x+5}$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate the constant remainder",
+                  why: "Complete the square under the root and finish with a logarithm (or arcsine, depending on sign).",
+                  notes: "Follow the same algebra as the book’s worked 1.44.",
+                },
+              ],
+            },
+            {
+              id: "1.45",
+              title: "Product-to-sum for $\\\\sin ax\\\\cos bx$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              goal: "Convert the product to a sum of sines, then integrate.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Apply the identity",
+                  why: "$\\sin A\\cos B=\\tfrac12\\bigl(\\sin(A+B)+\\sin(A-B)\\bigr)$.",
+                  formula: "\\sin A\\cos B=\\tfrac12\\bigl(\\sin(A+B)+\\sin(A-B)\\bigr)",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\tfrac12\\int\\sin((a+b)x)\\,dx+\\tfrac12\\int\\sin((a-b)x)\\,dx$.",
+                  calculation: "-\\frac{\\cos((a+b)x)}{2(a+b)}-\\frac{\\cos((a-b)x)}{2(a-b)}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "Valid whenever $a\\neq\\pm b$; the resonant cases $a=\\pm b$ are handled separately.",
+                },
+              ],
+            },
+            {
+              id: "1.46",
+              title: "Product-to-sum for $\\\\cos ax\\\\cos bx$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\cos(ax)\\\\cos(bx)\\\\,dx$ for $a\\\\neq\\\\pm b$.",
+              goal: "Use the cosine product identity.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Apply the identity",
+                  why: "$\\cos A\\cos B=\\tfrac12\\bigl(\\cos(A+B)+\\cos(A-B)\\bigr)$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\frac{\\sin((a+b)x)}{2(a+b)}+\\frac{\\sin((a-b)x)}{2(a-b)}+C$.",
+                  calculation: "\\frac{\\sin((a+b)x)}{2(a+b)}+\\frac{\\sin((a-b)x)}{2(a-b)}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "Again assume $a\\neq\\pm b$.",
+                },
+              ],
+            },
+            {
+              id: "1.47",
+              title: "$\\\\cos 3x\\\\cos 5x$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\cos 3x\\\\,\\\\cos 5x\\\\,dx$.",
+              goal: "Specialize the previous identity.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Product-to-sum",
+                  why: "$\\cos 3x\\cos 5x=\\tfrac12(\\cos 8x+\\cos 2x)$.",
+                  calculation: "\\cos 3x\\cos 5x=\\tfrac12(\\cos 8x+\\cos 2x)",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\tfrac{1}{16}\\sin 8x+\\tfrac{1}{4}\\sin 2x+C$.",
+                  calculation: "\\frac{\\sin 8x}{16}+\\frac{\\sin 2x}{4}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\cos 3x\\cos 5x\\,dx=\\frac{\\sin 8x}{16}+\\frac{\\sin 2x}{4}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.48",
+              title: "$\\\\sin 2x\\\\cos 3x$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin 2x\\\\,\\\\cos 3x\\\\,dx$.",
+              goal: "Use $\\sin A\\cos B=\\tfrac12(\\sin(A+B)+\\sin(A-B))$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Convert to a sum",
+                  why: "$\\sin 2x\\cos 3x=\\tfrac12(\\sin 5x+\\sin(-x))=\\tfrac12(\\sin 5x-\\sin x)$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$-\\frac{\\cos 5x}{10}+\\frac{\\cos x}{2}+C$.",
+                  calculation: "-\\frac{\\cos 5x}{10}+\\frac{\\cos x}{2}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\sin 2x\\cos 3x\\,dx=-\\frac{\\cos 5x}{10}+\\frac{\\cos x}{2}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.49",
+              title: "$\\\\sin 4x\\\\sin 7x$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin 4x\\\\,\\\\sin 7x\\\\,dx$.",
+              goal: "Use the sine product identity.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Identity",
+                  why: "$\\sin A\\sin B=\\tfrac12\\bigl(\\cos(A-B)-\\cos(A+B)\\bigr)$.",
+                  calculation: "\\sin 4x\\sin 7x=\\tfrac12(\\cos 3x-\\cos 11x)",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\frac{\\sin 3x}{6}-\\frac{\\sin 11x}{22}+C$.",
+                  calculation: "\\frac{\\sin 3x}{6}-\\frac{\\sin 11x}{22}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\sin 4x\\sin 7x\\,dx=\\frac{\\sin 3x}{6}-\\frac{\\sin 11x}{22}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.50",
+              title: "$\\\\sin^{2}(3x)$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\sin^{2}(3x)\\\\,dx$.",
+              goal: "Use the power-reduction identity.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Reduce the power",
+                  why: "$\\sin^{2}\\theta=\\frac{1-\\cos 2\\theta}{2}$ with $\\theta=3x$.",
+                  calculation: "\\sin^{2}(3x)=\\frac{1-\\cos 6x}{2}",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\frac{x}{2}-\\frac{\\sin 6x}{12}+C$.",
+                  calculation: "\\frac{x}{2}-\\frac{\\sin 6x}{12}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\sin^{2}(3x)\\,dx=\\frac{x}{2}-\\frac{\\sin 6x}{12}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.51",
+              title: "$\\\\cos^{2}(4x)$",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\cos^{2}(4x)\\\\,dx$.",
+              goal: "Use $\\cos^{2}\\theta=\\frac{1+\\cos 2\\theta}{2}$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Reduce the power",
+                  why: "$\\cos^{2}(4x)=\\frac{1+\\cos 8x}{2}$.",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate",
+                  why: "$\\frac{x}{2}+\\frac{\\sin 8x}{16}+C$.",
+                  calculation: "\\frac{x}{2}+\\frac{\\sin 8x}{16}+C",
+                },
+                {
+                  id: "s3",
+                  title: "State the answer",
+                  why: "$\\displaystyle \\int\\cos^{2}(4x)\\,dx=\\frac{x}{2}+\\frac{\\sin 8x}{16}+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.52",
+              title: "Integral of $a^{\\\\ln x}$ / related log-power",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{a^{\\\\ln x}}{x}\\\\,dx$ for $a>0$, $a\\\\neq 1$ (equivalently treat $\\\\int a^{\\\\ln x}\\\\frac{dx}{x}$).",
+              goal: "Substitute $t=\\ln x$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Set $t=\\ln x$",
+                  why: "Then $dt=dx/x$.",
+                  calculation: "\\int a^{t}\\,dt",
+                },
+                {
+                  id: "s2",
+                  title: "Integrate the exponential",
+                  why: "$\\frac{a^{t}}{\\ln a}+C$ when $a\\neq 1$.",
+                  calculation: "\\frac{a^{\\ln x}}{\\ln a}+C",
+                },
+                {
+                  id: "s3",
+                  title: "Special case $a=1$",
+                  why: "If $a=1$ the integrand is $1/x$ and the answer is $\\ln|x|+C$.",
+                  notes: "The book records both the $a\\neq 1$ and $a=1$ cases.",
+                },
+              ],
+            },
+            {
+              id: "1.53",
+              title: "Substitution for $x^{2}/(1+x^{4})$ pattern",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+1}\\\\,dx$ (equivalently the book’s split of related $x^{4}\\\\pm 1$ forms).",
+              goal: "Divide by $x^{2}$ / use $t=x-1/x$ style substitutions.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Divide numerator and denominator by $x^{2}$",
+                  why: "Prepare a substitution $t=x-\\frac{1}{x}$ or $t=x+\\frac{1}{x}$.",
+                  calculation: "\\int\\frac{1+\\frac{1}{x^{2}}}{x^{2}+\\frac{1}{x^{2}}}\\,dx",
+                },
+                {
+                  id: "s2",
+                  title: "Set $t=x-1/x$",
+                  why: "Then $dt=(1+1/x^{2})\\,dx$ and $x^{2}+1/x^{2}=t^{2}+2$.",
+                },
+                {
+                  id: "s3",
+                  title: "Finish with arctangent",
+                  why: "$\\int\\frac{dt}{t^{2}+2}=\\frac{1}{\\sqrt{2}}\\arctan\\frac{t}{\\sqrt{2}}+C$, then return to $x$.",
+                  notes: "This is the standard “$t=x\\pm 1/x$” trick featured in 1.53–1.55.",
+                },
+              ],
+            },
+            {
+              id: "1.54",
+              title: "The $t=x+1/x$ companion",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{x^{2}-1}{x^{4}+1}\\\\,dx$ using $t=x+\\\\frac{1}{x}$.",
+              goal: "Mirror the previous method with the plus substitution.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Divide by $x^{2}$",
+                  why: "$\\int\\frac{1-1/x^{2}}{x^{2}+1/x^{2}}\\,dx$.",
+                },
+                {
+                  id: "s2",
+                  title: "Set $t=x+1/x$",
+                  why: "Then $dt=(1-1/x^{2})\\,dx$ and $x^{2}+1/x^{2}=t^{2}-2$.",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate",
+                  why: "$\\int\\frac{dt}{t^{2}-2}$ is logarithmic; return to $x$.",
+                  calculation: "\\frac{1}{2\\sqrt{2}}\\ln\\Bigl|\\frac{t-\\sqrt{2}}{t+\\sqrt{2}}\\Bigr|+C",
+                },
+              ],
+            },
+            {
+              id: "1.55",
+              title: "Harder $x\\\\pm 1/x$ reduction",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\frac{x^{2}+1}{x^{4}+x^{3}-x+1}\\\\,dx$ (book denominator of similar shape).",
+              goal: "Factor or rewrite to enable $t=x-1/x$, then finish with arctangent.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Divide by $x^{2}$ and rearrange",
+                  why: "Aim for an expression in $x-1/x$.",
+                },
+                {
+                  id: "s2",
+                  title: "Substitute $t=x-1/x$",
+                  why: "The integral becomes rational in $t$.",
+                },
+                {
+                  id: "s3",
+                  title: "Complete and integrate",
+                  why: "Reduce to an arctangent (as in the book’s final $\\arctan$ expression).",
+                  notes: "Follow the algebra in the PDF solution for the precise coefficients.",
+                },
+              ],
+            },
+            {
+              id: "1.56",
+              title: "Trigonometric substitution for $\\\\sqrt{b^{2}-a^{2}x^{2}}$ area form",
+              prompt: "Evaluate $\\displaystyle \\\\int \\\\sqrt{b^{2}-a^{2}x^{2}}\\\\,dx$ for $a,b>0$.",
+              goal: "Use $ax=b\\sin u$ (or the book’s $t=ax/b$ then $t=\\sin u$).",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Rescale",
+                  why: "Write $\\sqrt{b^{2}-a^{2}x^{2}}=b\\sqrt{1-(ax/b)^{2}}$ and set $t=ax/b$.",
+                },
+                {
+                  id: "s2",
+                  title: "Trigonometric substitution",
+                  why: "Let $t=\\sin u$, so $\\sqrt{1-t^{2}}=\\cos u$ and $dt=\\cos u\\,du$.",
+                  calculation: "\\int\\sqrt{1-t^{2}}\\,dt=\\int\\cos^{2}u\\,du",
+                },
+                {
+                  id: "s3",
+                  title: "Integrate $\\cos^{2}u$",
+                  why: "Use $\\cos^{2}u=\\frac{1+\\cos 2u}{2}$, then return to $t$ and $x$.",
+                  formula: "\\int\\sqrt{b^{2}-a^{2}x^{2}}\\,dx=\\frac{x}{2}\\sqrt{b^{2}-a^{2}x^{2}}+\\frac{b^{2}}{2a}\\arcsin\\frac{ax}{b}+C",
+                  notes: "This matches the book’s final mix of algebraic and arcsine terms.",
                 },
               ],
             },
@@ -757,7 +1386,7 @@ export const integrationCourse: Course = {
             'Polynomial × log, exponential, or trig — differentiate the factor that simplifies.',
           examples: [
             {
-              id: 'ex-1-57',
+              id: '1.57',
               title: 'Integrating $x\\ln x$',
               prompt: 'Evaluate $\\displaystyle \\int x\\ln x\\,dx$.',
               goal: 'Let $u=\\ln x$ so differentiation removes the logarithm.',
@@ -784,7 +1413,7 @@ export const integrationCourse: Course = {
               ],
             },
             {
-              id: 'ex-1-58',
+              id: '1.58',
               title: 'Integrating $x e^{x}$',
               prompt: 'Evaluate $\\displaystyle \\int x e^{x}\\,dx$.',
               goal: 'Differentiate the polynomial factor and integrate the exponential.',
@@ -804,7 +1433,7 @@ export const integrationCourse: Course = {
               ],
             },
             {
-              id: 'ex-1-60',
+              id: '1.60',
               title: 'Integrating $x\\sin x$',
               prompt: 'Evaluate $\\displaystyle \\int x\\sin x\\,dx$.',
               goal: 'Practice parts with a trigonometric factor as $dv$.',
@@ -823,26 +1452,8 @@ export const integrationCourse: Course = {
                 },
               ],
             },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'parts-applications',
-      number: 5,
-      title: 'Applications of Integration by Parts',
-      description:
-        'Repeated parts, reduction ideas, and integrals that mix radicals with polynomials.',
-      exercises: '1.69–1.81',
-      sections: [
-        {
-          id: 'parts-advanced',
-          title: 'Repeated parts & mixed forms',
-          summary:
-            'When one parts step is not enough, apply the method again or rearrange.',
-          examples: [
-            {
-              id: 'ex-1-61',
+{
+              id: '1.61',
               title: 'Parts twice for $x^{2}\\cos x$',
               prompt: 'Evaluate $\\displaystyle \\int x^{2}\\cos x\\,dx$.',
               goal: 'Reduce the polynomial degree with two applications of parts.',
@@ -863,8 +1474,8 @@ export const integrationCourse: Course = {
                 },
               ],
             },
-            {
-              id: 'ex-1-63',
+{
+              id: '1.63',
               title: 'Exponential × sine',
               prompt: 'Evaluate $\\displaystyle \\int e^{x}\\sin x\\,dx$.',
               goal: 'Apply parts twice and solve for the original integral.',
@@ -891,6 +1502,24 @@ export const integrationCourse: Course = {
                 },
               ],
             },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'parts-applications',
+      number: 5,
+      title: 'Applications of Integration by Parts',
+      description:
+        'Repeated parts, reduction ideas, and integrals that mix radicals with polynomials.',
+      exercises: '1.69–1.81',
+      sections: [
+        {
+          id: 'parts-advanced',
+          title: 'Repeated parts & mixed forms',
+          summary:
+            'When one parts step is not enough, apply the method again or rearrange.',
+          examples: [
           ],
         },
       ],
