@@ -17,7 +17,7 @@ export const integrationCourseSq: Course = {
       number: 1,
       title: "Hyrje në Teorinë e Integrimit",
       description: "Funksionet primitive, integrali i pacaktuar dhe tabela bazë e antiderivateve.",
-      exercises: "1.4–1.14",
+      exercises: "1.4–1.15",
       sections: [
         {
           id: "basics",
@@ -300,6 +300,32 @@ export const integrationCourseSq: Course = {
                   id: "s3",
                   title: "Shkruani përgjigjen",
                   why: "$\\displaystyle \\int\\bigl(\\frac{3}{\\sqrt{1-x^{2}}}-\\frac{1}{\\sqrt{1+x^{2}}}\\bigr)\\,dx = 3\\arcsin x-\\ln\\bigl|x+\\sqrt{1+x^{2}}\\bigr|+C$.",
+                },
+              ],
+            },
+            {
+              id: "1.15",
+              title: "Gjeni $f$ nga $f'$ përmes një pike",
+              prompt: "Gjeni funksionin $f$ që kalon nëpër $M(1,0)$ dhe plotëson $f'(x)=3x^{2}-1$.",
+              goal: "Integroni $f'$, pastaj përdorni pikën për të fiksuar $+C$.",
+              steps: [
+                {
+                  id: "s1",
+                  title: "Integroni derivatin",
+                  why: "Çdo antiderivatë e $f'$ është kandidat për $f$.",
+                  calculation: "\\int(3x^{2}-1)\\,dx=x^{3}-x+C",
+                },
+                {
+                  id: "s2",
+                  title: "Zbatoni $f(1)=0$",
+                  why: "Zëvendësoni pikën e dhënë për të zgjidhur për $C$.",
+                  calculation: "f(1)=1-1+C=0\\implies C=0",
+                },
+                {
+                  id: "s3",
+                  title: "Shkruani funksionin",
+                  why: "Me $C=0$ zgjidhja unike që kalon nëpër $M$ është $f(x)=x^{3}-x$.",
+                  calculation: "f(x)=x^{3}-x",
                 },
               ],
             },

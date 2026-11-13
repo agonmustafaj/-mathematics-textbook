@@ -64,8 +64,12 @@ export function CoursePage() {
             <li key={chapter.id} className="chapter-block">
               <div className="chapter-block__heading">
                 <span className="chapter-block__number">{t.chapterLabel(chapter.number)}</span>
-                <h3>{chapter.title}</h3>
-                <p>{chapter.description}</p>
+                <h3>
+                  <MathText text={chapter.title} />
+                </h3>
+                <p>
+                  <MathText text={chapter.description} />
+                </p>
               </div>
               <ul className="section-list">
                 {chapter.sections.map((section) => (
