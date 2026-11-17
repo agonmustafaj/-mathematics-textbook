@@ -40,9 +40,41 @@ A **Need help?** button (`src/components/HelpButton.tsx`) opens email to `apu.gu
 
 Stack: Vite + React + TypeScript, React Router, KaTeX.
 
+## Deploy on Cloudflare (Workers + Git)
+
+This repo includes `wrangler.toml` so Cloudflare **Create application → Workers + Git** can deploy the Vite SPA from `dist/` with SPA fallback (`index.html` for client routes).
+
+### Dashboard settings
+
+Use these commands when Cloudflare’s UI asks for them:
+
+| Step | Command |
+|------|---------|
+| Build | `npm run build` |
+| Deploy | `npx wrangler deploy` |
+| Preview | `npx wrangler preview` |
+
+`wrangler.toml` sets:
+
+- Worker name: `mathematics-textbook`
+- Assets directory: `./dist`
+- `not_found_handling = "single-page-application"` (so `/chapter/...` refreshes work)
+
+### API token warning
+
+If Cloudflare shows a yellow warning about the API token (e.g. `portfolio build token`), update that token to include **`artifacts_read`** and **`artifacts_write`**, or create a new Cloudflare API token with Workers/Pages build permissions that include those scopes. Then retry Deploy.
+
+### Local Wrangler (optional)
+
+```bash
+npm run build
+npx wrangler deploy    # production
+npx wrangler preview   # preview (as required by the dashboard)
+```
+
 ## Deploy on Netlify
 
-This repo includes `netlify.toml` (`npm run build`, publish `dist/`, SPA redirect to `index.html`).
+This repo also includes `netlify.toml` (`npm run build`, publish `dist/`, SPA redirect to `index.html`).
 
 ### Connect via Git (recommended)
 
