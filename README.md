@@ -40,13 +40,24 @@ A **Need help?** button (`src/components/HelpButton.tsx`) opens email to `apu.gu
 
 Stack: Vite + React + TypeScript, React Router, KaTeX.
 
-## Deploy on Cloudflare (Workers + Git)
+## Deploy on Cloudflare (Pages / Workers)
 
-This repo includes `wrangler.toml` so Cloudflare **Create application → Workers + Git** can deploy the Vite SPA from `dist/` with SPA fallback (`index.html` for client routes).
+This repo includes `wrangler.toml` so Cloudflare publishes the **built** Vite SPA from `dist/` (not the source `index.html`). Live Pages URL pattern: `https://mathematics-textbook.pages.dev/`.
 
-### Dashboard settings
+Also ships `public/_redirects` (`/* /index.html 200`) for SPA deep links on Pages.
 
-Use these commands when Cloudflare’s UI asks for them:
+### Fix a blank site (wrong output directory)
+
+If the live HTML still contains `<script type="module" src="/src/main.tsx">`, Cloudflare is uploading the repo root instead of `dist/`.
+
+1. Open the project in Cloudflare → **Settings** → **Builds** (or **Build configuration**).
+2. Set:
+   - **Build command:** `npm run build`
+   - **Build output directory / Output directory:** `dist` (not `/`, `.`, or empty)
+3. **Save**, then **Retry deploy** / **Redeploy**.
+4. Confirm in View Source (or `curl`) that the script is `/assets/index-….js`, not `/src/main.tsx`.
+
+### Workers + Git dashboard commands
 
 | Step | Command |
 |------|---------|
@@ -56,9 +67,9 @@ Use these commands when Cloudflare’s UI asks for them:
 
 `wrangler.toml` sets:
 
-- Worker name: `mathematics-textbook`
-- Assets directory: `./dist`
-- `not_found_handling = "single-page-application"` (so `/chapter/...` refreshes work)
+- Project name: `mathematics-textbook`
+- Pages: `pages_build_output_dir = "./dist"`
+- Workers assets: `directory = "./dist"` + `not_found_handling = "single-page-application"`
 
 ### API token warning
 
@@ -68,8 +79,9 @@ If Cloudflare shows a yellow warning about the API token (e.g. `portfolio build 
 
 ```bash
 npm run build
-npx wrangler deploy    # production
-npx wrangler preview   # preview (as required by the dashboard)
+npx wrangler deploy          # Workers assets deploy
+npx wrangler pages deploy    # Pages deploy (uses pages_build_output_dir)
+npx wrangler preview
 ```
 
 ## Deploy on Netlify

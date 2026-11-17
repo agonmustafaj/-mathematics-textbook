@@ -1,8 +1,15 @@
-# Cloudflare Workers static assets for the Vite SPA (`npm run build` → dist/).
-# Used by: npx wrangler deploy / npx wrangler preview (Workers + Git "Create application").
+# Cloudflare deploy for the Vite SPA (`npm run build` → dist/).
+# Supports:
+# - Workers + Git / `npx wrangler deploy` via [assets]
+# - Pages (*.pages.dev) via pages_build_output_dir
 name = "mathematics-textbook"
 compatibility_date = "2026-11-17"
 
+# Required for Cloudflare Pages (Git / wrangler pages deploy).
+# Dashboard must also set Build output directory = dist.
+pages_build_output_dir = "./dist"
+
+# Workers static assets (Create application → Workers + Git).
 [assets]
 directory = "./dist"
 not_found_handling = "single-page-application"
