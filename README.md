@@ -40,36 +40,44 @@ A **Need help?** button (`src/components/HelpButton.tsx`) opens email to `apu.gu
 
 Stack: Vite + React + TypeScript, React Router, KaTeX.
 
-## Deploy on Cloudflare (Workers + Git)
+## Deploy on Cloudflare Pages
 
-This repo includes `wrangler.toml` so Cloudflare **Create application → Workers + Git** can deploy the Vite SPA from `dist/` with SPA fallback (`index.html` for client routes).
+Live site: [https://mathematics-textbook.pages.dev/](https://mathematics-textbook.pages.dev/).
 
-### Dashboard settings
+`wrangler.toml` is **Pages-only** (`pages_build_output_dir = "./dist"`). Do not put Workers `[assets]` in that file — Pages treats it as an invalid config and the build can fail before `dist/` exists.
 
-Use these commands when Cloudflare’s UI asks for them:
+Also ships `public/_redirects` (`/* /index.html 200`) for SPA deep links.
 
-| Step | Command |
-|------|---------|
-| Build | `npm run build` |
-| Deploy | `npx wrangler deploy` |
-| Preview | `npx wrangler preview` |
+### Dashboard settings (required)
 
-`wrangler.toml` sets:
+Cloudflare → this Pages project → **Settings** → **Builds** (Build configuration):
 
-- Worker name: `mathematics-textbook`
-- Assets directory: `./dist`
-- `not_found_handling = "single-page-application"` (so `/chapter/...` refreshes work)
+| Field | Value |
+|------|--------|
+| **Build command** | `npm run build` |
+| **Build output directory** | `dist` |
+
+Then **Save** → **Retry deployment**.
+
+If Build command is empty, Pages never creates `dist/` (“Output directory dist not found”). If Output is `/`, `.`, or blank, Pages uploads the source tree and the site stays blank with `/src/main.tsx`.
+
+### Verify after deploy
+
+```bash
+curl -sL https://mathematics-textbook.pages.dev/ | grep 'script type="module"'
+```
+
+Expect `/assets/index-….js`, not `/src/main.tsx`.
 
 ### API token warning
 
 If Cloudflare shows a yellow warning about the API token (e.g. `portfolio build token`), update that token to include **`artifacts_read`** and **`artifacts_write`**, or create a new Cloudflare API token with Workers/Pages build permissions that include those scopes. Then retry Deploy.
 
-### Local Wrangler (optional)
+### Local Pages deploy (optional)
 
 ```bash
 npm run build
-npx wrangler deploy    # production
-npx wrangler preview   # preview (as required by the dashboard)
+npx wrangler pages deploy
 ```
 
 ## Deploy on Netlify
