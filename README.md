@@ -40,48 +40,44 @@ A **Need help?** button (`src/components/HelpButton.tsx`) opens email to `apu.gu
 
 Stack: Vite + React + TypeScript, React Router, KaTeX.
 
-## Deploy on Cloudflare (Pages / Workers)
+## Deploy on Cloudflare Pages
 
-This repo includes `wrangler.toml` so Cloudflare publishes the **built** Vite SPA from `dist/` (not the source `index.html`). Live Pages URL pattern: `https://mathematics-textbook.pages.dev/`.
+Live site: [https://mathematics-textbook.pages.dev/](https://mathematics-textbook.pages.dev/).
 
-Also ships `public/_redirects` (`/* /index.html 200`) for SPA deep links on Pages.
+`wrangler.toml` is **Pages-only** (`pages_build_output_dir = "./dist"`). Do not put Workers `[assets]` in that file — Pages treats it as an invalid config and the build can fail before `dist/` exists.
 
-### Fix a blank site (wrong output directory)
+Also ships `public/_redirects` (`/* /index.html 200`) for SPA deep links.
 
-If the live HTML still contains `<script type="module" src="/src/main.tsx">`, Cloudflare is uploading the repo root instead of `dist/`.
+### Dashboard settings (required)
 
-1. Open the project in Cloudflare → **Settings** → **Builds** (or **Build configuration**).
-2. Set:
-   - **Build command:** `npm run build`
-   - **Build output directory / Output directory:** `dist` (not `/`, `.`, or empty)
-3. **Save**, then **Retry deploy** / **Redeploy**.
-4. Confirm in View Source (or `curl`) that the script is `/assets/index-….js`, not `/src/main.tsx`.
+Cloudflare → this Pages project → **Settings** → **Builds** (Build configuration):
 
-### Workers + Git dashboard commands
+| Field | Value |
+|------|--------|
+| **Build command** | `npm run build` |
+| **Build output directory** | `dist` |
 
-| Step | Command |
-|------|---------|
-| Build | `npm run build` |
-| Deploy | `npx wrangler deploy` |
-| Preview | `npx wrangler preview` |
+Then **Save** → **Retry deployment**.
 
-`wrangler.toml` sets:
+If Build command is empty, Pages never creates `dist/` (“Output directory dist not found”). If Output is `/`, `.`, or blank, Pages uploads the source tree and the site stays blank with `/src/main.tsx`.
 
-- Project name: `mathematics-textbook`
-- Pages: `pages_build_output_dir = "./dist"`
-- Workers assets: `directory = "./dist"` + `not_found_handling = "single-page-application"`
+### Verify after deploy
+
+```bash
+curl -sL https://mathematics-textbook.pages.dev/ | grep 'script type="module"'
+```
+
+Expect `/assets/index-….js`, not `/src/main.tsx`.
 
 ### API token warning
 
 If Cloudflare shows a yellow warning about the API token (e.g. `portfolio build token`), update that token to include **`artifacts_read`** and **`artifacts_write`**, or create a new Cloudflare API token with Workers/Pages build permissions that include those scopes. Then retry Deploy.
 
-### Local Wrangler (optional)
+### Local Pages deploy (optional)
 
 ```bash
 npm run build
-npx wrangler deploy          # Workers assets deploy
-npx wrangler pages deploy    # Pages deploy (uses pages_build_output_dir)
-npx wrangler preview
+npx wrangler pages deploy
 ```
 
 ## Deploy on Netlify
